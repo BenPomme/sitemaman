@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cabinet Gestalt & Coaching - Sylviane Bahr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__logo">SB</div>
+      <div>
+        <p class="brand__name" data-i18n="brandName">Sylviane Bahr</p>
+        <p class="brand__role" data-i18n="brandRole">Gestalt-thérapeute</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="navHome">Accueil</a>
+      <a href="about.html" data-i18n="navAbout">À propos</a>
+      <a href="appointments.html" data-i18n="navAppointments">Rendez-vous</a>
+      <a href="cv.html" data-i18n="navCV">CV</a>
+      <a href="groups.html" data-i18n="navGroups">Groupes / Ateliers</a>
+      <a href="references.html" data-i18n="navReferences">Références</a>
+      <a href="blog.html" data-i18n="navBlog">Blog</a>
+      <a href="contact.html" data-i18n="navContact">Contact</a>
+    </nav>
+    <div class="controls">
+      <select id="language-selector" aria-label="Language selector">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+      <a class="btn btn--ghost" href="appointments.html" data-i18n="ctaTop">Prendre rendez-vous</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero__content">
+        <p class="pill" data-i18n="heroBadge">Sant Cugat · En ligne · FR / EN / ES</p>
+        <h1 data-i18n="heroTitle">Gestalt pour avancer en profondeur</h1>
+        <p class="lead" data-i18n="heroSubtitle">Thérapie individuelle, ados et couples : présence, mouvement, cadre sécurisé.</p>
+        <div class="hero__actions">
+          <a class="btn" href="appointments.html" data-i18n="heroCTA">Planifier un échange</a>
+          <a class="btn btn--ghost" href="about.html" data-i18n="heroSecondary">Découvrir l’approche</a>
+        </div>
+        <div class="hero__meta">
+          <div>
+            <p class="meta__label" data-i18n="metaLocationLabel">Cabinet</p>
+            <p class="meta__value" data-i18n="metaLocation">Sant Cugat del Vallès · Téléconsultation</p>
+          </div>
+          <div>
+            <p class="meta__label" data-i18n="metaFocusLabel">Focus</p>
+            <p class="meta__value" data-i18n="metaFocus">Transitions de vie, stress, relations, adolescence</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <img class="hero__photo" src="sylviane.jpeg" alt="Portrait de Sylviane Bahr, Gestalt-thérapeute et coach">
+        <div class="hero__card">
+          <div class="card__header">
+            <p class="card__eyebrow" data-i18n="cardIntro">Premier échange</p>
+            <p class="card__price" data-i18n="cardPrice">30 min · offert</p>
+          </div>
+          <ul class="card__list">
+            <li data-i18n="cardItem1">Clarifier votre situation et vos objectifs</li>
+            <li data-i18n="cardItem2">Choisir le cadre : Gestalt, coaching, groupe</li>
+            <li data-i18n="cardItem3">Définir un rythme qui vous convient</li>
+          </ul>
+          <a class="btn btn--wide" href="appointments.html" data-i18n="cardCTA">Réserver un créneau</a>
+          <p class="card__footnote" data-i18n="cardNote">Réponse sous 24h · présentiel ou visio</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sections détaillées déplacées vers les pages dédiées -->
+
+    <section id="explore" class="section">
+      <div class="section__header">
+        <p class="pill pill--subtle" data-i18n="exploreBadge">Accès rapide</p>
+        <h2 data-i18n="exploreTitle">Choisir votre page</h2>
+        <p class="section__lead" data-i18n="exploreLead">Des pages dédiées pour prendre rendez-vous, découvrir les groupes, lire le blog ou voir les références.</p>
+      </div>
+      <div class="grid grid--3">
+        <a class="card card--soft" href="appointments.html">
+          <h3 data-i18n="exploreAppointmentsTitle">Rendez-vous</h3>
+          <p data-i18n="exploreAppointmentsText">Formulaire et formats de séance. Téléconsultation possible.</p>
+        </a>
+        <a class="card card--soft" href="groups.html">
+          <h3 data-i18n="exploreGroupsTitle">Groupes & ateliers</h3>
+          <p data-i18n="exploreGroupsText">Cercle ados, ateliers stress, dates à venir.</p>
+        </a>
+        <a class="card card--soft" href="cv.html">
+          <h3 data-i18n="exploreCVTitle">Parcours</h3>
+          <p data-i18n="exploreCVText">Formation, pratique et supervision continue.</p>
+        </a>
+        <a class="card card--soft" href="references.html">
+          <h3 data-i18n="exploreReferencesTitle">Références</h3>
+          <p data-i18n="exploreReferencesText">Inspirations : Messi, Shakira, de Gaulle.</p>
+        </a>
+        <a class="card card--soft" href="blog.html">
+          <h3 data-i18n="exploreBlogTitle">Blog</h3>
+          <p data-i18n="exploreBlogText">Explorations Gestalt avancées.</p>
+        </a>
+        <a class="card card--soft" href="contact.html">
+          <h3 data-i18n="exploreContactTitle">Contact</h3>
+          <p data-i18n="exploreContactText">Écrire ou poser une question.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="footerText">Sylviane Bahr · Gestalt-thérapeute · Sant Cugat & en ligne</p>
+    <p class="footer__meta" data-i18n="footerMeta">Infos légales et numéro sur demande.</p>
+  </footer>
+
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

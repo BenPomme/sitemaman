@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groupes & ateliers - Sylviane Bahr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__logo">SB</div>
+      <div>
+        <p class="brand__name" data-i18n="brandName">Sylviane Bahr</p>
+        <p class="brand__role" data-i18n="brandRole">Gestalt-thérapeute</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="navHome">Accueil</a>
+      <a href="about.html" data-i18n="navAbout">À propos</a>
+      <a href="appointments.html" data-i18n="navAppointments">Rendez-vous</a>
+      <a href="cv.html" data-i18n="navCV">CV</a>
+      <a href="groups.html" data-i18n="navGroups">Groupes / Ateliers</a>
+      <a href="references.html" data-i18n="navReferences">Références</a>
+      <a href="blog.html" data-i18n="navBlog">Blog</a>
+      <a href="contact.html" data-i18n="navContact">Contact</a>
+    </nav>
+    <div class="controls">
+      <select id="language-selector" aria-label="Language selector">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+      <a class="btn btn--ghost" href="appointments.html" data-i18n="ctaTop">Prendre rendez-vous</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="groups" class="section section--alt">
+      <div class="section__header">
+        <p class="pill pill--subtle" data-i18n="groupsBadge">Groupes</p>
+        <h2 data-i18n="groupsTitle">Groupes & ateliers</h2>
+        <p class="section__lead" data-i18n="groupsLead">Espaces collectifs pour pratiquer, expérimenter et se relier.</p>
+      </div>
+      <div class="grid grid--2">
+        <div class="card card--photo" style="--card-photo: url('https://images.unsplash.com/photo-1528892952291-009c663ce843?auto=format&fit=crop&w=1200&q=80')">
+          <h3 data-i18n="group1Title">Cercle ados : confiance & émotions</h3>
+          <p data-i18n="group1Text">Partages guidés, régulation émotionnelle, expérientiel corporel.</p>
+          <p class="tag" data-i18n="group1Tag">Session mensuelle · petit groupe</p>
+        </div>
+        <div class="card card--photo" style="--card-photo: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80')">
+          <h3 data-i18n="group2Title">Atelier stress & transitions</h3>
+          <p data-i18n="group2Text">Respiration, ancrage, Gestalt, co-développement entre pairs.</p>
+          <p class="tag" data-i18n="group2Tag">Soirée ou visio · dates régulières</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="footerText">Sylviane Bahr · Gestalt-thérapeute · Sant Cugat & en ligne</p>
+    <p class="footer__meta" data-i18n="footerMeta">Infos légales et numéro sur demande.</p>
+  </footer>
+
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

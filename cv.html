@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcours - Sylviane Bahr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__logo">SB</div>
+      <div>
+        <p class="brand__name" data-i18n="brandName">Sylviane Bahr</p>
+        <p class="brand__role" data-i18n="brandRole">Gestalt-thérapeute</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" data-i18n="navHome">Accueil</a>
+      <a href="about.html" data-i18n="navAbout">À propos</a>
+      <a href="appointments.html" data-i18n="navAppointments">Rendez-vous</a>
+      <a href="cv.html" data-i18n="navCV">CV</a>
+      <a href="groups.html" data-i18n="navGroups">Groupes / Ateliers</a>
+      <a href="references.html" data-i18n="navReferences">Références</a>
+      <a href="blog.html" data-i18n="navBlog">Blog</a>
+      <a href="contact.html" data-i18n="navContact">Contact</a>
+    </nav>
+    <div class="controls">
+      <select id="language-selector" aria-label="Language selector">
+        <option value="fr">FR</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+      <a class="btn btn--ghost" href="appointments.html" data-i18n="ctaTop">Prendre rendez-vous</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="cv" class="section">
+      <div class="section__header">
+        <p class="pill pill--subtle" data-i18n="cvBadge">Parcours</p>
+        <h2 data-i18n="cvTitle">Formation & pratique</h2>
+        <p class="section__lead" data-i18n="cvLead">Gestalt, animation de groupes et formation continue : un parcours orienté lien et mouvement.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div>
+            <p class="timeline__date" data-i18n="cvItem1Date">Cabinet actuel</p>
+            <p class="timeline__title" data-i18n="cvItem1Title">Accompagnements à Sant Cugat & en ligne</p>
+            <p class="timeline__text" data-i18n="cvItem1Text">Adultes, ados, couples, groupes : soutien émotionnel, stress, transitions.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div>
+            <p class="timeline__date" data-i18n="cvItem2Date">Groupes & ateliers</p>
+            <p class="timeline__title" data-i18n="cvItem2Title">Cercle Gestalt et ateliers thématiques</p>
+            <p class="timeline__text" data-i18n="cvItem2Text">Gestion du stress, parentalité, confiance des ados, intelligence collective.</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__dot"></div>
+          <div>
+            <p class="timeline__date" data-i18n="cvItem3Date">Formation continue</p>
+            <p class="timeline__title" data-i18n="cvItem3Title">Gestalt & formation continue</p>
+            <p class="timeline__text" data-i18n="cvItem3Text">Approche expérientielle, supervision régulière, outils somatiques et relationnels.</p>
+          </div>
+        </div>
+      </div>
+      <div class="cv__actions">
+        <a class="btn btn--ghost" href="contact.html" data-i18n="cvContactCTA">Poser une question</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p data-i18n="footerText">Sylviane Bahr · Gestalt-thérapeute · Sant Cugat & en ligne</p>
+    <p class="footer__meta" data-i18n="footerMeta">Infos légales et numéro sur demande.</p>
+  </footer>
+
+  <script src="translations.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
