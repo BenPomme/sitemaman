@@ -1,6 +1,7 @@
 :root {
   --bg: #ffffff;
   --bg-alt: #f8f9fa;
+  --bg-mint: #e8f5f2;
   --panel: #ffffff;
   --ink: #1a1a2e;
   --ink-light: #4a4a5a;
@@ -26,7 +27,7 @@
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background: var(--bg);
+  background: var(--bg-mint);
   color: var(--ink);
   line-height: 1.6;
   min-height: 100vh;
@@ -330,7 +331,13 @@ img {
   max-width: none;
 }
 
-.section--alt > * {
+.section--mint {
+  background: var(--bg-mint);
+  max-width: none;
+}
+
+.section--alt > *,
+.section--mint > * {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;

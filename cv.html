@@ -37,39 +37,55 @@
   </header>
 
   <main>
-    <section id="cv" class="section">
+    <section id="cv" class="section section--mint">
       <div class="section__header">
         <p class="pill pill--subtle" data-i18n="cvBadge">Parcours</p>
-        <h2 data-i18n="cvTitle">Formation & pratique</h2>
-        <p class="section__lead" data-i18n="cvLead">Gestalt, animation de groupes et formation continue : un parcours orienté lien et mouvement.</p>
+        <h1 data-i18n="cvTitle">Un parcours ancré dans le réel</h1>
       </div>
-      <div class="timeline">
-        <div class="timeline__item">
-          <div class="timeline__dot"></div>
-          <div>
-            <p class="timeline__date" data-i18n="cvItem1Date">Cabinet actuel</p>
-            <p class="timeline__title" data-i18n="cvItem1Title">Accompagnements à Sant Cugat & en ligne</p>
-            <p class="timeline__text" data-i18n="cvItem1Text">Adultes, ados, couples, groupes : soutien émotionnel, stress, transitions.</p>
-          </div>
+
+      <!-- Block 1: Intro -->
+      <div class="approach-block">
+        <div class="approach-block__text">
+          <p data-i18n="cvBlock1a"><strong>Je n'ai pas toujours été psychothérapeute.</strong></p>
+          <p data-i18n="cvBlock1b">Mon parcours professionnel s'est construit sur plus de vingt ans dans le monde de l'entreprise. J'ai commencé ma carrière comme journaliste, avant d'évoluer vers des postes de leadership dans les secteurs de la technologie et des médias, au sein de fonctions liées à la communication, au marketing et à la transformation organisationnelle, notamment l'accompagnement au changement.</p>
         </div>
-        <div class="timeline__item">
-          <div class="timeline__dot"></div>
-          <div>
-            <p class="timeline__date" data-i18n="cvItem2Date">Groupes & ateliers</p>
-            <p class="timeline__title" data-i18n="cvItem2Title">Cercle Gestalt et ateliers thématiques</p>
-            <p class="timeline__text" data-i18n="cvItem2Text">Gestion du stress, parentalité, confiance des ados, intelligence collective.</p>
-          </div>
-        </div>
-        <div class="timeline__item">
-          <div class="timeline__dot"></div>
-          <div>
-            <p class="timeline__date" data-i18n="cvItem3Date">Formation continue</p>
-            <p class="timeline__title" data-i18n="cvItem3Title">Gestalt & formation continue</p>
-            <p class="timeline__text" data-i18n="cvItem3Text">Approche expérientielle, supervision régulière, outils somatiques et relationnels.</p>
-          </div>
+        <div class="approach-block__image">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80" alt="Environnement professionnel">
         </div>
       </div>
+
+      <!-- Block 2: Compréhension des organisations -->
+      <div class="approach-block approach-block--reverse">
+        <div class="approach-block__text">
+          <p data-i18n="cvBlock2">Ces expériences m'ont permis de développer une <strong>compréhension fine et concrète du fonctionnement des organisations</strong> : leurs rouages, leurs contraintes, leurs systèmes, mais surtout les dynamiques humaines et relationnelles qui s'y déploient — enjeux de pouvoir, de reconnaissance, de loyauté, de performance, de sens, d'identité professionnelle, ainsi que les effets de la pression et du changement sur les individus.</p>
+        </div>
+        <div class="approach-block__image">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" alt="Dynamiques d'équipe">
+        </div>
+      </div>
+
+      <!-- Block 3: Pratique thérapeutique -->
+      <div class="approach-block">
+        <div class="approach-block__text">
+          <p data-i18n="cvBlock3">Aujourd'hui, ce parcours <strong>nourrit profondément ma pratique thérapeutique</strong>. Il me permet d'accueillir avec justesse des problématiques liées au travail, aux transitions professionnelles, à l'épuisement, aux tensions relationnelles ou aux conflits de valeurs, sans les réduire à des concepts abstraits ou déconnectés du réel.</p>
+        </div>
+        <div class="approach-block__image">
+          <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=600&q=80" alt="Accompagnement thérapeutique">
+        </div>
+      </div>
+
+      <!-- Block 4: Coaching -->
+      <div class="approach-block approach-block--reverse">
+        <div class="approach-block__text">
+          <p data-i18n="cvBlock4">Je suis également <strong>coach certifiée ACC</strong> (Associate Certified Coach) par l'International Coaching Federation (ICF). Cette formation me permet, lorsque le cadre s'y prête et en fonction des besoins de la personne, d'ajuster mon accompagnement. Thérapie et coaching répondent à des intentions différentes ; mon rôle est de poser un cadre clair et de choisir l'approche la plus adaptée à la demande formulée.</p>
+        </div>
+        <div class="approach-block__image">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80" alt="Coaching professionnel">
+        </div>
+      </div>
+
       <div class="cv__actions">
+        <a class="btn" href="appointments.html" data-i18n="cvBookCTA">Prendre rendez-vous</a>
         <a class="btn btn--ghost" href="contact.html" data-i18n="cvContactCTA">Poser une question</a>
       </div>
     </section>
@@ -81,6 +97,6 @@
   </footer>
 
   <script src="translations.js"></script>
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>
