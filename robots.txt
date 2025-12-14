@@ -1,0 +1,9 @@
+# robots.txt for sylvianebahr.com
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.sylvianebahr.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 10
