@@ -24,8 +24,6 @@
       <a href="appointments.html" data-i18n="navAppointments">Rendez-vous</a>
       <a href="cv.html" data-i18n="navCV">CV</a>
       <a href="groups.html" data-i18n="navGroups">Groupes / Ateliers</a>
-      <a href="references.html" data-i18n="navReferences">Références</a>
-      <a href="blog.html" data-i18n="navBlog">Blog</a>
       <a href="contact.html" data-i18n="navContact">Contact</a>
     </nav>
     <div class="controls">
@@ -39,22 +37,88 @@
   </header>
 
   <main>
-    <section id="groups" class="section section--alt">
-      <div class="section__header">
-        <p class="pill pill--subtle" data-i18n="groupsBadge">Groupes</p>
-        <h2 data-i18n="groupsTitle">Groupes & ateliers</h2>
-        <p class="section__lead" data-i18n="groupsLead">Espaces collectifs pour pratiquer, expérimenter et se relier.</p>
+    <!-- Hero Section -->
+    <section class="groups-hero">
+      <div class="groups-hero__content">
+        <p class="pill" data-i18n="groupsBadge">Groupes</p>
+        <h1 data-i18n="groupsTitle">Groupes & ateliers</h1>
+        <p class="lead" data-i18n="groupsLead">Espaces collectifs pour pratiquer, expérimenter et se relier.</p>
       </div>
-      <div class="grid grid--2">
-        <div class="card card--photo" style="--card-photo: url('https://images.unsplash.com/photo-1528892952291-009c663ce843?auto=format&fit=crop&w=1200&q=80')">
-          <h3 data-i18n="group1Title">Cercle ados : confiance & émotions</h3>
-          <p data-i18n="group1Text">Partages guidés, régulation émotionnelle, expérientiel corporel.</p>
-          <p class="tag" data-i18n="group1Tag">Session mensuelle · petit groupe</p>
+    </section>
+
+    <!-- Groups Grid -->
+    <section class="section">
+      <div class="groups-grid">
+        <!-- Cercle Ados -->
+        <div class="group-card">
+          <div class="group-card__image">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Groupe d'adolescents">
+          </div>
+          <div class="group-card__content">
+            <div class="group-card__badge">Adolescents</div>
+            <h3 data-i18n="group1Title">Cercle ados : confiance & émotions</h3>
+            <p data-i18n="group1Text">Partages guidés, régulation émotionnelle, expérientiel corporel.</p>
+            <ul class="group-card__details">
+              <li><strong>Format :</strong> Petit groupe (6-8 personnes)</li>
+              <li><strong>Fréquence :</strong> Session mensuelle</li>
+              <li><strong>Durée :</strong> 2 heures</li>
+              <li><strong>Lieu :</strong> Sant Cugat ou en ligne</li>
+            </ul>
+            <a href="appointments.html" class="btn">S'inscrire</a>
+          </div>
         </div>
-        <div class="card card--photo" style="--card-photo: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80')">
-          <h3 data-i18n="group2Title">Atelier stress & transitions</h3>
-          <p data-i18n="group2Text">Respiration, ancrage, Gestalt, co-développement entre pairs.</p>
-          <p class="tag" data-i18n="group2Tag">Soirée ou visio · dates régulières</p>
+
+        <!-- Atelier Stress -->
+        <div class="group-card">
+          <div class="group-card__image">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Atelier bien-être">
+          </div>
+          <div class="group-card__content">
+            <div class="group-card__badge">Adultes</div>
+            <h3 data-i18n="group2Title">Atelier stress & transitions</h3>
+            <p data-i18n="group2Text">Respiration, ancrage, Gestalt, co-développement entre pairs.</p>
+            <ul class="group-card__details">
+              <li><strong>Format :</strong> Groupe ouvert (8-12 personnes)</li>
+              <li><strong>Fréquence :</strong> Dates régulières</li>
+              <li><strong>Durée :</strong> Soirée (2h30)</li>
+              <li><strong>Lieu :</strong> Sant Cugat ou visio</li>
+            </ul>
+            <a href="appointments.html" class="btn">S'inscrire</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section section--alt">
+      <div class="section__header">
+        <h2>Pourquoi participer à un groupe ?</h2>
+        <p class="section__lead">Le travail en groupe offre une dimension unique d'apprentissage et de croissance.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="card card--soft">
+          <h3>Partage d'expériences</h3>
+          <p>Se sentir compris et accompagné par d'autres personnes vivant des situations similaires.</p>
+        </div>
+        <div class="card card--soft">
+          <h3>Apprentissage mutuel</h3>
+          <p>Découvrir de nouvelles perspectives et stratégies grâce aux échanges avec les autres participants.</p>
+        </div>
+        <div class="card card--soft">
+          <h3>Pratique en situation</h3>
+          <p>Expérimenter de nouvelles façons d'être et de communiquer dans un cadre sécurisé.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+      <div class="cta-box">
+        <h2>Intéressé(e) par un groupe ?</h2>
+        <p>Contactez-moi pour en savoir plus sur les prochaines dates ou pour discuter de vos besoins.</p>
+        <div class="cta-box__actions">
+          <a href="appointments.html" class="btn">Prendre rendez-vous</a>
+          <a href="contact.html" class="btn btn--ghost">Me contacter</a>
         </div>
       </div>
     </section>

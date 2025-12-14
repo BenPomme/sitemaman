@@ -24,8 +24,6 @@
       <a href="appointments.html" data-i18n="navAppointments">Rendez-vous</a>
       <a href="cv.html" data-i18n="navCV">CV</a>
       <a href="groups.html" data-i18n="navGroups">Groupes / Ateliers</a>
-      <a href="references.html" data-i18n="navReferences">Références</a>
-      <a href="blog.html" data-i18n="navBlog">Blog</a>
       <a href="contact.html" data-i18n="navContact">Contact</a>
     </nav>
     <div class="controls">
@@ -46,32 +44,16 @@
         <p class="section__lead" data-i18n="appointmentsLead">Choisissez un créneau pour faire connaissance et ajuster l’accompagnement thérapeutique.</p>
       </div>
       <div class="flex">
-        <div class="card card--form">
-          <h3 data-i18n="appointmentFormTitle">Demande de rendez-vous</h3>
-          <form id="appointment-form">
-            <label>
-              <span data-i18n="apptNameLabel">Nom complet</span>
-              <input type="text" name="name" required data-i18n-placeholder="apptNamePlaceholder" placeholder="Votre nom">
-            </label>
-            <label>
-              <span data-i18n="apptEmailLabel">Email</span>
-              <input type="email" name="email" required data-i18n-placeholder="apptEmailPlaceholder" placeholder="vous@example.com">
-            </label>
-            <label>
-              <span data-i18n="apptPhoneLabel">Téléphone (optionnel)</span>
-              <input type="tel" name="phone" data-i18n-placeholder="apptPhonePlaceholder" placeholder="+34 600 000 000">
-            </label>
-            <label>
-              <span data-i18n="apptDateLabel">Disponibilités souhaitées</span>
-              <input type="text" name="availability" data-i18n-placeholder="apptDatePlaceholder" placeholder="Ex. mardi 18h, vendredi matin">
-            </label>
-            <label>
-              <span data-i18n="apptReasonLabel">Motif / besoin</span>
-              <textarea name="reason" rows="3" data-i18n-placeholder="apptReasonPlaceholder" placeholder="Ex. stress, relations, transitions, ado"></textarea>
-            </label>
-            <button type="submit" class="btn btn--wide" data-i18n="apptSubmit">Envoyer la demande</button>
-            <p class="form__note" data-i18n="apptNote">Je vous réponds sous 24h pour confirmer.</p>
-          </form>
+        <div class="card card--calendar">
+          <h3 data-i18n="appointmentFormTitle">Choisir un créneau</h3>
+          <!-- Calendly Direct Link -->
+          <div class="calendly-booking">
+            <p class="calendly-booking__text" data-i18n="calendlyText">Cliquez sur le bouton ci-dessous pour accéder au calendrier et réserver votre créneau directement.</p>
+            <a href="https://calendly.com/sylvianebahr/30min" target="_blank" rel="noopener" class="btn btn--wide calendly-booking__btn">
+              <span data-i18n="calendlyBtn">Voir les disponibilités</span>
+            </a>
+            <p class="form__note" data-i18n="calendlyNote">Le calendrier s'ouvrira dans un nouvel onglet. Vos données restent sécurisées.</p>
+          </div>
         </div>
         <div class="card card--highlight">
           <h3 data-i18n="appointmentDetailsTitle">Formats proposés</h3>

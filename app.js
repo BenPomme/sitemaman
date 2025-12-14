@@ -9,7 +9,14 @@
 
     document.querySelectorAll("[data-i18n]").forEach((node) => {
       const key = node.getAttribute("data-i18n");
-      if (dict[key]) node.textContent = dict[key];
+      if (dict[key]) {
+        // Use innerHTML if the translation contains HTML tags, otherwise use textContent
+        if (dict[key].includes("<")) {
+          node.innerHTML = dict[key];
+        } else {
+          node.textContent = dict[key];
+        }
+      }
     });
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
