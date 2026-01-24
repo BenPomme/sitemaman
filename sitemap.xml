@@ -2,55 +2,73 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.sylvianebahr.com/</loc>
-    <lastmod>2024-12-14</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.sylvianebahr.com/about.html</loc>
-    <lastmod>2024-12-14</lastmod>
+    <loc>https://www.sylvianebahr.com/therapy.html</loc>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.sylvianebahr.com/coaching.html</loc>
+    <lastmod>2026-01-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.sylvianebahr.com/compare.html</loc>
+    <lastmod>2026-01-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.sylvianebahr.com/about.html</loc>
+    <lastmod>2026-01-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.sylvianebahr.com/appointments.html</loc>
-    <lastmod>2024-12-14</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.sylvianebahr.com/cv.html</loc>
-    <lastmod>2024-12-14</lastmod>
+    <loc>https://www.sylvianebahr.com/groups.html</loc>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sylvianebahr.com/resources.html</loc>
+    <lastmod>2026-01-24</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.sylvianebahr.com/groups.html</loc>
-    <lastmod>2024-12-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.sylvianebahr.com/contact.html</loc>
-    <lastmod>2024-12-14</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.sylvianebahr.com/reflections.html</loc>
-    <lastmod>2024-12-17</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.sylvianebahr.com/cv.html</loc>
+    <lastmod>2026-01-24</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.sylvianebahr.com/english-therapist-sant-cugat.html</loc>
-    <lastmod>2024-12-14</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.sylvianebahr.com/therapeute-francophone-barcelone.html</loc>
-    <lastmod>2024-12-14</lastmod>
+    <lastmod>2026-01-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
