@@ -658,26 +658,18 @@ img {
 
 /* ===== APPROACH BLOCKS ===== */
 .approach-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
-  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto 48px;
 }
 
 .approach-block:last-child {
   margin-bottom: 0;
 }
 
-.approach-block--reverse {
-  direction: rtl;
-}
-
 .approach-block--intro {
-  grid-template-columns: 1fr;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   background: var(--panel);
   padding: 32px 40px;
@@ -693,10 +685,6 @@ img {
 .approach-block--intro p:first-child {
   font-size: 20px;
   color: var(--ink);
-}
-
-.approach-block--reverse > * {
-  direction: ltr;
 }
 
 .approach-block__text {
@@ -717,9 +705,13 @@ img {
   font-weight: 600;
 }
 
+.approach-block__image {
+  margin: 8px 0;
+}
+
 .approach-block__image img {
   width: 100%;
-  height: 280px;
+  max-height: 320px;
   object-fit: cover;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -728,20 +720,15 @@ img {
 
 @media (max-width: 768px) {
   .approach-block {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .approach-block--reverse {
-    direction: ltr;
-  }
-
-  .approach-block__image {
-    order: -1;
+    gap: 20px;
   }
 
   .approach-block__image img {
-    height: 200px;
+    max-height: 240px;
+  }
+
+  .approach-block--intro {
+    padding: 24px 20px;
   }
 }
 
