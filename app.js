@@ -31,23 +31,64 @@
     translateTextNodes(currentLang);
   };
 
+  const setFormStatus = (form, message, state) => {
+    const statusNode = form.querySelector("[data-form-status]");
+    if (!statusNode) return;
+
+    statusNode.hidden = !message;
+    statusNode.textContent = message || "";
+    statusNode.dataset.state = state || "";
+  };
+
   const handleFormSubmission = (form) => {
     if (!form) return;
-    form.addEventListener("submit", (event) => {
+
+    form.addEventListener("submit", async (event) => {
+      const action = form.getAttribute("action");
+      if (!action) return;
+
       event.preventDefault();
+
       const dict = translations[currentLang] || translations.fr;
-      alert(dict.formSuccess || "Thanks for your message!");
-      form.reset();
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      if (submitButton) submitButton.disabled = true;
+      setFormStatus(form, dict.formSending || "Sending...", "sending");
+
+      try {
+        const response = await fetch(action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`Submission failed with status ${response.status}`);
+        }
+
+        form.reset();
+        setFormStatus(form, dict.formSuccess || "Thanks for your message!", "success");
+      } catch (error) {
+        console.error(error);
+        setFormStatus(
+          form,
+          dict.formError || "The message could not be sent. Please try again later.",
+          "error",
+        );
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
     });
   };
 
   document.addEventListener("DOMContentLoaded", () => {
-    selector.value = currentLang;
+    if (selector) selector.value = currentLang;
     translateTextNodes(currentLang);
 
-    selector.addEventListener("change", (e) => handleLanguageChange(e.target.value));
+    selector?.addEventListener("change", (e) => handleLanguageChange(e.target.value));
 
-    handleFormSubmission(document.getElementById("appointment-form"));
-    handleFormSubmission(document.getElementById("contact-form"));
+    document.querySelectorAll("[data-async-form]").forEach(handleFormSubmission);
   });
 })();

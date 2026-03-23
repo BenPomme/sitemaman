@@ -44,15 +44,30 @@
   </header>
 
   <main>
-    <section id="contact" class="section contact contact--simple">
+    <section id="contact" class="section contact">
       <div class="contact__intro">
         <p class="pill pill--subtle" data-i18n="contactBadge">Contact</p>
         <h2 data-i18n="contactTitle">Écrire un mot</h2>
-        <p class="section__lead" data-i18n="contactLead">Vous avez une question ou une hésitation ? Je réponds rapidement.</p>
+        <p class="section__lead" data-i18n="contactLead">Vous pouvez réserver un rendez-vous sur Calendly ou m'écrire directement. Je réponds rapidement.</p>
+        <div class="card card--soft contact__booking-card">
+          <h3 data-i18n="contactBookTitle">Prendre un rendez-vous</h3>
+          <p data-i18n="contactBookText">Pour réserver un premier échange, utilisez le calendrier. Si vous préférez poser une question d'abord, le formulaire ci-contre arrive directement sur ma boîte Hotmail.</p>
+          <a href="appointments.html" class="btn" data-i18n="contactBookCTA">Prendre un rendez-vous</a>
+          <p class="contact__direct"><strong data-i18n="contactEmailLabel">Email</strong><br><a href="mailto:sylviane_bahr@hotmail.com">sylviane_bahr@hotmail.com</a></p>
+        </div>
       </div>
       <div class="card card--form contact__form">
-        <h3 data-i18n="contactFormTitle">Formulaire de contact</h3>
-        <form id="contact-form">
+        <h3 data-i18n="contactWriteIntro">Envoyer une question</h3>
+        <p class="form__note form__note--top" data-i18n="contactNote">Les messages écrits arrivent sur sylviane_bahr@hotmail.com. Pas de spam. Vos données restent privées.</p>
+        <form
+          id="contact-form"
+          data-async-form
+          action="https://formsubmit.co/sylviane_bahr@hotmail.com"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="Nouveau message depuis le site de Sylviane Bahr">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <label>
             <span data-i18n="contactNameLabel">Nom complet</span>
             <input type="text" name="name" required data-i18n-placeholder="contactNamePlaceholder" placeholder="Votre nom">
@@ -66,7 +81,7 @@
             <textarea name="message" rows="4" required data-i18n-placeholder="contactMessagePlaceholder" placeholder="Votre question ou besoin"></textarea>
           </label>
           <button type="submit" class="btn btn--wide" data-i18n="contactSubmit">Envoyer le message</button>
-          <p class="form__note" data-i18n="contactNote">Pas de spam. Vos données restent privées.</p>
+          <p class="form__status" data-form-status hidden></p>
         </form>
       </div>
     </section>
@@ -77,7 +92,7 @@
     <p class="footer__meta" data-i18n="footerMeta">Infos légales et numéro sur demande.</p>
   </footer>
 
-  <script src="translations.js"></script>
-  <script src="app.js"></script>
+  <script src="translations.js?v=20260322a"></script>
+  <script src="app.js?v=20260322a"></script>
 </body>
 </html>

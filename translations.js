@@ -17,7 +17,7 @@ const translations = {
 
     // Hero section (HOME)
     heroBadge: "Sant Cugat / Barcelone / En ligne : FR / EN",
-    heroTitle: "Un accompagnement humain, sérieux et sur-mesure.",
+    heroTitle: "Un accompagnement humain, engagé et sur-mesure.",
     heroSubtitle: "Thérapie Gestalt ou coaching : deux cadres différents, une même intention : aider à retrouver clarté, solidité et mouvement.",
     heroCTATherapy: "Commencer une thérapie",
     heroCTACoaching: "Démarrer un coaching",
@@ -85,8 +85,8 @@ const translations = {
     therapyApproachTitle: "Psychologie humaniste et intégrative",
     therapyApproachBlock1a: "Je m'inscris dans une approche de <strong>psychologie humaniste et intégrative</strong>.",
     therapyApproachBlock1b: "Je suis formée à la Gestalt-thérapie à l'Institut Gestalt de Barcelone, et j'ai moi-même suivi une thérapie intégrative d'inspiration jungienne et humaniste. Ces parcours nourrissent profondément ma façon d'accompagner : avec attention, présence et respect du rythme de chacun.",
-    therapyApproachBlock2: "Mon travail repose sur l'idée que <strong>chaque personne est bien plus que ses symptômes</strong>. J'accorde une place centrale à l'expérience vécue — émotions, sensations corporelles, relations, questionnements de sens — dans l'instant présent, tout en tenant compte de l'histoire et des dynamiques profondes qui façonnent chacun de nous.",
-    therapyApproachBlock3: "Mon approche est dite <strong>intégrative</strong> car elle s'appuie principalement sur la Gestalt, tout en intégrant des apports issus d'autres courants humanistes et psychodynamiques, notamment d'inspiration jungienne. Cela me permet d'adapter l'accompagnement à la singularité de chaque personne, plutôt que d'appliquer une méthode unique.",
+    therapyApproachBlock2: "Mon travail repose sur l'idée que <strong>chaque personne est bien plus que ses symptômes</strong>. J'accorde une place centrale à l'expérience vécue (émotions, sensations corporelles, relations, questionnements de sens) dans l'instant présent, tout en tenant compte de l'histoire et des dynamiques profondes qui façonnent chacun de nous.",
+    therapyApproachBlock3: "Mon approche est <strong>intégrative</strong> : elle repose avant tout sur la Gestalt, tout en intégrant des influences humanistes et psychodynamiques, notamment jungiennes. J'y tiens parce qu'elle me permet d'adapter l'accompagnement à chaque personne, dans sa singularité, plutôt que d'appliquer un cadre figé. L'approche jungienne m'inspire particulièrement par l'attention qu'elle porte à l'inconscient et par la confiance qu'elle accorde au potentiel de transformation de chacun.",
     therapyApproachBlock3b: "* européenne et anglo-saxonne",
     therapyApproachBlock4: "Je considère essentiel, en tant que thérapeute, de <strong>rester en lien avec la recherche européenne et anglo-saxonne</strong>, les évolutions des pratiques cliniques et de continuer à me former régulièrement. La thérapie est un champ vivant, et mon engagement professionnel est de rester en apprentissage constant.",
     therapyApproachBlock5: "Je suis également <strong>supervisée</strong>, ce qui est pour moi une condition indispensable à une pratique éthique, responsable et de qualité. La supervision garantit un espace de recul, de réflexion et de soutien, au service du travail thérapeutique et de la sécurité des personnes accompagnées.",
@@ -146,10 +146,25 @@ const translations = {
 
     compareCTA: "Me contacter pour choisir ensemble",
 
+    aboutStoryTitle: "Un parcours ancré dans le réel",
+    aboutStoryIntro: "Je n'ai pas toujours été psychothérapeute.",
+    aboutStoryParagraph1: "Avant de me former à la thérapie, j'ai travaillé pendant près de vingt ans dans le monde de l'entreprise. J'ai d'abord été journaliste au sein d'une chaîne de télévision internationale, avant d'entamer, au fil d'un déménagement en Asie, un parcours dans des environnements corporate exigeants. J'y ai occupé des fonctions de leadership dans de grandes entreprises du secteur technologique, à la croisée de la communication, de la transformation organisationnelle et de l'accompagnement du changement.",
+    aboutStoryParagraph2: "Ces années m'ont donné une connaissance concrète du monde du travail, de ses exigences, de ses codes, de ses tensions, mais surtout des réalités humaines qui le traversent. J'y ai rencontré, chez les autres comme en moi, des questions de reconnaissance, de loyauté, de sens, de pression, d'identité, de fatigue, et parfois de perte de repères.",
+    aboutStoryParagraph3: "Mon parcours s'est construit à travers de nombreuses transitions, professionnelles, culturelles et personnelles. Vivre et travailler dans plusieurs pays, changer de langue de travail, me réinventer professionnellement, devenir mère, traverser aussi l'expérience du deuil : autant de passages qui m'ont confrontée, de l'intérieur, à ce que signifie la perte, voir ses repères bouger, devoir s'adapter, mais aussi trouver de nouvelles ressources, recréer du lien et se transformer.",
+    aboutStoryParagraph4: "Un fil essentiel traverse ce chemin : le fait d'avoir moi-même été accompagnée en thérapie sur la durée. Cet espace, à la fois soutenant, sécurisant et parfois confrontant, a été pour moi un lieu précieux pour déposer, traverser, comprendre et transformer certaines expériences. Il a nourri ma manière d'être en relation, ma sensibilité clinique, et la façon dont j'accueille aujourd'hui la parole de l'autre.",
+    aboutStoryParagraph5: "C'est tout cela qui nourrit ma pratique. Cela me permet d'accompagner avec présence et justesse des problématiques liées à l'attachement, au travail, à l'identité, aux transitions de vie, à l'expatriation, au deuil, à l'épuisement ou aux tensions relationnelles, non pas à partir de catégories abstraites, mais avec une attention réelle à la singularité de chaque histoire.",
+    aboutStoryParagraph6: "Je suis également accréditée en coaching. Lorsque le cadre s'y prête et selon la demande de la personne, cela me permet d'ajuster mon accompagnement. Thérapie et coaching ne répondent pas aux mêmes besoins ; mon rôle est de poser un cadre clair et de proposer l'approche la plus juste, en fonction de ce qui est vivant et nécessaire pour chacun.",
+    aboutStoryQuote: "<em>« Celui qui regarde à l'extérieur rêve.<br>Celui qui regarde à l'intérieur s'éveille. »</em>",
+    aboutStoryQuoteAuthor: "Carl Gustav Jung",
+
     // ============ CONTACT PAGE ============
     contactBadge: "Contact",
     contactTitle: "Écrire un mot",
-    contactLead: "Vous avez une question ou une hésitation ? Je réponds rapidement.",
+    contactLead: "Vous pouvez réserver un rendez-vous sur Calendly ou m'écrire directement. Je réponds rapidement.",
+    contactBookTitle: "Prendre un rendez-vous",
+    contactBookText: "Pour réserver un premier échange, utilisez le calendrier. Si vous préférez poser une question d'abord, le formulaire ci-contre arrive directement sur ma boîte Hotmail.",
+    contactBookCTA: "Prendre un rendez-vous",
+    contactWriteIntro: "Envoyer une question",
     contactFormTitle: "Formulaire de contact",
     contactNameLabel: "Nom complet",
     contactNamePlaceholder: "Votre nom",
@@ -158,12 +173,12 @@ const translations = {
     contactMessageLabel: "Votre message",
     contactMessagePlaceholder: "Votre question ou besoin",
     contactSubmit: "Envoyer le message",
-    contactNote: "Pas de spam. Vos données restent privées.",
+    contactNote: "Les messages écrits arrivent sur sylviane_bahr@hotmail.com. Pas de spam. Vos données restent privées.",
 
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Séances",
     appointmentsTitle: "Prendre rendez-vous",
-    appointmentsLead: "Choisissez un créneau pour faire connaissance et ajuster l'accompagnement.",
+    appointmentsLead: "Réservez un créneau sur Calendly ou utilisez le formulaire plus bas pour m'écrire avant de réserver.",
     appointmentFormTitle: "Choisir un créneau",
     apptNameLabel: "Nom complet",
     apptNamePlaceholder: "Votre nom",
@@ -180,6 +195,7 @@ const translations = {
     calendlyText: "Cliquez sur le bouton ci-dessous pour accéder au calendrier et réserver votre créneau directement.",
     calendlyBtn: "Voir les disponibilités",
     calendlyNote: "Le calendrier s'ouvrira dans un nouvel onglet. Vos données restent sécurisées.",
+    calendlySecondaryCTA: "Envoyer une question à la place",
     appointmentDetailsTitle: "Formats proposés",
     formatInPersonTitle: "Présentiel",
     formatInPersonText: "Cabinet à Sant Cugat, accessible en transport.",
@@ -205,7 +221,10 @@ const translations = {
     // ============ GROUPS PAGE ============
     groupsBadge: "Groupes",
     groupsTitle: "Groupes & ateliers",
-    groupsLead: "Espaces collectifs pour pratiquer, expérimenter et se relier.",
+    groupsLead: "Les groupes et ateliers sont actuellement en préparation.",
+    groupsStatusBadge: "En préparation",
+    groupsStatusTitle: "Une offre collective en cours de préparation",
+    groupsStatusText: "Les prochains groupes et ateliers sont en train d'être conçus. Si vous souhaitez être informé(e) des ouvertures, vous pouvez réserver un premier échange ou m'écrire directement.",
     group1Badge: "Adolescents",
     group1Title: "Cercle ados : confiance & émotions",
     group1Text: "Partages guidés, régulation émotionnelle, expérientiel corporel.",
@@ -235,7 +254,9 @@ const translations = {
     footerMeta: "Infos légales et numéro sur demande.",
 
     // ============ MISC ============
-    formSuccess: "Merci pour votre message ! Je reviens vers vous rapidement.",
+    formSending: "Envoi en cours...",
+    formSuccess: "Merci pour votre message. Je reviens vers vous rapidement.",
+    formError: "L'envoi n'a pas abouti. Vous pouvez réessayer ou écrire directement à sylviane_bahr@hotmail.com.",
   },
 
   en: {
@@ -256,7 +277,7 @@ const translations = {
 
     // Hero section (HOME)
     heroBadge: "Sant Cugat / Barcelona / Online: FR / EN",
-    heroTitle: "Human, serious, and tailored support.",
+    heroTitle: "Human, committed, and tailored support.",
     heroSubtitle: "Gestalt therapy or coaching: two different frameworks, one shared intention — helping you find clarity, stability, and movement.",
     heroCTATherapy: "Start therapy",
     heroCTACoaching: "Start coaching",
@@ -324,8 +345,8 @@ const translations = {
     therapyApproachTitle: "Humanistic and integrative psychology",
     therapyApproachBlock1a: "I work within a <strong>humanistic and integrative psychology</strong> framework.",
     therapyApproachBlock1b: "I trained in Gestalt therapy at the Gestalt Institute of Barcelona, and I have personally undergone integrative therapy with Jungian and humanistic influences. These experiences deeply shape my way of accompanying others: with attention, presence, and respect for each person's rhythm.",
-    therapyApproachBlock2: "My work is based on the idea that <strong>each person is much more than their symptoms</strong>. I give central importance to lived experience — emotions, bodily sensations, relationships, questions of meaning — in the present moment, while also considering the history and deep dynamics that shape each of us.",
-    therapyApproachBlock3: "My approach is called <strong>integrative</strong> because it primarily draws on Gestalt, while incorporating contributions from other humanistic and psychodynamic currents, particularly Jungian influences. This allows me to adapt the support to each person's uniqueness, rather than applying a single method.",
+    therapyApproachBlock2: "My work is based on the idea that <strong>each person is much more than their symptoms</strong>. I give central importance to lived experience (emotions, bodily sensations, relationships, questions of meaning) in the present moment, while also considering the history and deep dynamics that shape each of us.",
+    therapyApproachBlock3: "My approach is <strong>integrative</strong>: it is grounded first and foremost in Gestalt, while also drawing on humanistic and psychodynamic influences, especially Jungian ones. I value this because it allows me to adapt the support to each person in their uniqueness, rather than applying a fixed framework. The Jungian approach especially inspires me through the attention it gives to the unconscious and the trust it places in each person's capacity for transformation.",
     therapyApproachBlock3b: "* European and Anglo-Saxon",
     therapyApproachBlock4: "I consider it essential, as a therapist, to <strong>stay connected with European and Anglo-Saxon research</strong>, developments in clinical practice, and to continue training regularly. Therapy is a living field, and my professional commitment is to remain in constant learning.",
     therapyApproachBlock5: "I am also <strong>supervised</strong>, which for me is an essential condition for ethical, responsible, and quality practice. Supervision provides a space for stepping back, reflection, and support, in service of the therapeutic work and the safety of those I accompany.",
@@ -385,10 +406,25 @@ const translations = {
 
     compareCTA: "Contact me to choose together",
 
+    aboutStoryTitle: "A path grounded in real life",
+    aboutStoryIntro: "I have not always been a psychotherapist.",
+    aboutStoryParagraph1: "Before training as a therapist, I worked for nearly twenty years in the corporate world. I first worked as a journalist for an international television channel before, following a move to Asia, building a career in demanding corporate environments. I held leadership roles in major technology companies at the crossroads of communication, organizational transformation, and change support.",
+    aboutStoryParagraph2: "Those years gave me a concrete understanding of the working world, its demands, codes, and tensions, but above all of the human realities that run through it. In others and in myself, I encountered questions of recognition, loyalty, meaning, pressure, identity, fatigue, and sometimes the loss of bearings.",
+    aboutStoryParagraph3: "My path has been shaped by many transitions, professional, cultural, and personal. Living and working in several countries, changing working languages, reinventing myself professionally, becoming a mother, and also moving through grief all confronted me, from the inside, with what loss means: seeing one's landmarks shift, having to adapt, but also finding new resources, rebuilding connection, and transforming.",
+    aboutStoryParagraph4: "One essential thread runs through this journey: having myself been accompanied in long-term therapy. That space, at once supportive, containing, and at times confronting, became a precious place for me to lay things down, move through them, understand them, and transform some experiences. It has deeply shaped the way I relate, my clinical sensitivity, and the way I welcome another person's words today.",
+    aboutStoryParagraph5: "All of this nourishes my practice. It allows me to accompany issues linked to attachment, work, identity, life transitions, expatriation, grief, exhaustion, and relational tensions with presence and accuracy, not from abstract categories but with real attention to the singularity of each story.",
+    aboutStoryParagraph6: "I am also accredited in coaching. When the framework allows for it and depending on what the person is asking for, this helps me adjust my support. Therapy and coaching do not respond to the same needs; my role is to establish a clear framework and to propose the approach that is most appropriate to what is alive and necessary for each person.",
+    aboutStoryQuote: "<em>“Who looks outside, dreams.<br>Who looks inside, awakes.”</em>",
+    aboutStoryQuoteAuthor: "Carl Gustav Jung",
+
     // ============ CONTACT PAGE ============
     contactBadge: "Contact",
     contactTitle: "Send a note",
-    contactLead: "Have a question or hesitation? I reply quickly.",
+    contactLead: "You can book a meeting on Calendly or write to me directly. I reply quickly.",
+    contactBookTitle: "Book a meeting",
+    contactBookText: "If you'd like to schedule an initial conversation, use the calendar. If you prefer to ask a question first, the form on this page goes directly to my Hotmail inbox.",
+    contactBookCTA: "Book a meeting",
+    contactWriteIntro: "Send an inquiry",
     contactFormTitle: "Contact form",
     contactNameLabel: "Full name",
     contactNamePlaceholder: "Your name",
@@ -397,12 +433,12 @@ const translations = {
     contactMessageLabel: "Your message",
     contactMessagePlaceholder: "Your question or need",
     contactSubmit: "Send message",
-    contactNote: "No spam. Your data stays private.",
+    contactNote: "Written inquiries are delivered to sylviane_bahr@hotmail.com. No spam. Your data stays private.",
 
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Sessions",
     appointmentsTitle: "Book an appointment",
-    appointmentsLead: "Pick a time to get acquainted and tailor the support.",
+    appointmentsLead: "Book a time on Calendly or use the form below to write before booking.",
     appointmentFormTitle: "Choose a time slot",
     apptNameLabel: "Full name",
     apptNamePlaceholder: "Your name",
@@ -419,6 +455,7 @@ const translations = {
     calendlyText: "Click the button below to access the calendar and book your slot directly.",
     calendlyBtn: "View availability",
     calendlyNote: "The calendar will open in a new tab. Your data remains secure.",
+    calendlySecondaryCTA: "Send an inquiry instead",
     appointmentDetailsTitle: "Session formats",
     formatInPersonTitle: "In person",
     formatInPersonText: "Practice in Sant Cugat, easy transport access.",
@@ -444,7 +481,10 @@ const translations = {
     // ============ GROUPS PAGE ============
     groupsBadge: "Groups",
     groupsTitle: "Groups & workshops",
-    groupsLead: "Collective spaces to practice, experiment, and connect.",
+    groupsLead: "Groups and workshops are currently in development.",
+    groupsStatusBadge: "Currently in development",
+    groupsStatusTitle: "Collective formats are being prepared",
+    groupsStatusText: "The first groups and workshops are currently being designed. If you'd like to hear when openings are announced, you can book an initial conversation or send me a message directly.",
     group1Badge: "Adolescents",
     group1Title: "Teen circle: confidence & emotions",
     group1Text: "Guided sharing, emotion regulation, experiential bodywork.",
@@ -474,7 +514,9 @@ const translations = {
     footerMeta: "Legal details available on request.",
 
     // ============ MISC ============
-    formSuccess: "Thanks for your message! I'll get back to you shortly.",
+    formSending: "Sending...",
+    formSuccess: "Thanks for your message. I'll get back to you shortly.",
+    formError: "The message could not be sent. Please try again or write directly to sylviane_bahr@hotmail.com.",
   },
 
   es: {
@@ -495,7 +537,7 @@ const translations = {
 
     // Hero section (HOME)
     heroBadge: "Sant Cugat / Barcelona / En línea: FR / EN",
-    heroTitle: "Un acompañamiento humano, serio y a medida.",
+    heroTitle: "Un acompañamiento humano, comprometido y a medida.",
     heroSubtitle: "Terapia Gestalt o coaching: dos marcos diferentes, una misma intención: ayudarte a encontrar claridad, solidez y movimiento.",
     heroCTATherapy: "Comenzar una terapia",
     heroCTACoaching: "Iniciar un coaching",
@@ -563,8 +605,8 @@ const translations = {
     therapyApproachTitle: "Psicología humanista e integrativa",
     therapyApproachBlock1a: "Me inscribo en un enfoque de <strong>psicología humanista e integrativa</strong>.",
     therapyApproachBlock1b: "Me formé en terapia Gestalt en el Institut Gestalt de Barcelona, y yo misma seguí una terapia integrativa de inspiración jungiana y humanista. Estos recorridos nutren profundamente mi manera de acompañar: con atención, presencia y respeto por el ritmo de cada persona.",
-    therapyApproachBlock2: "Mi trabajo se basa en la idea de que <strong>cada persona es mucho más que sus síntomas</strong>. Doy un lugar central a la experiencia vivida — emociones, sensaciones corporales, relaciones, cuestionamientos de sentido — en el momento presente, teniendo en cuenta también la historia y las dinámicas profundas que nos forman.",
-    therapyApproachBlock3: "Mi enfoque se llama <strong>integrativo</strong> porque se apoya principalmente en la Gestalt, integrando aportes de otras corrientes humanistas y psicodinámicas, especialmente de inspiración jungiana. Esto me permite adaptar el acompañamiento a la singularidad de cada persona, en lugar de aplicar un método único.",
+    therapyApproachBlock2: "Mi trabajo se basa en la idea de que <strong>cada persona es mucho más que sus síntomas</strong>. Doy un lugar central a la experiencia vivida (emociones, sensaciones corporales, relaciones, cuestionamientos de sentido) en el momento presente, teniendo en cuenta también la historia y las dinámicas profundas que nos forman.",
+    therapyApproachBlock3: "Mi enfoque es <strong>integrativo</strong>: se apoya ante todo en la Gestalt, integrando también influencias humanistas y psicodinámicas, especialmente jungianas. Valoro este enfoque porque me permite adaptar el acompañamiento a la singularidad de cada persona, en lugar de aplicar un marco rígido. La perspectiva jungiana me inspira especialmente por la atención que concede al inconsciente y por la confianza que deposita en el potencial de transformación de cada persona.",
     therapyApproachBlock3b: "* europea y anglosajona",
     therapyApproachBlock4: "Considero esencial, como terapeuta, <strong>mantenerme conectada con la investigación europea y anglosajona</strong>, las evoluciones de las prácticas clínicas y seguir formándome regularmente. La terapia es un campo vivo, y mi compromiso profesional es permanecer en aprendizaje constante.",
     therapyApproachBlock5: "También estoy <strong>supervisada</strong>, lo cual para mí es una condición indispensable para una práctica ética, responsable y de calidad. La supervisión garantiza un espacio de distancia, reflexión y apoyo, al servicio del trabajo terapéutico y de la seguridad de las personas acompañadas.",
@@ -624,10 +666,25 @@ const translations = {
 
     compareCTA: "Contactarme para elegir juntos",
 
+    aboutStoryTitle: "Un recorrido arraigado en la realidad",
+    aboutStoryIntro: "No siempre fui psicoterapeuta.",
+    aboutStoryParagraph1: "Antes de formarme en terapia, trabajé durante casi veinte años en el mundo empresarial. Primero fui periodista en un canal internacional de televisión y, tras una mudanza a Asia, desarrollé un recorrido en entornos corporativos exigentes. Ocupé puestos de liderazgo en grandes empresas del sector tecnológico, en la intersección entre la comunicación, la transformación organizacional y el acompañamiento del cambio.",
+    aboutStoryParagraph2: "Esos años me dieron un conocimiento concreto del mundo del trabajo, de sus exigencias, sus códigos y sus tensiones, pero sobre todo de las realidades humanas que lo atraviesan. En otras personas y en mí misma encontré cuestiones de reconocimiento, lealtad, sentido, presión, identidad, cansancio y, a veces, pérdida de referentes.",
+    aboutStoryParagraph3: "Mi recorrido se ha construido a través de numerosas transiciones, profesionales, culturales y personales. Vivir y trabajar en varios países, cambiar de lengua de trabajo, reinventarme profesionalmente, ser madre y atravesar también la experiencia del duelo me confrontaron desde dentro con lo que significa la pérdida: ver cómo se mueven los referentes, tener que adaptarse, pero también encontrar nuevos recursos, recrear el vínculo y transformarse.",
+    aboutStoryParagraph4: "Un hilo esencial atraviesa este camino: haber estado yo misma acompañada en terapia durante un largo tiempo. Ese espacio, a la vez de sostén, seguridad y a veces de confrontación, fue para mí un lugar valioso para depositar, atravesar, comprender y transformar ciertas experiencias. Ha nutrido mi manera de estar en relación, mi sensibilidad clínica y la forma en que hoy recibo la palabra de la otra persona.",
+    aboutStoryParagraph5: "Todo eso nutre mi práctica. Me permite acompañar con presencia y precisión problemáticas vinculadas al apego, al trabajo, a la identidad, a las transiciones vitales, a la expatriación, al duelo, al agotamiento o a las tensiones relacionales, no desde categorías abstractas, sino con una atención real a la singularidad de cada historia.",
+    aboutStoryParagraph6: "También estoy acreditada en coaching. Cuando el marco lo permite y según la demanda de la persona, esto me ayuda a ajustar mi acompañamiento. Terapia y coaching no responden a las mismas necesidades; mi papel es establecer un marco claro y proponer el enfoque más adecuado a lo que está vivo y es necesario para cada persona.",
+    aboutStoryQuote: "<em>« Quien mira hacia afuera sueña.<br>Quien mira hacia adentro despierta. »</em>",
+    aboutStoryQuoteAuthor: "Carl Gustav Jung",
+
     // ============ CONTACT PAGE ============
     contactBadge: "Contacto",
     contactTitle: "Escríbeme",
-    contactLead: "¿Tienes una duda o pregunta? Respondo rápido.",
+    contactLead: "Puedes reservar una cita en Calendly o escribirme directamente. Respondo pronto.",
+    contactBookTitle: "Reservar una cita",
+    contactBookText: "Si quieres reservar una primera conversación, utiliza el calendario. Si prefieres hacer una pregunta antes, el formulario de esta página llega directamente a mi bandeja de Hotmail.",
+    contactBookCTA: "Reservar una cita",
+    contactWriteIntro: "Enviar una consulta",
     contactFormTitle: "Formulario de contacto",
     contactNameLabel: "Nombre completo",
     contactNamePlaceholder: "Tu nombre",
@@ -636,12 +693,12 @@ const translations = {
     contactMessageLabel: "Tu mensaje",
     contactMessagePlaceholder: "Tu pregunta o necesidad",
     contactSubmit: "Enviar mensaje",
-    contactNote: "Sin spam. Tus datos quedan privados.",
+    contactNote: "Los mensajes escritos llegan a sylviane_bahr@hotmail.com. Sin spam. Tus datos quedan privados.",
 
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Sesiones",
     appointmentsTitle: "Reservar una cita",
-    appointmentsLead: "Elige un horario para conocernos y ajustar el acompañamiento.",
+    appointmentsLead: "Reserva un horario en Calendly o utiliza el formulario de abajo para escribirme antes de reservar.",
     appointmentFormTitle: "Elegir un horario",
     apptNameLabel: "Nombre completo",
     apptNamePlaceholder: "Tu nombre",
@@ -658,6 +715,7 @@ const translations = {
     calendlyText: "Haz clic en el botón de abajo para acceder al calendario y reservar tu cita directamente.",
     calendlyBtn: "Ver disponibilidad",
     calendlyNote: "El calendario se abrirá en una nueva pestaña. Tus datos permanecen seguros.",
+    calendlySecondaryCTA: "Enviar una consulta en su lugar",
     appointmentDetailsTitle: "Formatos de sesión",
     formatInPersonTitle: "Presencial",
     formatInPersonText: "Consulta en Sant Cugat, accesible en transporte.",
@@ -683,7 +741,10 @@ const translations = {
     // ============ GROUPS PAGE ============
     groupsBadge: "Grupos",
     groupsTitle: "Grupos y talleres",
-    groupsLead: "Espacios colectivos para practicar, experimentar y vincularse.",
+    groupsLead: "Los grupos y talleres están actualmente en preparación.",
+    groupsStatusBadge: "En preparación",
+    groupsStatusTitle: "La oferta colectiva está en preparación",
+    groupsStatusText: "Los primeros grupos y talleres se están diseñando en este momento. Si quieres enterarte cuando se abran las inscripciones, puedes reservar una primera conversación o escribirme directamente.",
     group1Badge: "Adolescentes",
     group1Title: "Círculo adolescentes: confianza y emociones",
     group1Text: "Intercambios guiados, regulación emocional, trabajo corporal experiencial.",
@@ -713,6 +774,8 @@ const translations = {
     footerMeta: "Datos legales disponibles bajo solicitud.",
 
     // ============ MISC ============
+    formSending: "Enviando...",
     formSuccess: "Gracias por tu mensaje. Te responderé pronto.",
+    formError: "No se pudo enviar el mensaje. Puedes intentarlo de nuevo o escribir directamente a sylviane_bahr@hotmail.com.",
   },
 };

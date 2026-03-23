@@ -57,7 +57,7 @@
       <div class="section__header">
         <p class="pill pill--subtle" data-i18n="appointmentsBadge">Séances</p>
         <h2 data-i18n="appointmentsTitle">Prendre rendez-vous</h2>
-        <p class="section__lead" data-i18n="appointmentsLead">Choisissez un créneau pour faire connaissance et ajuster l’accompagnement thérapeutique.</p>
+        <p class="section__lead" data-i18n="appointmentsLead">Réservez un créneau sur Calendly ou utilisez le formulaire plus bas pour m'écrire avant de réserver.</p>
       </div>
       <div class="flex">
         <div class="card card--calendar">
@@ -68,6 +68,7 @@
             <a href="https://calendly.com/sylvianebahr/30min" target="_blank" rel="noopener" class="btn btn--wide calendly-booking__btn">
               <span data-i18n="calendlyBtn">Voir les disponibilités</span>
             </a>
+            <a href="#contact" class="btn btn--ghost btn--wide calendly-booking__secondary" data-i18n="calendlySecondaryCTA">Envoyer une question à la place</a>
             <p class="form__note" data-i18n="calendlyNote">Le calendrier s'ouvrira dans un nouvel onglet. Vos données restent sécurisées.</p>
           </div>
         </div>
@@ -109,11 +110,20 @@
       <div class="contact__intro">
         <p class="pill pill--subtle" data-i18n="contactBadge">Contact</p>
         <h2 data-i18n="contactTitle">Écrire un mot</h2>
-        <p class="section__lead" data-i18n="contactLead">Vous avez une question ou une hésitation ? Je réponds rapidement.</p>
+        <p class="section__lead" data-i18n="contactLead">Vous pouvez réserver un rendez-vous sur Calendly ou m'écrire directement. Je réponds rapidement.</p>
       </div>
       <div class="card card--form contact__form">
-        <h3 data-i18n="contactFormTitle">Formulaire de contact</h3>
-        <form id="contact-form">
+        <h3 data-i18n="contactWriteIntro">Envoyer une question</h3>
+        <p class="form__note form__note--top" data-i18n="contactNote">Les messages écrits arrivent sur sylviane_bahr@hotmail.com. Pas de spam. Vos données restent privées.</p>
+        <form
+          id="contact-form"
+          data-async-form
+          action="https://formsubmit.co/sylviane_bahr@hotmail.com"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="Question depuis la page de réservation de Sylviane Bahr">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <label>
             <span data-i18n="contactNameLabel">Nom complet</span>
             <input type="text" name="name" required data-i18n-placeholder="contactNamePlaceholder" placeholder="Votre nom">
@@ -127,7 +137,7 @@
             <textarea name="message" rows="4" required data-i18n-placeholder="contactMessagePlaceholder" placeholder="Votre question ou besoin"></textarea>
           </label>
           <button type="submit" class="btn btn--wide" data-i18n="contactSubmit">Envoyer le message</button>
-          <p class="form__note" data-i18n="contactNote">Pas de spam. Vos données restent privées.</p>
+          <p class="form__status" data-form-status hidden></p>
         </form>
       </div>
     </section>
@@ -138,7 +148,7 @@
     <p class="footer__meta" data-i18n="footerMeta">Infos légales et numéro sur demande.</p>
   </footer>
 
-  <script src="translations.js"></script>
-  <script src="app.js"></script>
+  <script src="translations.js?v=20260322a"></script>
+  <script src="app.js?v=20260322a"></script>
 </body>
 </html>
