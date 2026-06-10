@@ -175,7 +175,7 @@ const translations = {
     contactMessageLabel: "Votre message",
     contactMessagePlaceholder: "Votre question ou besoin",
     contactSubmit: "Envoyer le message",
-    contactNote: "Les messages écrits arrivent sur sylviane_bahr@hotmail.com. Vous pouvez aussi écrire sur WhatsApp au +34 647 37 65 33.",
+    contactNote: "Les messages écrits arrivent sur sylviane_bahr@hotmail.com. Vous pouvez aussi utiliser le bouton WhatsApp.",
 
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Séances",
@@ -253,7 +253,7 @@ const translations = {
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psychothérapie & Coaching · Sant Cugat & en ligne",
-    footerMeta: "WhatsApp : +34 647 37 65 33 · Infos légales sur demande.",
+    footerMeta: "Contact possible par WhatsApp · Infos légales sur demande.",
 
     // ============ MISC ============
     formSending: "Envoi en cours...",
@@ -437,7 +437,7 @@ const translations = {
     contactMessageLabel: "Your message",
     contactMessagePlaceholder: "Your question or need",
     contactSubmit: "Send message",
-    contactNote: "Written inquiries are delivered to sylviane_bahr@hotmail.com. You can also write on WhatsApp at +34 647 37 65 33.",
+    contactNote: "Written inquiries are delivered to sylviane_bahr@hotmail.com. You can also use the WhatsApp button.",
 
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Sessions",
@@ -515,7 +515,7 @@ const translations = {
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psychotherapy & Coaching · Sant Cugat & online",
-    footerMeta: "WhatsApp: +34 647 37 65 33 · Legal details available on request.",
+    footerMeta: "WhatsApp contact available · Legal details available on request.",
 
     // ============ MISC ============
     formSending: "Sending...",
@@ -699,7 +699,7 @@ const translations = {
     contactMessageLabel: "Tu mensaje",
     contactMessagePlaceholder: "Tu pregunta o necesidad",
     contactSubmit: "Enviar mensaje",
-    contactNote: "Los mensajes escritos llegan a sylviane_bahr@hotmail.com. También puedes escribir por WhatsApp al +34 647 37 65 33.",
+    contactNote: "Los mensajes escritos llegan a sylviane_bahr@hotmail.com. También puedes usar el botón de WhatsApp.",
 
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Sesiones",
@@ -777,7 +777,7 @@ const translations = {
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psicoterapia & Coaching · Sant Cugat y en línea",
-    footerMeta: "WhatsApp: +34 647 37 65 33 · Datos legales disponibles bajo solicitud.",
+    footerMeta: "Contacto por WhatsApp disponible · Datos legales disponibles bajo solicitud.",
 
     // ============ MISC ============
     formSending: "Enviando...",
