@@ -5,5 +5,8 @@ Allow: /
 # Sitemap location
 Sitemap: https://www.sylvianebahr.com/sitemap.xml
 
+# AI and answer-engine summary
+Allow: /llms.txt
+
 # Crawl-delay for polite crawling
 Crawl-delay: 10
