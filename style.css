@@ -258,6 +258,110 @@ img {
   max-width: 58ch;
 }
 
+.article {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.article h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 4vw, 50px);
+  line-height: 1.18;
+  margin: 0 0 18px;
+}
+
+.article h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.25;
+  margin: 44px 0 14px;
+}
+
+.article p,
+.article li {
+  color: var(--ink-light);
+}
+
+.article ul {
+  padding-left: 22px;
+}
+
+.article__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 32px;
+}
+
+.article__meta span {
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 28px 0 0;
+}
+
+.trust-strip__item {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+
+.trust-strip__label {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.trust-strip__value {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.faq-list {
+  display: grid;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--panel);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+}
+
+.faq-item h3 {
+  margin: 0 0 8px;
+}
+
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.resource-list {
+  display: grid;
+  gap: 16px;
+}
+
+.resource-list .card h3 {
+  margin-top: 0;
+}
+
 .pill {
   display: inline-flex;
   align-items: center;
@@ -1687,6 +1791,10 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
+  .trust-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .section {
     padding: 48px 24px;
   }
@@ -1746,5 +1854,9 @@ select:focus {
 
   .timeslots__grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .trust-strip {
+    grid-template-columns: 1fr;
   }
 }

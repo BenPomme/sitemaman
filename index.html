@@ -9,6 +9,10 @@
   <meta name="author" content="Sylviane Bahr">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.sylvianebahr.com/">
+  <link rel="alternate" hreflang="fr" href="https://www.sylvianebahr.com/">
+  <link rel="alternate" hreflang="en" href="https://www.sylvianebahr.com/english-speaking-therapist-barcelona.html">
+  <link rel="alternate" hreflang="es" href="https://www.sylvianebahr.com/terapia-gestalt-sant-cugat.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.sylvianebahr.com/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -40,17 +44,18 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "ProfessionalService"],
     "@id": "https://www.sylvianebahr.com",
     "name": "Sylviane Bahr - Psychothérapie & Coaching",
     "alternateName": "Sylviane Bahr Psychothérapeute",
     "description": "Psychothérapeute humaniste et coach certifiée ICF à Sant Cugat del Vallès, Barcelone. Thérapie Gestalt, coaching de carrière. Français et anglais.",
     "url": "https://www.sylvianebahr.com",
     "image": "https://www.sylvianebahr.com/sylviane.jpeg",
-    "telephone": "+34600000000",
     "email": "sylviane_bahr@hotmail.com",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Josep Puig i Cadafalch, 42-44",
+      "postalCode": "08172",
       "addressLocality": "Sant Cugat del Vallès",
       "addressRegion": "Barcelona",
       "addressCountry": "ES"
@@ -60,25 +65,27 @@
       "latitude": 41.4736,
       "longitude": 2.0868
     },
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Sant Cugat del Vallès"
-      },
-      {
-        "@type": "City",
-        "name": "Barcelona"
-      }
-    ],
+    "areaServed": ["Sant Cugat del Vallès", "Barcelona", "Online therapy in Spain"],
     "priceRange": "€€",
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=Josep%20Puig%20i%20Cadafalch%2042-44%20Sant%20Cugat%20del%20Valles",
+    "sameAs": [
+      "https://www.doctoralia.es/sylviane-bahr/terapeuta-complementario/sant-cugat-del-valles"
+    ],
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.sylvianebahr.com/appointments.html"
+      },
+      "name": "Réserver un premier échange gratuit"
+    },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "09:00",
       "closes": "19:00"
     },
-    "sameAs": [],
-    "knowsLanguage": ["en", "fr"]
+    "knowsLanguage": ["fr", "en", "es"]
   }
   </script>
 </head>

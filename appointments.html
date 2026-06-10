@@ -9,6 +9,9 @@
   <meta name="author" content="Sylviane Bähr">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.sylvianebahr.com/appointments.html">
+  <link rel="alternate" hreflang="fr" href="https://www.sylvianebahr.com/appointments.html">
+  <link rel="alternate" hreflang="en" href="https://www.sylvianebahr.com/appointments.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.sylvianebahr.com/appointments.html">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -23,6 +26,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Est-ce que le premier échange est gratuit ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. Le premier échange de 30 minutes sert à clarifier votre demande, répondre aux questions pratiques et voir si le cadre proposé vous convient."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Est-ce possible en visio ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, les séances peuvent se faire en ligne lorsque ce format est adapté à votre situation. Le présentiel est possible à Sant Cugat del Vallès."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Dans quelles langues ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les séances peuvent se dérouler en français, en anglais ou en espagnol."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Thérapie ou coaching : comment choisir ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Si vous hésitez, nous le clarifions ensemble. La thérapie travaille davantage l'expérience émotionnelle et relationnelle ; le coaching convient mieux à un objectif professionnel ou personnel précis."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -56,15 +99,15 @@
     <section id="appointments" class="section section--alt">
       <div class="section__header">
         <p class="pill pill--subtle" data-i18n="appointmentsBadge">Séances</p>
-        <h2 data-i18n="appointmentsTitle">Prendre rendez-vous</h2>
-        <p class="section__lead" data-i18n="appointmentsLead">Réservez un créneau sur Calendly ou utilisez le formulaire plus bas pour m'écrire avant de réserver.</p>
+        <h1 data-i18n="appointmentsTitle">Prendre rendez-vous</h1>
+        <p class="section__lead" data-i18n="appointmentsLead">Réservez un premier échange gratuit de 30 minutes sur Calendly ou utilisez le formulaire plus bas pour m'écrire avant de réserver.</p>
       </div>
       <div class="flex">
         <div class="card card--calendar">
           <h3 data-i18n="appointmentFormTitle">Choisir un créneau</h3>
           <!-- Calendly Direct Link -->
           <div class="calendly-booking">
-            <p class="calendly-booking__text" data-i18n="calendlyText">Cliquez sur le bouton ci-dessous pour accéder au calendrier et réserver votre créneau directement.</p>
+            <p class="calendly-booking__text" data-i18n="calendlyText">Cliquez sur le bouton ci-dessous pour accéder au calendrier et réserver votre premier échange gratuit.</p>
             <a href="https://calendly.com/sylvianebahr/30min" target="_blank" rel="noopener" class="btn btn--wide calendly-booking__btn">
               <span data-i18n="calendlyBtn">Voir les disponibilités</span>
             </a>
@@ -79,7 +122,7 @@
               <div class="bullet">●</div>
               <div>
                 <p class="icon-list__title" data-i18n="formatInPersonTitle">Présentiel</p>
-                <p class="icon-list__text" data-i18n="formatInPersonText">Cabinet à Sant Cugat, accessible en transport.</p>
+                <p class="icon-list__text" data-i18n="formatInPersonText">Cabinet à Sant Cugat, Josep Puig i Cadafalch 42-44, accessible en transport.</p>
               </div>
             </li>
             <li>
@@ -102,6 +145,31 @@
             <p class="rates__value" data-i18n="rateValue">Individuel, couple, groupes · tarif solidaire possible</p>
             <p class="rates__note" data-i18n="rateNote">Détails confirmés lors du rendez-vous.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="section__header">
+        <p class="pill pill--subtle">Questions fréquentes</p>
+        <h2>Avant de réserver</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>Est-ce que le premier échange est gratuit ?</h3>
+          <p>Oui. Le premier échange de 30 minutes sert à clarifier votre demande, répondre aux questions pratiques et voir si le cadre proposé vous convient.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Est-ce possible en visio ?</h3>
+          <p>Oui, les séances peuvent se faire en ligne lorsque ce format est adapté à votre situation. Le présentiel est possible à Sant Cugat del Vallès.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Dans quelles langues ?</h3>
+          <p>Les séances peuvent se dérouler en français, en anglais ou en espagnol.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Thérapie ou coaching : comment choisir ?</h3>
+          <p>Si vous hésitez, nous le clarifions ensemble. La thérapie travaille davantage l'expérience émotionnelle et relationnelle ; le coaching convient mieux à un objectif professionnel ou personnel précis.</p>
         </div>
       </div>
     </section>
