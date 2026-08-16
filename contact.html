@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Sylviane Bahr | Psychothérapie & Coaching Sant Cugat Barcelona</title>
+  <title>Contact & rendez-vous | Sylviane Bahr</title>
   <meta name="description" content="Contactez Sylviane Bahr, psychothérapeute humaniste et coach ICF à Sant Cugat, Barcelone. Questions sur la thérapie ou le coaching ? Réponse rapide.">
   <meta name="keywords" content="contact therapist sant cugat, therapy inquiry barcelona, psychotherapist contact, coach contact barcelona">
   <meta name="author" content="Sylviane Bahr">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.sylvianebahr.com/contact.html">
-  <link rel="alternate" hreflang="fr" href="https://www.sylvianebahr.com/contact.html">
-  <link rel="alternate" hreflang="en" href="https://www.sylvianebahr.com/contact.html">
-  <link rel="alternate" hreflang="x-default" href="https://www.sylvianebahr.com/contact.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sylvianebahr.com/contact.html">
+  <meta property="og:title" content="Contact | Sylviane Bahr">
+  <meta property="og:description" content="Réserver un premier échange gratuit ou envoyer une question sur la thérapie et le coaching à Sant Cugat ou en ligne.">
+  <meta property="og:image" content="https://www.sylvianebahr.com/sylviane.jpeg">
+  <meta property="og:locale" content="fr_FR">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,18 +57,18 @@
         <h1 data-i18n="contactTitle">Écrire un mot</h1>
         <p class="section__lead" data-i18n="contactLead">Vous pouvez réserver un premier échange gratuit sur Calendly, m'écrire directement ou me contacter sur WhatsApp. Je réponds rapidement.</p>
         <div class="card card--soft contact__booking-card">
-          <h3 data-i18n="contactBookTitle">Prendre un rendez-vous</h3>
+          <h2 data-i18n="contactBookTitle">Prendre un rendez-vous</h2>
           <p data-i18n="contactBookText">Pour réserver un premier échange gratuit de 30 minutes, utilisez le calendrier. Si vous préférez poser une question d'abord, le formulaire ci-contre arrive directement sur ma boîte Hotmail, ou vous pouvez m'écrire sur WhatsApp.</p>
-          <a href="appointments.html" class="btn" data-i18n="contactBookCTA">Prendre un rendez-vous</a>
-          <p class="contact__direct"><strong data-i18n="contactEmailLabel">Email</strong><br><a href="mailto:sylviane_bahr@hotmail.com">sylviane_bahr@hotmail.com</a></p>
-          <p class="contact__direct"><strong>WhatsApp</strong><br><a href="https://wa.me/34647376533?text=Bonjour%20Sylviane%2C%20je%20vous%20contacte%20depuis%20votre%20site%20pour%20un%20premier%20%C3%A9change." target="_blank" rel="noopener">Écrire sur WhatsApp</a></p>
+          <a href="appointments.html" class="btn" data-track="booking_path_click" data-track-source="contact-card" data-i18n="contactBookCTA">Prendre un rendez-vous</a>
+          <p class="contact__direct"><strong data-i18n="contactEmailLabel">Email</strong><br><a href="mailto:sylviane_bahr@hotmail.com" data-track="email_click" data-track-source="contact-card">sylviane_bahr@hotmail.com</a></p>
+          <p class="contact__direct"><strong>WhatsApp</strong><br><a href="https://wa.me/34647376533?text=Bonjour%20Sylviane%2C%20je%20vous%20contacte%20depuis%20votre%20site%20pour%20un%20premier%20%C3%A9change." target="_blank" rel="noopener" data-track="whatsapp_click" data-track-source="contact-card">Écrire sur WhatsApp</a></p>
           <p class="contact__direct"><strong>Cabinet</strong><br>Josep Puig i Cadafalch, 42-44 · Sant Cugat del Vallès</p>
           <p class="contact__direct"><strong>Langues</strong><br>Français · English · Español</p>
         </div>
       </div>
       <div class="card card--form contact__form">
-        <h3 data-i18n="contactWriteIntro">Envoyer une question</h3>
-        <p class="form__note form__note--top" data-i18n="contactNote">Les messages écrits arrivent sur sylviane_bahr@hotmail.com. Vous pouvez aussi utiliser le bouton WhatsApp.</p>
+        <h2 data-i18n="contactWriteIntro">Envoyer une question</h2>
+        <p class="form__note form__note--top" data-i18n="contactNote">Le formulaire est transmis par FormSubmit à sylviane_bahr@hotmail.com. Vous pouvez aussi utiliser le bouton WhatsApp.</p>
         <form
           id="contact-form"
           data-async-form
@@ -74,18 +78,34 @@
           <input type="hidden" name="_subject" value="Nouveau message depuis le site de Sylviane Bahr">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
+          <label class="form__honeypot" aria-hidden="true">Ne pas remplir<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
           <label>
             <span data-i18n="contactNameLabel">Nom complet</span>
-            <input type="text" name="name" required data-i18n-placeholder="contactNamePlaceholder" placeholder="Votre nom">
+            <input type="text" name="name" required maxlength="100" autocomplete="name" data-i18n-placeholder="contactNamePlaceholder" placeholder="Votre nom">
           </label>
           <label>
             <span data-i18n="contactEmailLabel">Email</span>
-            <input type="email" name="email" required data-i18n-placeholder="contactEmailPlaceholder" placeholder="vous@example.com">
+            <input type="email" name="email" required maxlength="254" autocomplete="email" data-i18n-placeholder="contactEmailPlaceholder" placeholder="vous@example.com">
+          </label>
+          <label>
+            <span data-i18n="contactTopicLabel">Objet de votre demande</span>
+            <select name="topic" required autocomplete="off">
+              <option value="" data-i18n="contactTopicPlaceholder">Choisir un sujet</option>
+              <option value="therapy" data-i18n="contactTopicTherapy">Thérapie</option>
+              <option value="coaching" data-i18n="contactTopicCoaching">Coaching</option>
+              <option value="other" data-i18n="contactTopicOther">Question pratique / autre</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="contactCountryLabel">Pays ou lieu actuel</span>
+            <input type="text" name="current_location" required maxlength="100" autocomplete="country-name" data-i18n-placeholder="contactCountryPlaceholder" placeholder="Ex. France, Londres, Singapour">
           </label>
           <label>
             <span data-i18n="contactMessageLabel">Votre message</span>
-            <textarea name="message" rows="4" required data-i18n-placeholder="contactMessagePlaceholder" placeholder="Votre question ou besoin"></textarea>
+            <textarea name="message" rows="4" required maxlength="1500" data-i18n-placeholder="contactMessagePlaceholder" placeholder="Votre question pratique, sans données de santé détaillées"></textarea>
           </label>
+          <p class="form__safety" data-i18n="contactSafetyNote">Pour ce premier contact, merci de ne pas inclure de diagnostic, d'histoire médicale ou d'autres données sensibles. Ce formulaire n'est pas un service d'urgence.</p>
+          <label class="form__consent"><input type="checkbox" name="privacy_consent" value="accepted" required><span data-i18n="contactPrivacyConsent">J'ai lu la <a href="privacy.html">politique de confidentialité</a> et j'accepte l'utilisation de mes données pour répondre à ma demande.</span></label>
           <button type="submit" class="btn btn--wide" data-i18n="contactSubmit">Envoyer le message</button>
           <p class="form__status" data-form-status hidden></p>
         </form>
@@ -95,10 +115,10 @@
 
   <footer class="footer">
     <p data-i18n="footerText">Sylviane Bahr · Psychothérapie & Coaching · Sant Cugat & en ligne</p>
-    <p class="footer__meta" data-i18n="footerMeta">Contact possible par WhatsApp · Infos légales sur demande.</p>
+    <p class="footer__meta" data-i18n="footerMeta"><a href="privacy.html">Confidentialité</a> · <a href="legal.html">Mentions légales</a> · <a href="contact.html">Contact</a></p>
   </footer>
 
-  <script src="translations.js?v=20260322a"></script>
-  <script src="app.js?v=20260322a"></script>
+  <script src="translations.js?v=20260816"></script>
+  <script src="app.js?v=20260816"></script>
 </body>
 </html>

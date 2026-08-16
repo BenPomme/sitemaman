@@ -26,6 +26,7 @@ const translations = {
 
     // Entry blocks (HOME)
     entryBadge: "Choisir votre porte d'entrée",
+    entryTitle: "Choisir entre thérapie et coaching",
     entryTherapyTitle: "Thérapie Humaniste & Intégrative",
     entryTherapyText: "Pour traverser une période difficile, sortir de schémas répétitifs, apaiser l'anxiété, retrouver un ancrage intérieur. J'accompagne notamment sur les questions d'identité, de sens, de positionnement et les difficultés relationnelles.",
     entryCoachingTitle: "Coaching",
@@ -93,6 +94,7 @@ const translations = {
     therapyApproachBlock4: "Je considère essentiel, en tant que thérapeute, de <strong>rester en lien avec la recherche européenne et anglo-saxonne</strong>, les évolutions des pratiques cliniques et de continuer à me former régulièrement. La thérapie est un champ vivant, et mon engagement professionnel est de rester en apprentissage constant.",
     therapyApproachBlock5: "Je suis également <strong>supervisée</strong>, ce qui est pour moi une condition indispensable à une pratique éthique, responsable et de qualité. La supervision garantit un espace de recul, de réflexion et de soutien, au service du travail thérapeutique et de la sécurité des personnes accompagnées.",
     therapyCTA: "Prendre un 1er RDV",
+    therapyOnlineCTA: "Thérapie en ligne depuis l'étranger",
 
     // ============ COACHING PAGE ============
     coachingBadge: "Coaching",
@@ -114,6 +116,7 @@ const translations = {
     coachingNotText: "Le coaching n'est pas une psychothérapie et ne remplace pas un suivi médical ou thérapeutique.",
 
     coachingCTA: "Réserver une session de clarté",
+    coachingOnlineCTA: "Coaching en ligne pour expatriés",
 
     // My coaching approach
     coachingApproachBadge: "Mon approche",
@@ -172,10 +175,19 @@ const translations = {
     contactNamePlaceholder: "Votre nom",
     contactEmailLabel: "Email",
     contactEmailPlaceholder: "vous@example.com",
+    contactTopicLabel: "Objet de votre demande",
+    contactTopicPlaceholder: "Choisir un sujet",
+    contactTopicTherapy: "Thérapie",
+    contactTopicCoaching: "Coaching",
+    contactTopicOther: "Question pratique / autre",
+    contactCountryLabel: "Pays ou lieu actuel",
+    contactCountryPlaceholder: "Ex. France, Londres, Singapour",
     contactMessageLabel: "Votre message",
-    contactMessagePlaceholder: "Votre question ou besoin",
+    contactMessagePlaceholder: "Votre question pratique, sans données de santé détaillées",
     contactSubmit: "Envoyer le message",
-    contactNote: "Les messages écrits arrivent sur sylviane_bahr@hotmail.com. Vous pouvez aussi utiliser le bouton WhatsApp.",
+    contactNote: "Le formulaire est transmis par FormSubmit à sylviane_bahr@hotmail.com. Vous pouvez aussi utiliser le bouton WhatsApp.",
+    contactSafetyNote: "Pour ce premier contact, merci de ne pas inclure de diagnostic, d'histoire médicale ou d'autres données sensibles. Ce formulaire n'est pas un service d'urgence.",
+    contactPrivacyConsent: "J'ai lu la <a href=\"privacy.html\">politique de confidentialité</a> et j'accepte l'utilisation de mes données pour répondre à ma demande.",
 
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Séances",
@@ -196,7 +208,7 @@ const translations = {
     apptNote: "Sélectionnez une date et un horaire disponible.",
     calendlyText: "Cliquez sur le bouton ci-dessous pour accéder au calendrier et réserver votre premier échange gratuit.",
     calendlyBtn: "Voir les disponibilités",
-    calendlyNote: "Le calendrier s'ouvrira dans un nouvel onglet. Vos données restent sécurisées.",
+    calendlyNote: "Calendly s'ouvrira dans un nouvel onglet et appliquera sa propre politique de confidentialité. <a href=\"privacy.html\">En savoir plus</a>.",
     calendlySecondaryCTA: "Envoyer une question à la place",
     appointmentDetailsTitle: "Formats proposés",
     formatInPersonTitle: "Présentiel",
@@ -253,7 +265,7 @@ const translations = {
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psychothérapie & Coaching · Sant Cugat & en ligne",
-    footerMeta: "Contact possible par WhatsApp · Infos légales sur demande.",
+    footerMeta: "<a href=\"privacy.html\">Confidentialité</a> · <a href=\"legal.html\">Mentions légales</a> · <a href=\"contact.html\">Contact</a>",
 
     // ============ MISC ============
     formSending: "Envoi en cours...",
@@ -288,6 +300,7 @@ const translations = {
 
     // Entry blocks (HOME)
     entryBadge: "Choose your path",
+    entryTitle: "Choose between therapy and coaching",
     entryTherapyTitle: "Humanistic & Integrative Therapy",
     entryTherapyText: "To navigate a difficult period, break free from repetitive patterns, ease anxiety, and find inner grounding. I particularly support issues of identity, meaning, positioning, and relational difficulties.",
     entryCoachingTitle: "Coaching",
@@ -355,6 +368,7 @@ const translations = {
     therapyApproachBlock4: "I consider it essential, as a therapist, to <strong>stay connected with European and Anglo-Saxon research</strong>, developments in clinical practice, and to continue training regularly. Therapy is a living field, and my professional commitment is to remain in constant learning.",
     therapyApproachBlock5: "I am also <strong>supervised</strong>, which for me is an essential condition for ethical, responsible, and quality practice. Supervision provides a space for stepping back, reflection, and support, in service of the therapeutic work and the safety of those I accompany.",
     therapyCTA: "Book a first session",
+    therapyOnlineCTA: "Online therapy while living abroad",
 
     // ============ COACHING PAGE ============
     coachingBadge: "Coaching",
@@ -376,6 +390,7 @@ const translations = {
     coachingNotText: "Coaching is not psychotherapy and does not replace medical or therapeutic support.",
 
     coachingCTA: "Book a clarity session",
+    coachingOnlineCTA: "Online coaching for expats",
 
     // My coaching approach
     coachingApproachBadge: "My approach",
@@ -434,10 +449,19 @@ const translations = {
     contactNamePlaceholder: "Your name",
     contactEmailLabel: "Email",
     contactEmailPlaceholder: "you@example.com",
+    contactTopicLabel: "What is your inquiry about?",
+    contactTopicPlaceholder: "Choose a topic",
+    contactTopicTherapy: "Therapy",
+    contactTopicCoaching: "Coaching",
+    contactTopicOther: "Practical question / other",
+    contactCountryLabel: "Current country or location",
+    contactCountryPlaceholder: "For example: UK, USA, Singapore",
     contactMessageLabel: "Your message",
-    contactMessagePlaceholder: "Your question or need",
+    contactMessagePlaceholder: "Your practical question, without detailed health information",
     contactSubmit: "Send message",
-    contactNote: "Written inquiries are delivered to sylviane_bahr@hotmail.com. You can also use the WhatsApp button.",
+    contactNote: "The form is delivered by FormSubmit to sylviane_bahr@hotmail.com. You can also use the WhatsApp button.",
+    contactSafetyNote: "For this first contact, please do not include diagnoses, medical history or other sensitive details. This form is not an emergency service.",
+    contactPrivacyConsent: "I have read the <a href=\"privacy.html#english\">privacy policy</a> and agree to the use of my data to respond to my inquiry.",
 
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Sessions",
@@ -458,7 +482,7 @@ const translations = {
     apptNote: "Select a date and available time.",
     calendlyText: "Click the button below to access the calendar and book your free first conversation.",
     calendlyBtn: "View availability",
-    calendlyNote: "The calendar will open in a new tab. Your data remains secure.",
+    calendlyNote: "Calendly will open in a new tab and apply its own privacy policy. <a href=\"privacy.html#english\">Learn more</a>.",
     calendlySecondaryCTA: "Send an inquiry instead",
     appointmentDetailsTitle: "Session formats",
     formatInPersonTitle: "In person",
@@ -515,7 +539,7 @@ const translations = {
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psychotherapy & Coaching · Sant Cugat & online",
-    footerMeta: "WhatsApp contact available · Legal details available on request.",
+    footerMeta: "<a href=\"privacy.html#english\">Privacy</a> · <a href=\"legal.html#english\">Legal notice</a> · <a href=\"contact.html\">Contact</a>",
 
     // ============ MISC ============
     formSending: "Sending...",
@@ -550,6 +574,7 @@ const translations = {
 
     // Entry blocks (HOME)
     entryBadge: "Elige tu camino",
+    entryTitle: "Elegir entre terapia y coaching",
     entryTherapyTitle: "Terapia Humanista e Integrativa",
     entryTherapyText: "Para atravesar un período difícil, salir de patrones repetitivos, calmar la ansiedad, encontrar un anclaje interior. Acompaño especialmente en cuestiones de identidad, sentido, posicionamiento y dificultades relacionales.",
     entryCoachingTitle: "Coaching",
@@ -617,6 +642,7 @@ const translations = {
     therapyApproachBlock4: "Considero esencial, como terapeuta, <strong>mantenerme conectada con la investigación europea y anglosajona</strong>, las evoluciones de las prácticas clínicas y seguir formándome regularmente. La terapia es un campo vivo, y mi compromiso profesional es permanecer en aprendizaje constante.",
     therapyApproachBlock5: "También estoy <strong>supervisada</strong>, lo cual para mí es una condición indispensable para una práctica ética, responsable y de calidad. La supervisión garantiza un espacio de distancia, reflexión y apoyo, al servicio del trabajo terapéutico y de la seguridad de las personas acompañadas.",
     therapyCTA: "Pedir primera cita",
+    therapyOnlineCTA: "Terapia online desde el extranjero",
 
     // ============ COACHING PAGE ============
     coachingBadge: "Coaching",
@@ -638,6 +664,7 @@ const translations = {
     coachingNotText: "El coaching no es psicoterapia y no reemplaza un seguimiento médico o terapéutico.",
 
     coachingCTA: "Reservar una sesión de claridad",
+    coachingOnlineCTA: "Coaching online para expatriados",
 
     // My coaching approach
     coachingApproachBadge: "Mi enfoque",
@@ -696,10 +723,19 @@ const translations = {
     contactNamePlaceholder: "Tu nombre",
     contactEmailLabel: "Email",
     contactEmailPlaceholder: "tu@example.com",
+    contactTopicLabel: "Motivo de tu consulta",
+    contactTopicPlaceholder: "Elige un tema",
+    contactTopicTherapy: "Terapia",
+    contactTopicCoaching: "Coaching",
+    contactTopicOther: "Pregunta práctica / otro",
+    contactCountryLabel: "País o ubicación actual",
+    contactCountryPlaceholder: "Por ejemplo: España, Reino Unido, Singapur",
     contactMessageLabel: "Tu mensaje",
-    contactMessagePlaceholder: "Tu pregunta o necesidad",
+    contactMessagePlaceholder: "Tu pregunta práctica, sin información de salud detallada",
     contactSubmit: "Enviar mensaje",
-    contactNote: "Los mensajes escritos llegan a sylviane_bahr@hotmail.com. También puedes usar el botón de WhatsApp.",
+    contactNote: "FormSubmit envía el formulario a sylviane_bahr@hotmail.com. También puedes usar el botón de WhatsApp.",
+    contactSafetyNote: "Para este primer contacto, no incluyas diagnósticos, historial médico u otros datos sensibles. Este formulario no es un servicio de emergencia.",
+    contactPrivacyConsent: "He leído la <a href=\"privacy.html\">política de privacidad</a> y acepto el uso de mis datos para responder a mi consulta.",
 
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Sesiones",
@@ -720,7 +756,7 @@ const translations = {
     apptNote: "Selecciona una fecha y un horario disponible.",
     calendlyText: "Haz clic en el botón de abajo para acceder al calendario y reservar tu primera conversación gratuita.",
     calendlyBtn: "Ver disponibilidad",
-    calendlyNote: "El calendario se abrirá en una nueva pestaña. Tus datos permanecen seguros.",
+    calendlyNote: "Calendly se abrirá en una nueva pestaña y aplicará su propia política de privacidad. <a href=\"privacy.html\">Más información</a>.",
     calendlySecondaryCTA: "Enviar una consulta en su lugar",
     appointmentDetailsTitle: "Formatos de sesión",
     formatInPersonTitle: "Presencial",
@@ -777,7 +813,7 @@ const translations = {
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psicoterapia & Coaching · Sant Cugat y en línea",
-    footerMeta: "Contacto por WhatsApp disponible · Datos legales disponibles bajo solicitud.",
+    footerMeta: "<a href=\"privacy.html\">Privacidad</a> · <a href=\"legal.html\">Aviso legal</a> · <a href=\"contact.html\">Contacto</a>",
 
     // ============ MISC ============
     formSending: "Enviando...",
