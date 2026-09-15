@@ -1001,6 +1001,36 @@ select:focus {
   color: #8f2430;
 }
 
+.form__status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.form__status-action {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.7);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.form__status-action:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.form__status-action:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
 /* ===== ICON LIST ===== */
 .icon-list {
   list-style: none;
@@ -1149,183 +1179,6 @@ select:focus {
 
 .contact__details strong {
   color: var(--ink);
-}
-
-/* ===== CALENDAR ===== */
-.calendar {
-  background: var(--panel);
-  border-radius: var(--radius);
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
-}
-
-.calendar__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.calendar__title {
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--ink);
-}
-
-.calendar__nav {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  color: var(--ink);
-  font-size: 18px;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition: all 0.2s ease;
-}
-
-.calendar__nav:hover {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.calendar__weekdays {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
-  margin-bottom: 8px;
-}
-
-.calendar__weekdays span {
-  text-align: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--muted);
-  padding: 8px 0;
-}
-
-.calendar__days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
-}
-
-.calendar__day {
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  font-size: 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid transparent;
-  cursor: default;
-  color: var(--muted);
-  transition: all 0.2s ease;
-}
-
-.calendar__day--empty {
-  background: transparent;
-}
-
-.calendar__day--past {
-  color: var(--border);
-}
-
-.calendar__day--available {
-  color: var(--ink);
-  cursor: pointer;
-  background: var(--bg-alt);
-  border: 1px solid var(--border-light);
-}
-
-.calendar__day--available:hover {
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-color: rgba(15, 118, 110, 0.2);
-}
-
-.calendar__day--selected {
-  background: var(--accent) !important;
-  color: white !important;
-  font-weight: 600;
-}
-
-/* ===== TIMESLOTS ===== */
-.timeslots {
-  display: none;
-  margin-bottom: 20px;
-}
-
-.timeslots--visible {
-  display: block;
-}
-
-.timeslots__title {
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--ink);
-  margin: 0 0 12px;
-}
-
-.timeslots__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-}
-
-.timeslot {
-  padding: 10px 8px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--panel);
-  color: var(--ink);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.timeslot:hover {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  color: var(--accent);
-}
-
-.timeslot--selected {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: white;
-}
-
-/* ===== CALENDAR SELECTION ===== */
-.calendar__selection {
-  display: none;
-  padding: 16px;
-  background: var(--accent-soft);
-  border-radius: var(--radius-sm);
-  margin-bottom: 16px;
-}
-
-.calendar__selection--visible {
-  display: block;
-}
-
-.calendar__selection-info p {
-  margin: 4px 0;
-  font-size: 14px;
-  color: var(--ink);
-}
-
-.calendar__selection-info strong {
-  color: var(--muted);
-}
-
-.calendar__confirm {
-  margin-top: 12px;
 }
 
 /* ===== GROUPS PAGE ===== */
@@ -2304,10 +2157,6 @@ select:focus {
 
   .hero__meta {
     grid-template-columns: 1fr;
-  }
-
-  .timeslots__grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .trust-strip {

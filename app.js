@@ -113,7 +113,7 @@
     document.body.appendChild(link);
   };
 
-  const setFormStatus = (form, message, state, fallbackLabel) => {
+  const setFormStatus = (form, message, state, actions = []) => {
     const statusNode = form.querySelector("[data-form-status]");
     if (!statusNode) return;
 
@@ -123,20 +123,59 @@
 
     if (!message) return;
 
-    if (!fallbackLabel) {
-      statusNode.append(document.createTextNode(message));
-      return;
-    }
+    statusNode.append(document.createTextNode(message));
+    if (!actions.length) return;
 
-    statusNode.append(document.createTextNode(`${message} `));
+    const list = document.createElement("span");
+    list.className = "form__status-actions";
+    actions.forEach(({ href, label, external }) => {
+      const link = document.createElement("a");
+      link.className = "form__status-action";
+      link.href = href;
+      link.textContent = label;
+      if (external) {
+        link.target = "_blank";
+        link.rel = "noopener";
+      }
+      list.append(link);
+    });
+    statusNode.append(list);
+  };
 
-    const fallback = document.createElement("a");
-    fallback.className = "text-link";
-    fallback.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      form.id || "Site enquiry",
-    )}`;
-    fallback.textContent = fallbackLabel;
-    statusNode.append(fallback);
+  // Builds a ready-to-send message from what the visitor already typed, so a
+  // failed submission never costs the enquiry.
+  const buildFallbackActions = (form, dict) => {
+    const data = new FormData(form);
+    const value = (key) => String(data.get(key) || "").trim();
+    const name = value("name");
+    const email = value("email");
+    const phone = value("whatsapp");
+    const language = value("language_preference");
+    const comment = value("message") || value("current_location");
+
+    const body = [
+      value("_subject") || "Nouvelle demande depuis le site",
+      name && `Nom: ${name}`,
+      email && `Email: ${email}`,
+      phone && `WhatsApp: ${phone}`,
+      language && `Langue preferee: ${language}`,
+      comment && `Message: ${comment}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const subject = value("_subject") || "Demande depuis le site";
+    return [
+      {
+        href: `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+        label: dict.formMailFallback || "Envoyer par email",
+      },
+      {
+        href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(body)}`,
+        label: dict.formWhatsAppFallback || "Envoyer par WhatsApp",
+        external: true,
+      },
+    ];
   };
 
   // FormSubmit replies "success: false" (HTTP 200) when the address still needs
@@ -203,7 +242,7 @@
             ? dict.formActivation || dict.formError
             : dict.formError || "The message could not be sent. Please try again later.",
           "error",
-          dict.formMailFallback || null,
+          buildFallbackActions(form, dict),
         );
         trackEvent("inquiry_form_error", {
           form_id: form.id || "contact-form",
