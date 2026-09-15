@@ -162,6 +162,7 @@ const translations = {
     aboutStoryParagraph6: "Je suis également accréditée en coaching. Lorsque le cadre s'y prête et selon la demande de la personne, cela me permet d'ajuster mon accompagnement. Thérapie et coaching ne répondent pas aux mêmes besoins ; mon rôle est de poser un cadre clair et de proposer l'approche la plus juste, en fonction de ce qui est vivant et nécessaire pour chacun.",
     aboutStoryQuote: "<em>« Celui qui regarde à l'extérieur rêve.<br>Celui qui regarde à l'intérieur s'éveille. »</em>",
     aboutStoryQuoteAuthor: "Carl Gustav Jung",
+    aboutCvLink: "Voir mon parcours professionnel en détail",
 
     // ============ CONTACT PAGE ============
     contactBadge: "Contact",
@@ -263,6 +264,7 @@ const translations = {
     resourcesDescription: "Cette section accueillera bientôt des articles, des réflexions et des ressources pour accompagner votre cheminement.",
     resourcesCTATitle: "Échanger avant de commencer",
     resourcesCTAText: "Vous avez des questions ou souhaitez clarifier ce qui serait le plus adapté ? Le premier échange de 30 minutes est gratuit.",
+    resourcesReflectionsLink: "Voir aussi les <a href=\"reflections.html\">réflexions</a> sur l'expatriation, le travail et les transitions de vie.",
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psychothérapie & Coaching · Sant Cugat & en ligne",
@@ -549,6 +551,7 @@ const translations = {
     aboutStoryParagraph6: "I am also accredited in coaching. When the framework allows for it and depending on what the person is asking for, this helps me adjust my support. Therapy and coaching do not respond to the same needs; my role is to establish a clear framework and to propose the approach that is most appropriate to what is alive and necessary for each person.",
     aboutStoryQuote: "<em>“Who looks outside, dreams.<br>Who looks inside, awakes.”</em>",
     aboutStoryQuoteAuthor: "Carl Gustav Jung",
+    aboutCvLink: "See my professional background in detail",
 
     // ============ CONTACT PAGE ============
     contactBadge: "Contact",
@@ -650,6 +653,7 @@ const translations = {
     resourcesDescription: "This section will soon feature articles, reflections and resources to accompany your journey.",
     resourcesCTATitle: "Talk before starting",
     resourcesCTAText: "Have questions or want to clarify what kind of support fits? The first 30-minute conversation is free.",
+    resourcesReflectionsLink: "See also the <a href=\"reflections.html\">reflections</a> on expatriation, work and life transitions.",
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psychotherapy & Coaching · Sant Cugat & online",
@@ -936,6 +940,7 @@ const translations = {
     aboutStoryParagraph6: "También estoy acreditada en coaching. Cuando el marco lo permite y según la demanda de la persona, esto me ayuda a ajustar mi acompañamiento. Terapia y coaching no responden a las mismas necesidades; mi papel es establecer un marco claro y proponer el enfoque más adecuado a lo que está vivo y es necesario para cada persona.",
     aboutStoryQuote: "<em>« Quien mira hacia afuera sueña.<br>Quien mira hacia adentro despierta. »</em>",
     aboutStoryQuoteAuthor: "Carl Gustav Jung",
+    aboutCvLink: "Ver mi trayectoria profesional en detalle",
 
     // ============ CONTACT PAGE ============
     contactBadge: "Contacto",
@@ -1037,6 +1042,7 @@ const translations = {
     resourcesDescription: "Esta sección pronto albergará artículos, reflexiones y recursos para acompañar tu camino.",
     resourcesCTATitle: "Hablar antes de empezar",
     resourcesCTAText: "¿Tienes preguntas o quieres aclarar qué acompañamiento encaja mejor? La primera conversación de 30 minutos es gratuita.",
+    resourcesReflectionsLink: "Ver también las <a href=\"reflections.html\">reflexiones</a> sobre expatriación, trabajo y transiciones de vida.",
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psicoterapia & Coaching · Sant Cugat y en línea",
