@@ -180,10 +180,14 @@
 
   // FormSubmit replies "success: false" (HTTP 200) when the address still needs
   // activation, or when it cannot relay the message. Treat that as a failure.
+  const CAPTCHA_CHALLENGE = /(almost there|fight spam|clicking the box below|verify you are human|recaptcha)/i;
+
   const readFormResponse = async (response) => {
     const raw = await response.text();
     if (!raw.trim().startsWith("{")) {
-      return { delivered: response.ok, body: null, raw };
+      // A non-JSON reply is FormSubmit's own HTML page. If it is a spam
+      // challenge, the message was never queued, so it must not read as success.
+      return { delivered: response.ok && !CAPTCHA_CHALLENGE.test(raw), body: null, raw };
     }
 
     try {
