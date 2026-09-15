@@ -1,9 +1,15 @@
 (() => {
   const WHATSAPP_NUMBER = "34647376533";
+  const CONTACT_EMAIL = "sylviane_bahr@hotmail.com";
   const WHATSAPP_MESSAGES = {
     fr: "Bonjour Sylviane, je vous contacte depuis votre site pour un premier échange.",
     en: "Hello Sylviane, I am contacting you from your website about a first conversation.",
     es: "Hola Sylviane, te contacto desde tu web para una primera conversación.",
+  };
+  const CIRCLE_WHATSAPP_MESSAGES = {
+    fr: "Bonjour Sylviane, je suis intéressé par le cercle d'hommes à Sant Cugat.",
+    en: "Hello Sylviane, I am interested in the men's circle in Sant Cugat.",
+    es: "Hola Sylviane, estoy interesado en el círculo de hombres en Sant Cugat.",
   };
 
   const selector = document.getElementById("language-selector");
@@ -29,13 +35,20 @@
 
   const updateWhatsAppLink = (lang) => {
     const link = document.querySelector("[data-whatsapp-link]");
-    if (!link) return;
-
     const dict = translations[lang] || translations.fr;
-    const message = WHATSAPP_MESSAGES[lang] || WHATSAPP_MESSAGES.fr;
-    link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    link.setAttribute("aria-label", dict.whatsappAria || "Contact Sylviane on WhatsApp");
-    link.setAttribute("title", dict.whatsappAria || "Contact Sylviane on WhatsApp");
+
+    if (link) {
+      const message = WHATSAPP_MESSAGES[lang] || WHATSAPP_MESSAGES.fr;
+      link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      link.setAttribute("aria-label", dict.whatsappAria || "Contact Sylviane on WhatsApp");
+      link.setAttribute("title", dict.whatsappAria || "Contact Sylviane on WhatsApp");
+    }
+
+    const circleLink = document.querySelector("[data-whatsapp-circle]");
+    if (circleLink) {
+      const circleMessage = CIRCLE_WHATSAPP_MESSAGES[lang] || CIRCLE_WHATSAPP_MESSAGES.fr;
+      circleLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(circleMessage)}`;
+    }
   };
 
   const translateTextNodes = (lang) => {
@@ -100,13 +113,52 @@
     document.body.appendChild(link);
   };
 
-  const setFormStatus = (form, message, state) => {
+  const setFormStatus = (form, message, state, fallbackLabel) => {
     const statusNode = form.querySelector("[data-form-status]");
     if (!statusNode) return;
 
+    statusNode.replaceChildren();
     statusNode.hidden = !message;
-    statusNode.textContent = message || "";
     statusNode.dataset.state = state || "";
+
+    if (!message) return;
+
+    if (!fallbackLabel) {
+      statusNode.append(document.createTextNode(message));
+      return;
+    }
+
+    statusNode.append(document.createTextNode(`${message} `));
+
+    const fallback = document.createElement("a");
+    fallback.className = "text-link";
+    fallback.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      form.id || "Site enquiry",
+    )}`;
+    fallback.textContent = fallbackLabel;
+    statusNode.append(fallback);
+  };
+
+  // FormSubmit replies "success: false" (HTTP 200) when the address still needs
+  // activation, or when it cannot relay the message. Treat that as a failure.
+  const readFormResponse = async (response) => {
+    const raw = await response.text();
+    if (!raw.trim().startsWith("{")) {
+      return { delivered: response.ok, body: null, raw };
+    }
+
+    try {
+      const body = JSON.parse(raw);
+      const flag = String(body.success ?? "").toLowerCase();
+      return { delivered: response.ok && (flag === "true" || flag === ""), body, raw };
+    } catch {
+      return { delivered: response.ok, body: null, raw };
+    }
+  };
+
+  const isActivationNotice = (result) => {
+    const message = String(result.body?.message || result.raw || "");
+    return /activat/i.test(message);
   };
 
   const handleFormSubmission = (form) => {
@@ -133,9 +185,8 @@
           },
         });
 
-        if (!response.ok) {
-          throw new Error(`Submission failed with status ${response.status}`);
-        }
+        const result = await readFormResponse(response);
+        if (!result.delivered) throw result;
 
         form.reset();
         setFormStatus(form, dict.formSuccess || "Thanks for your message!", "success");
@@ -145,14 +196,19 @@
         });
       } catch (error) {
         console.error(error);
+        const needsActivation = isActivationNotice(error);
         setFormStatus(
           form,
-          dict.formError || "The message could not be sent. Please try again later.",
+          needsActivation
+            ? dict.formActivation || dict.formError
+            : dict.formError || "The message could not be sent. Please try again later.",
           "error",
+          dict.formMailFallback || null,
         );
         trackEvent("inquiry_form_error", {
           form_id: form.id || "contact-form",
           page_path: window.location.pathname,
+          reason: needsActivation ? "form_not_activated" : "delivery_failed",
         });
       } finally {
         if (submitButton) submitButton.disabled = false;

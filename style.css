@@ -1463,6 +1463,238 @@ select:focus {
   color: var(--ink);
 }
 
+/* ===== MEN'S CIRCLE PAGE ===== */
+.circle-hero {
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.14) 0%, #ffffff 55%, var(--bg-alt) 100%);
+  padding: 80px 48px 60px;
+  text-align: center;
+}
+
+.circle-hero__content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.circle-hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 600;
+  margin: 16px 0;
+  color: var(--ink);
+}
+
+.circle-hero .lead {
+  font-size: 19px;
+  color: var(--ink-light);
+  margin: 0 auto;
+  max-width: 60ch;
+}
+
+.circle-hero__meta {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.circle-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.circle-fact {
+  text-align: center;
+  display: block;
+}
+
+.circle-fact__label {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.circle-fact__value {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.circle-split {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.circle-split__card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.circle-split__card > p {
+  margin: 0;
+}
+
+.circle-emphasis {
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.circle-list {
+  background: var(--panel);
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  gap: 10px;
+}
+
+.circle-list li {
+  color: var(--ink-light);
+  font-size: 15px;
+}
+
+.circle-practical__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.circle-practical__list li {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 15px;
+}
+
+.circle-practical__list li:last-child {
+  border-bottom: none;
+}
+
+.circle-practical__list strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.circle-practical__list span {
+  color: var(--ink-light);
+}
+
+.circle-form {
+  max-width: 680px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.circle-form__fallback {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.circle-form__fallback .btn {
+  max-width: 100%;
+}
+
+/* Home relay for the men's circle */
+.circle-relay {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 40px;
+}
+
+.circle-relay h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 2.6vw, 32px);
+  margin: 12px 0 12px;
+  color: var(--ink);
+}
+
+.circle-relay p {
+  color: var(--ink-light);
+  margin: 0;
+}
+
+.circle-relay__list {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.circle-relay__list li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--ink-light);
+  font-size: 15px;
+}
+
+.circle-relay__list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.circle-relay__actions {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  text-align: center;
+}
+
+.circle-relay__link {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: underline;
+  text-decoration-color: rgba(15, 118, 110, 0.35);
+  text-underline-offset: 3px;
+}
+
+.circle-relay__link:hover {
+  color: var(--accent-light);
+}
+
+/* Groups page feature block */
+.groups-feature {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.groups-feature h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 2.6vw, 30px);
+  margin: 10px 0 12px;
+}
+
+.groups-feature p {
+  margin: 0;
+  color: var(--ink-light);
+}
+
 /* ===== CTA BOX ===== */
 .cta-box {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 70%, #15a393 100%);
@@ -1626,6 +1858,36 @@ select:focus {
 
   .groups-status {
     padding: 32px 24px;
+  }
+
+  .circle-split,
+  .circle-relay,
+  .groups-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .circle-relay {
+    padding: 32px 24px;
+  }
+
+  .circle-relay__actions {
+    justify-items: stretch;
+  }
+
+  .circle-hero {
+    padding: 48px 24px 40px;
+  }
+}
+
+@media (max-width: 720px) {
+  .circle-practical__list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .circle-hero__actions .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -1933,10 +2195,21 @@ select:focus {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1100px) {
+@media (max-width: 1440px) {
   .topbar {
     padding: 12px 24px;
     gap: 16px;
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
+  .nav {
+    order: 3;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-light);
   }
 
   .nav a {
