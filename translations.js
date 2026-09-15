@@ -653,7 +653,7 @@ const translations = {
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psychotherapy & Coaching · Sant Cugat & online",
-    footerMeta: "<a href=\"cercle-hommes-sant-cugat.html\">Men's circle</a> · <a href=\"privacy.html#english\">Privacy</a> · <a href=\"legal.html#english\">Legal notice</a> · <a href=\"contact.html\">Contact</a>",
+    footerMeta: "<a href=\"mens-circle-sant-cugat.html\">Men's circle</a> · <a href=\"privacy.html#english\">Privacy</a> · <a href=\"legal.html#english\">Legal notice</a> · <a href=\"contact.html\">Contact</a>",
 
     // ============ MISC ============
     formSending: "Sending...",
