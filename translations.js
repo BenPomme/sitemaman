@@ -19,7 +19,7 @@ const translations = {
     whatsappAria: "Contacter Sylviane sur WhatsApp",
 
     // Hero section (HOME)
-    heroBadge: "Sant Cugat / Barcelone / En ligne : FR / EN",
+    heroBadge: "Barcelone / Sant Cugat / En ligne : FR / EN",
     heroTitle: "Un accompagnement humain, engagé et sur-mesure.",
     heroSubtitle: "Thérapie Gestalt ou coaching : deux cadres différents, une même intention : aider à retrouver clarté, solidité et mouvement.",
     heroCTATherapy: "Commencer une thérapie",
@@ -53,7 +53,7 @@ const translations = {
 
     // Meta info
     metaLocationLabel: "Cabinet",
-    metaLocation: "Sant Cugat del Vallès · Téléconsultation",
+    metaLocation: "Barcelone · Sant Cugat del Vallès · Téléconsultation",
 
     // ============ THERAPY PAGE ============
     therapyBadge: "Thérapie",
@@ -214,7 +214,7 @@ const translations = {
     calendlySecondaryCTA: "Envoyer une question à la place",
     appointmentDetailsTitle: "Formats proposés",
     formatInPersonTitle: "Présentiel",
-    formatInPersonText: "Cabinet à Sant Cugat, Josep Puig i Cadafalch 42-44, accessible en transport. <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Josep%20Puig%20i%20Cadafalch%2042-44%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">Voir sur Google Maps</a>.",
+    formatInPersonText: "Cabinet à Sant Cugat del Vallès (Barcelone), Josep Puig i Cadafalch 42-44, accessible en transport. <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Josep%20Puig%20i%20Cadafalch%2042-44%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">Voir sur Google Maps</a>.",
     formatOnlineTitle: "Visio sécurisée",
     formatOnlineText: "Séances en ligne, support entre séances possible.",
     formatGroupTitle: "Groupes & cercles",
@@ -247,14 +247,14 @@ const translations = {
     group1Format: "Petit groupe (6-8 personnes)",
     group1Frequency: "Session mensuelle",
     group1Duration: "2 heures",
-    group1Location: "Sant Cugat ou en ligne",
+    group1Location: "Barcelone / Sant Cugat / en ligne",
     group2Badge: "Adultes",
     group2Title: "Atelier stress & transitions",
     group2Text: "Respiration, ancrage, Gestalt, co-développement entre pairs.",
     group2Format: "Groupe ouvert (8-12 personnes)",
     group2Frequency: "Dates régulières",
     group2Duration: "Soirée (2h30)",
-    group2Location: "Sant Cugat ou visio",
+    group2Location: "Barcelone / Sant Cugat / visio",
 
     // ============ RESOURCES PAGE ============
     resourcesBadge: "Ressources",
@@ -267,7 +267,7 @@ const translations = {
     resourcesReflectionsLink: "Voir aussi les <a href=\"reflections.html\">réflexions</a> sur l'expatriation, le travail et les transitions de vie.",
 
     // ============ FOOTER ============
-    footerText: "Sylviane Bahr · Psychothérapie & Coaching · Sant Cugat & en ligne",
+    footerText: "Sylviane Bahr · Psychothérapie & Coaching · Barcelone & Sant Cugat · en ligne",
     footerMeta: "<a href=\"cercle-hommes-sant-cugat.html\">Cercle d'hommes</a> · <a href=\"privacy.html\">Confidentialité</a> · <a href=\"legal.html\">Mentions légales</a> · <a href=\"contact.html\">Contact</a>",
 
     // ============ MISC ============
@@ -408,7 +408,7 @@ const translations = {
     whatsappAria: "Contact Sylviane on WhatsApp",
 
     // Hero section (HOME)
-    heroBadge: "Sant Cugat / Barcelona / Online: FR / EN",
+    heroBadge: "Barcelona / Sant Cugat / Online: FR / EN",
     heroTitle: "Human, committed, and tailored support.",
     heroSubtitle: "Gestalt therapy or coaching: two different frameworks, one shared intention — helping you find clarity, stability, and movement.",
     heroCTATherapy: "Start therapy",
@@ -442,7 +442,7 @@ const translations = {
 
     // Meta info
     metaLocationLabel: "Practice",
-    metaLocation: "Sant Cugat del Vallès · Telehealth",
+    metaLocation: "Barcelona · Sant Cugat del Vallès · Telehealth",
 
     // ============ THERAPY PAGE ============
     therapyBadge: "Therapy",
@@ -603,7 +603,7 @@ const translations = {
     calendlySecondaryCTA: "Send an inquiry instead",
     appointmentDetailsTitle: "Session formats",
     formatInPersonTitle: "In person",
-    formatInPersonText: "Practice in Sant Cugat, Josep Puig i Cadafalch 42-44, easy transport access. <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Josep%20Puig%20i%20Cadafalch%2042-44%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">View on Google Maps</a>.",
+    formatInPersonText: "Practice in Sant Cugat del Vallès (Barcelona), Josep Puig i Cadafalch 42-44, easy transport access. <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Josep%20Puig%20i%20Cadafalch%2042-44%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">View on Google Maps</a>.",
     formatOnlineTitle: "Secure video",
     formatOnlineText: "Online sessions, between-session support if needed.",
     formatGroupTitle: "Groups & circles",
@@ -636,14 +636,14 @@ const translations = {
     group1Format: "Small group (6-8 people)",
     group1Frequency: "Monthly session",
     group1Duration: "2 hours",
-    group1Location: "Sant Cugat or online",
+    group1Location: "Barcelona / Sant Cugat / online",
     group2Badge: "Adults",
     group2Title: "Stress & transitions workshop",
     group2Text: "Breathwork, grounding, Gestalt, peer co-development.",
     group2Format: "Open group (8-12 people)",
     group2Frequency: "Regular dates",
     group2Duration: "Evening (2h30)",
-    group2Location: "Sant Cugat or video",
+    group2Location: "Barcelona / Sant Cugat / video",
 
     // ============ RESOURCES PAGE ============
     resourcesBadge: "Resources",
@@ -656,7 +656,7 @@ const translations = {
     resourcesReflectionsLink: "See also the <a href=\"reflections.html\">reflections</a> on expatriation, work and life transitions.",
 
     // ============ FOOTER ============
-    footerText: "Sylviane Bahr · Psychotherapy & Coaching · Sant Cugat & online",
+    footerText: "Sylviane Bahr · Psychotherapy & Coaching · Barcelona & Sant Cugat · online",
     footerMeta: "<a href=\"mens-circle-sant-cugat.html\">Men's circle</a> · <a href=\"privacy.html#english\">Privacy</a> · <a href=\"legal.html#english\">Legal notice</a> · <a href=\"contact.html\">Contact</a>",
 
     // ============ MISC ============
@@ -797,7 +797,7 @@ const translations = {
     whatsappAria: "Contactar con Sylviane por WhatsApp",
 
     // Hero section (HOME)
-    heroBadge: "Sant Cugat / Barcelona / En línea: FR / EN",
+    heroBadge: "Barcelona / Sant Cugat / En línea: FR / EN",
     heroTitle: "Un acompañamiento humano, comprometido y a medida.",
     heroSubtitle: "Terapia Gestalt o coaching: dos marcos diferentes, una misma intención: ayudarte a encontrar claridad, solidez y movimiento.",
     heroCTATherapy: "Comenzar una terapia",
@@ -831,7 +831,7 @@ const translations = {
 
     // Meta info
     metaLocationLabel: "Consultorio",
-    metaLocation: "Sant Cugat del Vallès · Teleconsulta",
+    metaLocation: "Barcelona · Sant Cugat del Vallès · Teleconsulta",
 
     // ============ THERAPY PAGE ============
     therapyBadge: "Terapia",
@@ -992,7 +992,7 @@ const translations = {
     calendlySecondaryCTA: "Enviar una consulta en su lugar",
     appointmentDetailsTitle: "Formatos de sesión",
     formatInPersonTitle: "Presencial",
-    formatInPersonText: "Consulta en Sant Cugat, Josep Puig i Cadafalch 42-44, accesible en transporte. <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Josep%20Puig%20i%20Cadafalch%2042-44%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">Ver en Google Maps</a>.",
+    formatInPersonText: "Consulta en Sant Cugat del Vallès (Barcelona), Josep Puig i Cadafalch 42-44, accesible en transporte. <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Josep%20Puig%20i%20Cadafalch%2042-44%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">Ver en Google Maps</a>.",
     formatOnlineTitle: "Videollamada segura",
     formatOnlineText: "Sesiones en línea, apoyo entre sesiones si hace falta.",
     formatGroupTitle: "Grupos y círculos",
@@ -1025,14 +1025,14 @@ const translations = {
     group1Format: "Grupo pequeño (6-8 personas)",
     group1Frequency: "Sesión mensual",
     group1Duration: "2 horas",
-    group1Location: "Sant Cugat o en línea",
+    group1Location: "Barcelona / Sant Cugat / en línea",
     group2Badge: "Adultos",
     group2Title: "Taller estrés y transiciones",
     group2Text: "Respiración, arraigo, Gestalt, co-desarrollo entre pares.",
     group2Format: "Grupo abierto (8-12 personas)",
     group2Frequency: "Fechas regulares",
     group2Duration: "Tarde (2h30)",
-    group2Location: "Sant Cugat o video",
+    group2Location: "Barcelona / Sant Cugat / vídeo",
 
     // ============ RESOURCES PAGE ============
     resourcesBadge: "Recursos",
@@ -1045,7 +1045,7 @@ const translations = {
     resourcesReflectionsLink: "Ver también las <a href=\"reflections.html\">reflexiones</a> sobre expatriación, trabajo y transiciones de vida.",
 
     // ============ FOOTER ============
-    footerText: "Sylviane Bahr · Psicoterapia & Coaching · Sant Cugat y en línea",
+    footerText: "Sylviane Bahr · Psicoterapia & Coaching · Barcelona & Sant Cugat · en línea",
     footerMeta: "<a href=\"cercle-hommes-sant-cugat.html\">Círculo de hombres</a> · <a href=\"privacy.html\">Privacidad</a> · <a href=\"legal.html\">Aviso legal</a> · <a href=\"contact.html\">Contacto</a>",
 
     // ============ MISC ============

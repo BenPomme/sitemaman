@@ -1,2 +1,3 @@
 .playwright-cli/
+.scratch/
 .DS_Store
