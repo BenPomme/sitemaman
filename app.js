@@ -7,9 +7,9 @@
     es: "Hola Sylviane, te contacto desde tu web para una primera conversación.",
   };
   const CIRCLE_WHATSAPP_MESSAGES = {
-    fr: "Bonjour Sylviane, je suis intéressé par le cercle d'hommes à Sant Cugat.",
-    en: "Hello Sylviane, I am interested in the men's circle in Sant Cugat.",
-    es: "Hola Sylviane, estoy interesado en el círculo de hombres en Sant Cugat.",
+    fr: "Bonjour Sylviane, je suis intéressé par le cercle d'hommes à Barcelone et Sant Cugat.",
+    en: "Hello Sylviane, I am interested in the men's circle in Barcelona and Sant Cugat.",
+    es: "Hola Sylviane, estoy interesado en el círculo de hombres en Barcelona y Sant Cugat.",
   };
 
   const selector = document.getElementById("language-selector");

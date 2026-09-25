@@ -268,7 +268,7 @@ const translations = {
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psychothérapie & Coaching · Barcelone & Sant Cugat · en ligne",
-    footerMeta: "<a href=\"cercle-hommes-sant-cugat.html\">Cercle d'hommes</a> · <a href=\"privacy.html\">Confidentialité</a> · <a href=\"legal.html\">Mentions légales</a> · <a href=\"contact.html\">Contact</a>",
+    footerMeta: "<a href=\"cercle-hommes-sant-cugat.html\">Cercle d'hommes Barcelone &amp; Sant Cugat</a> · <a href=\"privacy.html\">Confidentialité</a> · <a href=\"legal.html\">Mentions légales</a> · <a href=\"contact.html\">Contact</a>",
 
     // ============ MISC ============
     formSending: "Envoi en cours...",
@@ -279,10 +279,10 @@ const translations = {
     formWhatsAppFallback: "Envoyer par WhatsApp",
 
     // ============ MEN'S CIRCLE PAGE ============
-    circleBadge: "Nouveau à Sant Cugat",
-    circleTitle: "Cercle d'hommes à Sant Cugat",
+    circleBadge: "Nouveau : Barcelone et Sant Cugat",
+    circleTitle: "Cercle d'hommes à Barcelone et Sant Cugat",
     circleLead: "Un espace régulier de rencontre, de parole et d'exploration entre hommes.",
-    circleHeroMeta: "Centre Esfera Gestalt · Av. de Rius i Taulet 29-31 · Sant Cugat del Vallès",
+    circleHeroMeta: "Centre Esfera Gestalt · Av. de Rius i Taulet 29-31 · Sant Cugat del Vallès, près de Barcelone",
     circleHeroCTA: "Je souhaite être contacté",
     circleHeroCTA2: "Comment ça se passe",
     circleFactDurationLabel: "Durée",
@@ -298,6 +298,7 @@ const translations = {
     circleIntroText: "Un cercle d'hommes est un espace régulier de rencontre, de parole et d'exploration entre hommes. Il offre la possibilité de parler de sujets qui trouvent parfois peu de place ailleurs : les relations de couple, la paternité, la sexualité et l'intimité, le travail, la pression et la réussite, les séparations, la solitude, les changements de vie, la colère, la peur, la vulnérabilité, le rapport au corps, ou encore la difficulté à savoir ce que l'on ressent ou ce que l'on veut.",
     circleIntroText2: "Il n'est pas nécessaire d'arriver avec un « problème » particulier. Certains participants viennent parce qu'ils traversent une période difficile ; d'autres simplement parce qu'ils souhaitent mieux se comprendre, sortir de certains automatismes ou expérimenter une autre manière d'être en relation avec d'autres hommes.",
     circleIntroText3: "Le cercle n'a pas de thème imposé à chaque séance : le travail se construit à partir de ce que les participants apportent et de ce qui émerge dans le groupe.",
+    circleAudience: "Le cercle accueille des hommes de Sant Cugat del Vallès, de Barcelone et des environs.",
     circleSessionBadge: "Déroulement",
     circleSessionTitle: "Comment se déroule une séance ?",
     circleSession1Title: "Se poser",
@@ -321,7 +322,7 @@ const translations = {
     circlePracticalBadge: "Informations pratiques",
     circlePracticalTitle: "Ce qu'il faut savoir",
     circlePracticalPlaceLabel: "Lieu",
-    circlePracticalPlace: "Centre Esfera Gestalt, Av. de Rius i Taulet 29-31, 1er 4e, 08172 Sant Cugat del Vallès",
+    circlePracticalPlace: "Centre Esfera Gestalt, Av. de Rius i Taulet 29-31, 1er 4e, 08172 Sant Cugat del Vallès, dans la région de Barcelone",
     circleMapLink: "Voir sur Google Maps",
     circlePracticalDurationLabel: "Durée",
     circlePracticalDuration: "2 heures par rencontre",
@@ -361,7 +362,7 @@ const translations = {
     circleFaq1Q: "Faut-il traverser une difficulté pour rejoindre le cercle ?",
     circleFaq1A: "Non. Certains participants viennent parce qu'ils traversent une période difficile ; d'autres simplement parce qu'ils souhaitent mieux se comprendre, sortir de certains automatismes ou expérimenter une autre manière d'être en relation avec d'autres hommes. Il n'est pas nécessaire d'arriver avec un problème particulier.",
     circleFaq2Q: "Où se déroule le cercle ?",
-    circleFaq2A: "Au centre Esfera Gestalt, Av. de Rius i Taulet 29-31, 1er 4e, 08172 Sant Cugat del Vallès (Barcelone). <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Esfera%20Gestalt%2C%20Av.%20de%20Rius%20i%20Taulet%2029-31%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">Voir l'itinéraire sur Google Maps</a>.",
+    circleFaq2A: "Au centre Esfera Gestalt, Av. de Rius i Taulet 29-31, 1er 4e, 08172 Sant Cugat del Vallès, dans la région de Barcelone. <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Esfera%20Gestalt%2C%20Av.%20de%20Rius%20i%20Taulet%2029-31%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">Voir l'itinéraire sur Google Maps</a>.",
     circleFaq3Q: "Dans quelle langue se déroule le cercle ?",
     circleFaq3A: "En français ou en anglais, selon les personnes intéressées. Les échanges se font dans la langue choisie par les participants du groupe.",
     circleFaq4Q: "Combien coûte une séance ?",
@@ -370,11 +371,13 @@ const translations = {
     circleFaq5A: "Aucune durée n'est fixée à l'avance. Il est simplement demandé de pouvoir s'engager dans une certaine régularité, car la confiance se construit au fil des rencontres. Le jour et la fréquence seront définis avec les premières personnes intéressées.",
     circleFaq6Q: "Je ne sais pas encore si ce groupe me convient, puis-je en parler avant ?",
     circleFaq6A: "Oui. Vous pouvez me contacter sans engagement : nous aurons un premier échange pour que je vous explique le fonctionnement du cercle, entendre ce que vous recherchez et voir si ce groupe pourrait vous convenir.",
+    circleFaq7Q: "Faut-il habiter Sant Cugat pour participer ?",
+    circleFaq7A: "Non. Le cercle accueille des hommes de Sant Cugat del Vallès, de Barcelone et des environs. Les séances ont lieu au centre Esfera Gestalt, à Sant Cugat del Vallès, dans la région de Barcelone.",
 
     // Home relay
     circleRelayBadge: "Nouveau groupe",
-    circleRelayTitle: "Cercle d'hommes à Sant Cugat",
-    circleRelayText: "Un espace régulier de rencontre, de parole et d'exploration entre hommes, au centre Esfera Gestalt. En français ou en anglais, séances de 2 heures, à partir de 4 participants.",
+    circleRelayTitle: "Cercle d'hommes à Barcelone et Sant Cugat",
+    circleRelayText: "Un espace régulier de rencontre, de parole et d'exploration entre hommes, au centre Esfera Gestalt, à Sant Cugat del Vallès près de Barcelone. En français ou en anglais, séances de 2 heures, à partir de 4 participants.",
     circleRelayItem1: "Sans engagement, juste manifester votre intérêt",
     circleRelayItem2: "Vous laissez votre email et, si vous le souhaitez, votre WhatsApp",
     circleRelayItem3: "Je vous recontacte personnellement avec les modalités",
@@ -383,8 +386,8 @@ const translations = {
 
     // Groups page
     groupsCircleBadge: "Inscriptions ouvertes",
-    groupsCircleTitle: "Cercle d'hommes à Sant Cugat",
-    groupsCircleText: "Un nouveau cercle d'hommes démarre au centre Esfera Gestalt, à Sant Cugat del Vallès. Séances de 2 heures, en français ou en anglais, à partir de 4 participants. Vous pouvez manifester votre intérêt sans engagement : je vous recontacte personnellement avec les modalités.",
+    groupsCircleTitle: "Cercle d'hommes à Barcelone et Sant Cugat",
+    groupsCircleText: "Un nouveau cercle d'hommes démarre au centre Esfera Gestalt, à Sant Cugat del Vallès près de Barcelone. Séances de 2 heures, en français ou en anglais, à partir de 4 participants. Vous pouvez manifester votre intérêt sans engagement : je vous recontacte personnellement avec les modalités.",
     groupsCircleCTA: "Voir le cercle d'hommes",
   },
 
@@ -657,7 +660,7 @@ const translations = {
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psychotherapy & Coaching · Barcelona & Sant Cugat · online",
-    footerMeta: "<a href=\"mens-circle-sant-cugat.html\">Men's circle</a> · <a href=\"privacy.html#english\">Privacy</a> · <a href=\"legal.html#english\">Legal notice</a> · <a href=\"contact.html\">Contact</a>",
+    footerMeta: "<a href=\"mens-circle-sant-cugat.html\">Men's circle Barcelona &amp; Sant Cugat</a> · <a href=\"privacy.html#english\">Privacy</a> · <a href=\"legal.html#english\">Legal notice</a> · <a href=\"contact.html\">Contact</a>",
 
     // ============ MISC ============
     formSending: "Sending...",
@@ -668,10 +671,10 @@ const translations = {
     formWhatsAppFallback: "Send by WhatsApp",
 
     // ============ MEN'S CIRCLE PAGE ============
-    circleBadge: "New in Sant Cugat",
-    circleTitle: "Men's Circle in Sant Cugat",
+    circleBadge: "New: Barcelona & Sant Cugat",
+    circleTitle: "Men's Circle in Barcelona & Sant Cugat",
     circleLead: "A regular space for meeting, speaking and exploring among men.",
-    circleHeroMeta: "Esfera Gestalt centre · Av. de Rius i Taulet 29-31 · Sant Cugat del Vallès",
+    circleHeroMeta: "Esfera Gestalt centre · Av. de Rius i Taulet 29-31 · Sant Cugat del Vallès, near Barcelona",
     circleHeroCTA: "I would like to be contacted",
     circleHeroCTA2: "How a session works",
     circleFactDurationLabel: "Length",
@@ -687,6 +690,7 @@ const translations = {
     circleIntroText: "A men's circle is a regular space for meeting, speaking and exploring among men. It offers the possibility to talk about subjects that often have little room elsewhere: couple relationships, fatherhood, sexuality and intimacy, work, pressure and success, separations, loneliness, life changes, anger, fear, vulnerability, the relationship with the body, or the difficulty of knowing what one feels or wants.",
     circleIntroText2: "There is no need to arrive with a particular \"problem\". Some participants come because they are going through a difficult period; others simply because they want to understand themselves better, step out of certain automatic patterns, or experience another way of being in relationship with other men.",
     circleIntroText3: "The circle has no imposed theme for each session: the work is built from what the participants bring and from what emerges in the group.",
+    circleAudience: "The circle welcomes men from Sant Cugat del Vallès, Barcelona and the surrounding area.",
     circleSessionBadge: "How it unfolds",
     circleSessionTitle: "How does a session work?",
     circleSession1Title: "Arriving and settling",
@@ -710,7 +714,7 @@ const translations = {
     circlePracticalBadge: "Practical information",
     circlePracticalTitle: "What you need to know",
     circlePracticalPlaceLabel: "Location",
-    circlePracticalPlace: "Esfera Gestalt centre, Av. de Rius i Taulet 29-31, 1st floor, door 4, 08172 Sant Cugat del Vallès",
+    circlePracticalPlace: "Esfera Gestalt centre, Av. de Rius i Taulet 29-31, 1st floor, door 4, 08172 Sant Cugat del Vallès, in the Barcelona area",
     circleMapLink: "View on Google Maps",
     circlePracticalDurationLabel: "Length",
     circlePracticalDuration: "2 hours per meeting",
@@ -750,7 +754,7 @@ const translations = {
     circleFaq1Q: "Do I need to be going through a difficult time to join the circle?",
     circleFaq1A: "No. Some participants come because they are going through a difficult period; others simply because they want to understand themselves better, step out of certain automatic patterns or experience another way of being in relationship with other men. There is no need to arrive with a particular problem.",
     circleFaq2Q: "Where does the circle take place?",
-    circleFaq2A: "At the Esfera Gestalt centre, Av. de Rius i Taulet 29-31, 1st floor, door 4, 08172 Sant Cugat del Vallès (Barcelona). <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Esfera%20Gestalt%2C%20Av.%20de%20Rius%20i%20Taulet%2029-31%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">Get directions on Google Maps</a>.",
+    circleFaq2A: "At the Esfera Gestalt centre, Av. de Rius i Taulet 29-31, 1st floor, door 4, 08172 Sant Cugat del Vallès, in the Barcelona area. <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Esfera%20Gestalt%2C%20Av.%20de%20Rius%20i%20Taulet%2029-31%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">Get directions on Google Maps</a>.",
     circleFaq3Q: "Which language is used in the circle?",
     circleFaq3A: "French or English, depending on the people interested. The exchanges take place in the language chosen by the participants of the group.",
     circleFaq4Q: "How much does a session cost?",
@@ -759,11 +763,13 @@ const translations = {
     circleFaq5A: "No duration is fixed in advance. Participants are simply asked to be able to commit to a certain regularity, because trust builds over successive meetings. The day and the frequency will be decided with the first interested participants.",
     circleFaq6Q: "I am not sure yet whether this group suits me, can we talk first?",
     circleFaq6A: "Yes. You can contact me with no commitment: we will have a first exchange so that I can explain how the circle works, hear what you are looking for and see whether this group could suit you.",
+    circleFaq7Q: "Do I need to live in Sant Cugat to take part?",
+    circleFaq7A: "No. The circle welcomes men from Sant Cugat del Vallès, Barcelona and the surrounding area. Sessions take place at the Esfera Gestalt centre, in Sant Cugat del Vallès, in the Barcelona area.",
 
     // Home relay
     circleRelayBadge: "New group",
-    circleRelayTitle: "Men's Circle in Sant Cugat",
-    circleRelayText: "A regular space for meeting, speaking and exploring among men, at the Esfera Gestalt centre. In French or English, 2-hour sessions, starting from 4 participants.",
+    circleRelayTitle: "Men's Circle in Barcelona & Sant Cugat",
+    circleRelayText: "A regular space for meeting, speaking and exploring among men, at the Esfera Gestalt centre in Sant Cugat del Vallès, near Barcelona. In French or English, 2-hour sessions, starting from 4 participants.",
     circleRelayItem1: "No commitment, simply registering your interest",
     circleRelayItem2: "You leave your email and, if you wish, your WhatsApp number",
     circleRelayItem3: "I get back to you personally with the practical details",
@@ -772,8 +778,8 @@ const translations = {
 
     // Groups page
     groupsCircleBadge: "Registration open",
-    groupsCircleTitle: "Men's Circle in Sant Cugat",
-    groupsCircleText: "A new men's circle is starting at the Esfera Gestalt centre, in Sant Cugat del Vallès. 2-hour sessions, in French or English, starting from 4 participants. You can register your interest with no commitment: I will get back to you personally with the practical details.",
+    groupsCircleTitle: "Men's Circle in Barcelona & Sant Cugat",
+    groupsCircleText: "A new men's circle is starting at the Esfera Gestalt centre, in Sant Cugat del Vallès near Barcelona. 2-hour sessions, in French or English, starting from 4 participants. You can register your interest with no commitment: I will get back to you personally with the practical details.",
     groupsCircleCTA: "See the men's circle",
   },
 
@@ -1046,7 +1052,7 @@ const translations = {
 
     // ============ FOOTER ============
     footerText: "Sylviane Bahr · Psicoterapia & Coaching · Barcelona & Sant Cugat · en línea",
-    footerMeta: "<a href=\"cercle-hommes-sant-cugat.html\">Círculo de hombres</a> · <a href=\"privacy.html\">Privacidad</a> · <a href=\"legal.html\">Aviso legal</a> · <a href=\"contact.html\">Contacto</a>",
+    footerMeta: "<a href=\"cercle-hommes-sant-cugat.html\">Círculo de hombres Barcelona y Sant Cugat</a> · <a href=\"privacy.html\">Privacidad</a> · <a href=\"legal.html\">Aviso legal</a> · <a href=\"contact.html\">Contacto</a>",
 
     // ============ MISC ============
     formSending: "Enviando...",
@@ -1057,10 +1063,10 @@ const translations = {
     formWhatsAppFallback: "Enviar por WhatsApp",
 
     // ============ MEN'S CIRCLE PAGE ============
-    circleBadge: "Nuevo en Sant Cugat",
-    circleTitle: "Círculo de hombres en Sant Cugat",
+    circleBadge: "Nuevo: Barcelona y Sant Cugat",
+    circleTitle: "Círculo de hombres en Barcelona y Sant Cugat",
     circleLead: "Un espacio regular de encuentro, palabra y exploración entre hombres.",
-    circleHeroMeta: "Centro Esfera Gestalt · Av. de Rius i Taulet 29-31 · Sant Cugat del Vallès",
+    circleHeroMeta: "Centro Esfera Gestalt · Av. de Rius i Taulet 29-31 · Sant Cugat del Vallès, cerca de Barcelona",
     circleHeroCTA: "Quiero que me contacten",
     circleHeroCTA2: "Cómo funciona una sesión",
     circleFactDurationLabel: "Duración",
@@ -1076,6 +1082,7 @@ const translations = {
     circleIntroText: "Un círculo de hombres es un espacio regular de encuentro, palabra y exploración entre hombres. Ofrece la posibilidad de hablar de temas que a veces encuentran poco lugar en otros espacios: las relaciones de pareja, la paternidad, la sexualidad y la intimidad, el trabajo, la presión y el éxito, las separaciones, la soledad, los cambios de vida, la rabia, el miedo, la vulnerabilidad, la relación con el cuerpo, o la dificultad para saber qué se siente o qué se quiere.",
     circleIntroText2: "No es necesario llegar con un \"problema\" concreto. Algunos participantes vienen porque atraviesan un periodo difícil; otros simplemente porque quieren comprenderse mejor, salir de ciertos automatismos o experimentar otra manera de estar en relación con otros hombres.",
     circleIntroText3: "El círculo no tiene un tema impuesto en cada sesión: el trabajo se construye a partir de lo que aportan los participantes y de lo que emerge en el grupo.",
+    circleAudience: "El círculo acoge a hombres de Sant Cugat del Vallès, Barcelona y alrededores.",
     circleSessionBadge: "Desarrollo",
     circleSessionTitle: "¿Cómo se desarrolla una sesión?",
     circleSession1Title: "Llegar y asentarse",
@@ -1099,7 +1106,7 @@ const translations = {
     circlePracticalBadge: "Información práctica",
     circlePracticalTitle: "Lo que conviene saber",
     circlePracticalPlaceLabel: "Lugar",
-    circlePracticalPlace: "Centro Esfera Gestalt, Av. de Rius i Taulet 29-31, 1º 4ª, 08172 Sant Cugat del Vallès",
+    circlePracticalPlace: "Centro Esfera Gestalt, Av. de Rius i Taulet 29-31, 1º 4ª, 08172 Sant Cugat del Vallès, en el área de Barcelona",
     circleMapLink: "Ver en Google Maps",
     circlePracticalDurationLabel: "Duración",
     circlePracticalDuration: "2 horas por encuentro",
@@ -1139,7 +1146,7 @@ const translations = {
     circleFaq1Q: "¿Hay que estar atravesando una dificultad para unirse al círculo?",
     circleFaq1A: "No. Algunos participantes vienen porque atraviesan un periodo difícil; otros simplemente porque quieren comprenderse mejor, salir de ciertos automatismos o experimentar otra manera de estar en relación con otros hombres. No es necesario llegar con un problema concreto.",
     circleFaq2Q: "¿Dónde se desarrolla el círculo?",
-    circleFaq2A: "En el centro Esfera Gestalt, Av. de Rius i Taulet 29-31, 1º 4ª, 08172 Sant Cugat del Vallès (Barcelona). <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Esfera%20Gestalt%2C%20Av.%20de%20Rius%20i%20Taulet%2029-31%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">Ver la ruta en Google Maps</a>.",
+    circleFaq2A: "En el centro Esfera Gestalt, Av. de Rius i Taulet 29-31, 1º 4ª, 08172 Sant Cugat del Vallès, en el área de Barcelona. <a class=\"text-link\" href=\"https://www.google.com/maps/search/?api=1&amp;query=Esfera%20Gestalt%2C%20Av.%20de%20Rius%20i%20Taulet%2029-31%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s\" target=\"_blank\" rel=\"noopener\">Ver la ruta en Google Maps</a>.",
     circleFaq3Q: "¿En qué idioma se desarrolla el círculo?",
     circleFaq3A: "En francés o en inglés, según las personas interesadas. Los intercambios se hacen en el idioma elegido por los participantes del grupo.",
     circleFaq4Q: "¿Cuánto cuesta una sesión?",
@@ -1148,11 +1155,13 @@ const translations = {
     circleFaq5A: "No se fija ninguna duración de antemano. Simplemente se pide poder comprometerse con una cierta regularidad, porque la confianza se construye a lo largo de los encuentros. El día y la frecuencia se definirán con las primeras personas interesadas.",
     circleFaq6Q: "Todavía no sé si este grupo me conviene, ¿podemos hablar antes?",
     circleFaq6A: "Sí. Puedes contactarme sin compromiso: tendremos un primer intercambio para que te explique el funcionamiento del círculo, escuchar qué buscas y ver si este grupo podría encajarte.",
+    circleFaq7Q: "¿Hay que vivir en Sant Cugat para participar?",
+    circleFaq7A: "No. El círculo acoge a hombres de Sant Cugat del Vallès, Barcelona y alrededores. Las sesiones se celebran en el centro Esfera Gestalt, en Sant Cugat del Vallès, en el área de Barcelona.",
 
     // Home relay
     circleRelayBadge: "Grupo nuevo",
-    circleRelayTitle: "Círculo de hombres en Sant Cugat",
-    circleRelayText: "Un espacio regular de encuentro, palabra y exploración entre hombres, en el centro Esfera Gestalt. En francés o inglés, sesiones de 2 horas, a partir de 4 participantes.",
+    circleRelayTitle: "Círculo de hombres en Barcelona y Sant Cugat",
+    circleRelayText: "Un espacio regular de encuentro, palabra y exploración entre hombres, en el centro Esfera Gestalt, en Sant Cugat del Vallès, cerca de Barcelona. En francés o inglés, sesiones de 2 horas, a partir de 4 participantes.",
     circleRelayItem1: "Sin compromiso, solo manifestar tu interés",
     circleRelayItem2: "Dejas tu email y, si lo deseas, tu WhatsApp",
     circleRelayItem3: "Te vuelvo a contactar personalmente con las modalidades",
@@ -1161,8 +1170,8 @@ const translations = {
 
     // Groups page
     groupsCircleBadge: "Inscripciones abiertas",
-    groupsCircleTitle: "Círculo de hombres en Sant Cugat",
-    groupsCircleText: "Un nuevo círculo de hombres empieza en el centro Esfera Gestalt, en Sant Cugat del Vallès. Sesiones de 2 horas, en francés o inglés, a partir de 4 participantes. Puedes manifestar tu interés sin compromiso: te vuelvo a contactar personalmente con las modalidades.",
+    groupsCircleTitle: "Círculo de hombres en Barcelona y Sant Cugat",
+    groupsCircleText: "Un nuevo círculo de hombres empieza en el centro Esfera Gestalt, en Sant Cugat del Vallès, cerca de Barcelona. Sesiones de 2 horas, en francés o inglés, a partir de 4 participantes. Puedes manifestar tu interés sin compromiso: te vuelvo a contactar personalmente con las modalidades.",
     groupsCircleCTA: "Ver el círculo de hombres",
   },
 };
