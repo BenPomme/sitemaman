@@ -168,6 +168,9 @@ body.is-scrolled .site-head .pill--light { background: var(--ink); color: var(--
 /* ---------- Héros ---------- */
 body.page-home .hero {
   position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
   min-height: 100svh;
   display: grid;
   grid-template-columns: 1fr;
