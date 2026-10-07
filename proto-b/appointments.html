@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prendre rendez-vous | Sylviane Bahr</title>
+  <meta name="description" content="Réservez un premier échange gratuit de 30 minutes ou posez une question avant de réserver.">
+  <meta name="author" content="Sylviane Bahr">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body class="page-inner">
+  <header class="head" id="siteHead">
+  <a class="brand" href="index.html">
+    <span class="brand__name">Sylviane Bahr</span>
+    <span class="brand__role">Psychothérapie · Barcelone</span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="therapy.html">Thérapie</a>
+    <a href="coaching.html">Coaching</a>
+    <a href="compare.html">Thérapie ou coaching&nbsp;?</a>
+    <a href="groups.html">Groupes</a>
+    <a href="cercle-hommes-sant-cugat.html">Le cercle</a>
+    <a href="about.html">À propos</a>
+    <a href="resources.html">Ressources</a>
+    <a href="appointments.html">RDV</a>
+  </nav>
+  <div class="head__tools">
+    <select id="language-selector" aria-label="Language selector"><option value="fr">FR</option><option value="en">EN</option></select>
+    <a class="head__cta head-cta" href="appointments.html#reserver" data-track="booking_click" data-track-source="header">Prendre RDV <span aria-hidden="true">→</span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+  <main>
+    <section id="reserver" class="section section--alt">
+      <div class="section__header">
+        <p class="pill pill--subtle" data-i18n="appointmentsBadge">Séances</p>
+        <h1 data-i18n="appointmentsTitle">Prendre rendez-vous</h1>
+        <p class="section__lead" data-i18n="appointmentsLead">Choisissez directement un créneau ci-dessous pour votre premier échange gratuit de 30 minutes, ou posez votre question dans le formulaire à droite.</p>
+      </div>
+
+      <div class="booking-layout">
+        <div class="booking-layout__calendar card card--calendar">
+          <h2 data-i18n="appointmentFormTitle">Choisir un créneau</h2>
+          <p class="booking-note" data-i18n="calendlyText">Choisissez directement un créneau ci-dessous pour votre premier échange gratuit.</p>
+
+          <!-- Calendly inline widget (widget JavaScript officiel) -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/sylvianebahr/30min?primary_color=0f766e&amp;utm_source=sylvianebahr.com&amp;utm_medium=website&amp;utm_campaign=appointments-embed" data-resize="true" style="height:700px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+          <p class="form__note" data-i18n="calendlyNote">Le calendrier est intégré à cette page par Calendly, qui applique sa propre politique de confidentialité. <a href="privacy.html">En savoir plus</a>.</p>
+          <p class="form__note" data-i18n="calendlyFallbackNote">Le calendrier ne s'affiche pas ? <a href="https://calendly.com/sylvianebahr/30min?utm_source=sylvianebahr.com&amp;utm_medium=website&amp;utm_campaign=appointments-fallback" target="_blank" rel="noopener">Ouvrir Calendly dans un nouvel onglet</a>. Une réservation faite par ce lien externe n'est pas comptée automatiquement.</p>
+          <p class="form__note" data-i18n="freeCallDisclaimer">Cet échange sert à faire connaissance : il ne constitue pas une séance de thérapie.</p>
+        </div>
+
+        <div class="booking-layout__form card card--form" id="contact">
+          <h2 data-i18n="contactWriteIntro">Envoyer une question</h2>
+          <p class="form__note form__note--top" data-i18n="contactNote">Le formulaire est transmis par FormSubmit à sylviane_bahr@hotmail.com. Vous pouvez aussi utiliser le bouton WhatsApp.</p>
+          <form
+            id="contact-form"
+            data-async-form
+            action="https://formsubmit.co/ajax/sylviane_bahr@hotmail.com"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="Question depuis la page de rendez-vous de Sylviane Bahr">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <label class="form__honeypot" aria-hidden="true">Ne pas remplir<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+            <label>
+              <span data-i18n="contactNameLabel">Nom complet</span>
+              <input type="text" name="name" required maxlength="100" autocomplete="name" data-i18n-placeholder="contactNamePlaceholder" placeholder="Votre nom">
+            </label>
+            <label>
+              <span data-i18n="contactEmailLabel">Email</span>
+              <input type="email" name="email" required maxlength="254" autocomplete="email" data-i18n-placeholder="contactEmailPlaceholder" placeholder="vous@example.com">
+            </label>
+            <label>
+              <span data-i18n="contactTopicLabel">Objet de votre demande</span>
+              <select name="topic" required autocomplete="off">
+                <option value="" data-i18n="contactTopicPlaceholder">Choisir un sujet</option>
+                <option value="therapy" data-i18n="contactTopicTherapy">Thérapie</option>
+                <option value="coaching" data-i18n="contactTopicCoaching">Coaching</option>
+                <option value="other" data-i18n="contactTopicOther">Question pratique / autre</option>
+              </select>
+            </label>
+            <label>
+              <span data-i18n="contactCountryLabel">Pays ou lieu actuel</span>
+              <input type="text" name="current_location" required maxlength="100" autocomplete="country-name" data-i18n-placeholder="contactCountryPlaceholder" placeholder="Ex. France, Londres, Singapour">
+            </label>
+            <label>
+              <span data-i18n="contactMessageLabel">Votre message</span>
+              <textarea name="message" rows="4" required maxlength="1500" data-i18n-placeholder="contactMessagePlaceholder" placeholder="Votre question pratique, sans données de santé détaillées"></textarea>
+            </label>
+            <p class="form__safety" data-i18n="contactSafetyNote">Pour ce premier contact, merci de ne pas inclure de diagnostic, d'histoire médicale ou d'autres données sensibles. Ce formulaire n'est pas un service d'urgence.</p>
+            <label class="form__consent"><input type="checkbox" name="privacy_consent" value="accepted" required><span data-i18n="contactPrivacyConsent">J'ai lu la <a href="privacy.html">politique de confidentialité</a> et j'accepte l'utilisation de mes données pour répondre à ma demande.</span></label>
+            <button type="submit" class="btn btn--wide" data-i18n="contactSubmit">Envoyer le message</button>
+            <p class="form__status" data-form-status hidden></p>
+          </form>
+        </div>
+      </div>
+
+      <div class="formats-row">
+        <div>
+          <p class="micro-like" data-i18n="formatInPersonTitle">Présentiel</p>
+          <p data-i18n="formatInPersonText">Cabinet à Sant Cugat del Vallès (Barcelone), Josep Puig i Cadafalch 42-44, accessible en transport. <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Josep%20Puig%20i%20Cadafalch%2042-44%2C%2008172%20Sant%20Cugat%20del%20Vall%C3%A8s" target="_blank" rel="noopener">Voir sur Google Maps</a>.</p>
+        </div>
+        <div>
+          <p class="micro-like" data-i18n="formatOnlineTitle">Visio sécurisée</p>
+          <p data-i18n="formatOnlineText">Séances en ligne, support entre séances possible.</p>
+        </div>
+        <div>
+          <p class="micro-like" data-i18n="formatGroupTitle">Groupes &amp; cercles</p>
+          <p data-i18n="formatGroupText">Groupes Gestalt, ateliers ados/parents, cercles de parole, dont le <a class="text-link" href="cercle-hommes-sant-cugat.html">cercle d'hommes à Sant Cugat</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tarifs" class="section">
+      <div class="section__header">
+        <p class="pill pill--subtle" data-i18n="pricingBadge">Tarifs et modalités</p>
+        <h2 data-i18n="pricingTitle">Tarifs des séances de thérapie</h2>
+        <p class="section__lead" data-i18n="pricingLead">Des tarifs clairs, selon le format et votre pays de résidence. Le tarif applicable est confirmé avec vous lors du premier échange.</p>
+      </div>
+      <div class="pricing-block">
+        <div class="pricing" data-pricing></div>
+        <p class="pricing__note" data-i18n="pricingSolidarity">Tarif solidaire possible : à évoquer lors du premier échange.</p>
+        <p class="pricing__note" data-i18n="pricingScopeNote">Ces tarifs concernent les séances de thérapie. Pour le coaching, les conditions sont précisées lors du premier échange.</p>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="section__header">
+        <p class="pill pill--subtle">Questions fréquentes</p>
+        <h2>Avant de réserver</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item"><h3 data-i18n="apptFaq1Q">Est-ce que le premier échange est gratuit ?</h3><p data-i18n="apptFaq1A">Oui. Le premier échange de 30 minutes sert à clarifier votre demande, répondre aux questions pratiques et voir si le cadre proposé vous convient.</p></div>
+        <div class="faq-item"><h3 data-i18n="apptFaq2Q">Est-ce possible en visio ?</h3><p data-i18n="apptFaq2A">Oui, les séances peuvent se faire en ligne lorsque ce format est adapté à votre situation. Le présentiel est possible à Barcelone et à Sant Cugat del Vallès.</p></div>
+        <div class="faq-item"><h3 data-i18n="apptFaq3Q">Dans quelles langues ?</h3><p data-i18n="apptFaq3A">Les séances peuvent se dérouler en français, en anglais ou en espagnol.</p></div>
+        <div class="faq-item"><h3 data-i18n="apptFaq4Q">Thérapie ou coaching : comment choisir ?</h3><p data-i18n="apptFaq4A">Si vous hésitez, nous le clarifions ensemble. La thérapie travaille davantage l'expérience émotionnelle et relationnelle ; le coaching convient mieux à un objectif professionnel ou personnel précis.</p></div>
+        <div class="faq-item"><h3 data-i18n="apptFaq5Q">Combien coûte une séance ?</h3><p data-i18n="apptFaq5A">La grille complète figure dans la rubrique <a class="text-link" href="#tarifs">Tarifs et modalités</a> : présentiel à Barcelone / Sant Cugat, visio pour l'Espagne, le Royaume-Uni et Singapour. Un tarif solidaire est possible.</p></div>
+        <div class="faq-item"><h3 data-i18n="apptFaq6Q">Cet échange est-il une séance de thérapie ?</h3><p data-i18n="apptFaq6A">Non. Le premier échange de 30 minutes sert à faire connaissance, à clarifier votre demande et les modalités ; il ne constitue pas une séance de thérapie.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+  <p class="foot__name">Sylviane Bahr</p>
+  <div class="foot__cols">
+    <div><span>Cabinet</span><p>Josep Puig i Cadafalch, 42-44<br>08172 Sant Cugat del Vallès</p></div>
+    <div><span>Contact</span><p><a href="mailto:sylviane_bahr@hotmail.com">sylviane_bahr@hotmail.com</a><br>WhatsApp via le bouton du site</p></div>
+    <div><span>Pages</span><p><a href="therapy.html">Thérapie</a> · <a href="coaching.html">Coaching</a><br><a href="appointments.html">RDV</a> · <a href="resources.html">Ressources</a> · <a href="about.html">À propos</a></p></div>
+  </div>
+  <p class="foot__legal"><a href="privacy.html">Confidentialité</a> · <a href="legal.html">Mentions légales</a> · Français / English</p>
+</footer>
+
+  <script src="translations.js?v=20261007"></script>
+  <script src="pricing.js?v=20261007"></script>
+  <script src="app.js?v=20261007"></script>
+</body>
+</html>

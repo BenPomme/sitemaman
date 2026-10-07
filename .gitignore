@@ -1,3 +1,5 @@
 .playwright-cli/
 .scratch/
 .DS_Store
+
+v2/

@@ -1,0 +1,482 @@
+(() => {
+  const WHATSAPP_NUMBER = "34647376533";
+  const CONTACT_EMAIL = "sylviane_bahr@hotmail.com";
+  const WHATSAPP_MESSAGES = {
+    fr: "Bonjour Sylviane, je vous contacte depuis votre site pour un premier échange.",
+    en: "Hello Sylviane, I am contacting you from your website about a first conversation.",
+    es: "Hola Sylviane, te contacto desde tu web para una primera conversación.",
+  };
+  const CIRCLE_WHATSAPP_MESSAGES = {
+    fr: "Bonjour Sylviane, je suis intéressé par le cercle d'hommes à Barcelone et Sant Cugat.",
+    en: "Hello Sylviane, I am interested in the men's circle in Barcelona and Sant Cugat.",
+    es: "Hola Sylviane, estoy interesado en el círculo de hombres en Barcelona y Sant Cugat.",
+  };
+  // Tous les boutons de réservation mènent au calendrier Calendly intégré
+  // dans la page de rendez-vous (widget officiel).
+  const BOOKING_PAGE = "appointments.html#reserver";
+  const CALENDLY_ORIGIN = "https://calendly.com";
+  const BOOKING_CONFIRMED_KEY = "sb-booking-confirmed";
+
+  // ==== Google Ads : une seule méthode de comptage ====
+  // Renseigner ici l'identifiant de conversion Google Ads, par exemple
+  // "AW-123456789/AbCdEfGh". Un seul envoi est effectué par réservation
+  // confirmée, depuis la page /confirmation.html.
+  // Ne pas créer en parallèle une conversion Google Ads sur la simple
+  // visite de /confirmation.html : ce serait un second comptage.
+  const GOOGLE_ADS_CONVERSION_SEND_TO =
+    typeof window.SB_GOOGLE_ADS_CONVERSION_SEND_TO === "string"
+      ? window.SB_GOOGLE_ADS_CONVERSION_SEND_TO
+      : "";
+
+  // Consentement publicitaire. Tant qu'un bandeau de consentement n'expose
+  // pas cette fonction (ou tant qu'elle renvoie false), aucun signal n'est
+  // transmis à Google. Exemple côté bandeau :
+  // window.sbHasAdsConsent = () => true; (après acceptation)
+  const adsConsentGranted = () =>
+    typeof window.sbHasAdsConsent === "function" && window.sbHasAdsConsent() === true;
+
+  const readConfirmedBooking = () => {
+    try {
+      const raw = sessionStorage.getItem(BOOKING_CONFIRMED_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const consumeConfirmedBooking = () => {
+    const confirmed = readConfirmedBooking();
+    try {
+      sessionStorage.removeItem(BOOKING_CONFIRMED_KEY);
+    } catch {
+      // Stockage indisponible : on continue sans comptage publicitaire.
+    }
+    return confirmed;
+  };
+
+  const selector = document.getElementById("language-selector");
+  const pageLang = (document.documentElement.lang || "fr").split("-")[0];
+  const isStaticLanguagePage = document.documentElement.hasAttribute("data-static-language");
+  const storedLang = localStorage.getItem("site-lang");
+  const defaultLang = isStaticLanguagePage ? pageLang : storedLang || pageLang;
+  let currentLang = translations[defaultLang] ? defaultLang : "fr";
+
+  const trackEvent = (eventName, details = {}) => {
+    const payload = Object.fromEntries(
+      Object.entries(details).filter(([, value]) => value !== undefined && value !== ""),
+    );
+
+    if (typeof window.gtag === "function" && adsConsentGranted()) {
+      window.gtag("event", eventName, payload);
+      return;
+    }
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: eventName, ...payload });
+  };
+
+  // Comptage unique d'une réservation confirmée. Aucun nom, email ni détail
+  // du rendez-vous n'est transmis : uniquement la page et la langue.
+  const reportConfirmedBooking = (confirmed) => {
+    const details = {
+      source: "calendly_embed",
+      placement: "calendly_embed",
+      page_path: "/confirmation.html",
+      page_language: confirmed && confirmed.lang ? confirmed.lang : "fr",
+    };
+
+    if (GOOGLE_ADS_CONVERSION_SEND_TO && adsConsentGranted() && typeof window.gtag === "function") {
+      window.gtag("event", "conversion", {
+        send_to: GOOGLE_ADS_CONVERSION_SEND_TO,
+        ...details,
+      });
+      return;
+    }
+
+    // Sans identifiant, sans tag Google ou sans consentement : trace interne
+    // uniquement, aucune transmission publicitaire.
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "booking_completed_internal", ...details });
+  };
+
+  const updateWhatsAppLink = (lang) => {
+    const link = document.querySelector("[data-whatsapp-link]");
+    const dict = translations[lang] || translations.fr;
+
+    if (link) {
+      const message = WHATSAPP_MESSAGES[lang] || WHATSAPP_MESSAGES.fr;
+      link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      link.setAttribute("aria-label", dict.whatsappAria || "Contact Sylviane on WhatsApp");
+      link.setAttribute("title", dict.whatsappAria || "Contact Sylviane on WhatsApp");
+    }
+
+    const circleLink = document.querySelector("[data-whatsapp-circle]");
+    if (circleLink) {
+      const circleMessage = CIRCLE_WHATSAPP_MESSAGES[lang] || CIRCLE_WHATSAPP_MESSAGES.fr;
+      circleLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(circleMessage)}`;
+    }
+
+    const bookingBar = document.querySelector("[data-booking-bar]");
+    if (bookingBar) {
+      bookingBar.setAttribute(
+        "aria-label",
+        dict.bookingBarAria || "Réserver un premier échange gratuit de 30 minutes",
+      );
+    }
+  };
+
+  // Prices live in pricing.js so they can be updated in one place.
+  // Containers opt in with data-pricing and can filter rows with
+  // data-pricing-ids="in-person,online-spain".
+  const renderPricing = (lang) => {
+    const config = window.SITE_PRICING;
+    const containers = document.querySelectorAll("[data-pricing]");
+    if (!config || !Array.isArray(config.items) || !containers.length) return;
+
+    const dict = translations[lang] || translations.fr;
+
+    containers.forEach((container) => {
+      const requestedIds = (container.dataset.pricingIds || "")
+        .split(",")
+        .map((id) => id.trim())
+        .filter(Boolean);
+      const items = config.items.filter(
+        (item) => !requestedIds.length || requestedIds.includes(item.id),
+      );
+      if (!items.length) return;
+
+      const list = document.createElement("ul");
+      list.className = "pricing__list";
+
+      items.forEach((item) => {
+        const row = document.createElement("li");
+        row.className = "pricing__row";
+
+        const label = document.createElement("span");
+        label.className = "pricing__label";
+        label.textContent = (item.label && (item.label[lang] || item.label.fr)) || "";
+
+        const amount = document.createElement("span");
+        amount.className = "pricing__amount";
+        amount.textContent = item.amount || "";
+
+        row.append(label, amount);
+        list.append(row);
+      });
+
+      container.replaceChildren(list);
+
+      if (config.draft) {
+        const badge = document.createElement("p");
+        badge.className = "pricing__draft";
+        badge.textContent =
+          dict.pricingDraft || "Grille proposée, en validation avant publication";
+        container.append(badge);
+      }
+    });
+  };
+
+  const translateTextNodes = (lang) => {
+    const dict = translations[lang] || translations.fr;
+    if (!isStaticLanguagePage) document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach((node) => {
+      const key = node.getAttribute("data-i18n");
+      if (dict[key]) {
+        // Use innerHTML if the translation contains HTML tags, otherwise use textContent
+        if (dict[key].includes("<")) {
+          node.innerHTML = dict[key];
+        } else {
+          node.textContent = dict[key];
+        }
+      }
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+      const key = node.getAttribute("data-i18n-placeholder");
+      if (dict[key]) node.placeholder = dict[key];
+    });
+
+    updateWhatsAppLink(lang);
+    renderPricing(lang);
+  };
+
+  const handleLanguageChange = (lang) => {
+    if (isStaticLanguagePage) {
+      const targetUrl = document.documentElement.getAttribute(`data-lang-${lang}`);
+      if (targetUrl) {
+        localStorage.setItem("site-lang", lang);
+        window.location.href = targetUrl;
+        return;
+      }
+
+      if (selector) selector.value = currentLang;
+      return;
+    }
+
+    currentLang = translations[lang] ? lang : "fr";
+    localStorage.setItem("site-lang", currentLang);
+    translateTextNodes(currentLang);
+  };
+
+  const createWhatsAppButton = () => {
+    if (document.querySelector("[data-whatsapp-link]")) return;
+
+    const link = document.createElement("a");
+    link.className = "whatsapp-float";
+    link.dataset.whatsappLink = "true";
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.dataset.track = "whatsapp_click";
+    link.dataset.trackSource = "floating_button";
+    link.innerHTML = `
+      <svg class="whatsapp-float__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path d="M16.03 4.2c-6.37 0-11.55 5.12-11.55 11.43 0 2.12.6 4.19 1.72 5.99L4.38 28l6.55-1.7a11.68 11.68 0 0 0 5.1 1.18c6.37 0 11.55-5.12 11.55-11.43S22.4 4.2 16.03 4.2Zm0 21.34c-1.7 0-3.36-.43-4.83-1.25l-.35-.2-3.88 1.01 1.04-3.74-.23-.38a9.67 9.67 0 0 1-1.38-4.95c0-5.24 4.32-9.5 9.63-9.5 5.3 0 9.62 4.26 9.62 9.5 0 5.25-4.32 9.51-9.62 9.51Zm5.28-7.12c-.29-.14-1.7-.83-1.96-.92-.26-.1-.45-.14-.64.14-.19.28-.74.92-.9 1.11-.17.19-.33.21-.62.07-.29-.14-1.22-.45-2.33-1.43a8.72 8.72 0 0 1-1.61-1.99c-.17-.28-.02-.43.13-.57.13-.13.29-.33.43-.5.14-.16.19-.28.29-.47.1-.19.05-.36-.02-.5-.08-.14-.64-1.53-.88-2.1-.23-.55-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.28-1 1-1 2.43 0 1.42 1.04 2.8 1.18 2.99.14.19 2.04 3.08 4.95 4.32.69.3 1.23.48 1.65.61.69.22 1.32.19 1.82.12.55-.08 1.7-.69 1.94-1.35.24-.66.24-1.23.17-1.35-.07-.12-.26-.19-.55-.33Z"/>
+      </svg>
+      <span class="whatsapp-float__text" data-i18n="whatsappCTA">WhatsApp</span>
+    `;
+
+    document.body.appendChild(link);
+  };
+
+  const createBookingBar = () => {
+    // La page de confirmation n'affiche pas la barre de réservation.
+    if (document.body.hasAttribute("data-booking-confirmation")) return;
+    if (document.querySelector("[data-booking-bar]")) return;
+
+    const bar = document.createElement("div");
+    bar.className = "booking-bar";
+    bar.dataset.bookingBar = "true";
+    bar.setAttribute("role", "region");
+
+    const link = document.createElement("a");
+    link.className = "btn booking-bar__btn";
+    link.href = BOOKING_PAGE;
+    link.dataset.track = "booking_click";
+    link.dataset.trackSource = "mobile-sticky-bar";
+    link.setAttribute("data-i18n", "bookFreeCta");
+    link.textContent = "Réserver 30 min gratuites";
+
+    bar.append(link);
+    document.body.append(bar);
+    document.body.classList.add("has-booking-bar");
+  };
+
+  const setFormStatus = (form, message, state, actions = []) => {
+    const statusNode = form.querySelector("[data-form-status]");
+    if (!statusNode) return;
+
+    statusNode.replaceChildren();
+    statusNode.hidden = !message;
+    statusNode.dataset.state = state || "";
+
+    if (!message) return;
+
+    statusNode.append(document.createTextNode(message));
+    if (!actions.length) return;
+
+    const list = document.createElement("span");
+    list.className = "form__status-actions";
+    actions.forEach(({ href, label, external }) => {
+      const link = document.createElement("a");
+      link.className = "form__status-action";
+      link.href = href;
+      link.textContent = label;
+      if (external) {
+        link.target = "_blank";
+        link.rel = "noopener";
+      }
+      list.append(link);
+    });
+    statusNode.append(list);
+  };
+
+  // Builds a ready-to-send message from what the visitor already typed, so a
+  // failed submission never costs the enquiry.
+  const buildFallbackActions = (form, dict) => {
+    const data = new FormData(form);
+    const value = (key) => String(data.get(key) || "").trim();
+    const name = value("name");
+    const email = value("email");
+    const phone = value("whatsapp");
+    const language = value("language_preference");
+    const comment = value("message") || value("current_location");
+
+    const body = [
+      value("_subject") || "Nouvelle demande depuis le site",
+      name && `Nom: ${name}`,
+      email && `Email: ${email}`,
+      phone && `WhatsApp: ${phone}`,
+      language && `Langue preferee: ${language}`,
+      comment && `Message: ${comment}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const subject = value("_subject") || "Demande depuis le site";
+    return [
+      {
+        href: `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+        label: dict.formMailFallback || "Envoyer par email",
+      },
+      {
+        href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(body)}`,
+        label: dict.formWhatsAppFallback || "Envoyer par WhatsApp",
+        external: true,
+      },
+    ];
+  };
+
+  // FormSubmit replies "success: false" (HTTP 200) when the address still needs
+  // activation, or when it cannot relay the message. Treat that as a failure.
+  const CAPTCHA_CHALLENGE = /(almost there|fight spam|clicking the box below|verify you are human|recaptcha)/i;
+
+  const readFormResponse = async (response) => {
+    const raw = await response.text();
+    if (!raw.trim().startsWith("{")) {
+      // A non-JSON reply is FormSubmit's own HTML page. If it is a spam
+      // challenge, the message was never queued, so it must not read as success.
+      return { delivered: response.ok && !CAPTCHA_CHALLENGE.test(raw), body: null, raw };
+    }
+
+    try {
+      const body = JSON.parse(raw);
+      const flag = String(body.success ?? "").toLowerCase();
+      return { delivered: response.ok && (flag === "true" || flag === ""), body, raw };
+    } catch {
+      return { delivered: response.ok, body: null, raw };
+    }
+  };
+
+  const isActivationNotice = (result) => {
+    const message = String(result.body?.message || result.raw || "");
+    return /activat/i.test(message);
+  };
+
+  const handleFormSubmission = (form) => {
+    if (!form) return;
+
+    form.addEventListener("submit", async (event) => {
+      const action = form.getAttribute("action");
+      if (!action) return;
+
+      event.preventDefault();
+
+      const dict = translations[currentLang] || translations.fr;
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      if (submitButton) submitButton.disabled = true;
+      setFormStatus(form, dict.formSending || "Sending...", "sending");
+
+      try {
+        const response = await fetch(action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        const result = await readFormResponse(response);
+        if (!result.delivered) throw result;
+
+        form.reset();
+        setFormStatus(form, dict.formSuccess || "Thanks for your message!", "success");
+        trackEvent("inquiry_form_success", {
+          form_id: form.id || "contact-form",
+          page_path: window.location.pathname,
+        });
+      } catch (error) {
+        console.error(error);
+        const needsActivation = isActivationNotice(error);
+        setFormStatus(
+          form,
+          needsActivation
+            ? dict.formActivation || dict.formError
+            : dict.formError || "The message could not be sent. Please try again later.",
+          "error",
+          buildFallbackActions(form, dict),
+        );
+        trackEvent("inquiry_form_error", {
+          form_id: form.id || "contact-form",
+          page_path: window.location.pathname,
+          reason: needsActivation ? "form_not_activated" : "delivery_failed",
+        });
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (selector) selector.value = currentLang;
+    createWhatsAppButton();
+    createBookingBar();
+    translateTextNodes(currentLang);
+
+    document.querySelectorAll("[data-form-status]").forEach((node) => {
+      node.setAttribute("role", "status");
+      node.setAttribute("aria-live", "polite");
+    });
+
+    selector?.addEventListener("change", (e) => handleLanguageChange(e.target.value));
+
+    document.addEventListener("click", (event) => {
+      const target = event.target.closest(
+        "[data-track], a[href*='calendly.com'], a[href*='appointments.html'], a[href*='contact.html']",
+      );
+      if (!target) return;
+
+      const href = target.getAttribute("href") || "";
+      const inferredEvent = href.includes("contact.html") ? "inquiry_path_click" : "booking_path_click";
+      const eventName = target.dataset.track || (href.includes("calendly.com") ? "booking_click" : inferredEvent);
+      const source = target.dataset.trackSource || "unspecified";
+      trackEvent(eventName, {
+        source,
+        placement: source,
+        page_path: window.location.pathname,
+        page_language: currentLang,
+        destination: target.href ? new URL(target.href, window.location.href).hostname : undefined,
+      });
+    });
+
+    // Un clic n'est pas une réservation. Calendly ne confirme une réservation
+    // que par un message postMessage émis depuis l'iframe de son widget.
+    // On vérifie l'origine exacte, la fenêtre émettrice et le nom de
+    // l'événement avant toute action, puis on ne déclenche qu'une fois.
+    let bookingConfirmedOnThisPage = false;
+    window.addEventListener("message", (event) => {
+      if (event.origin !== CALENDLY_ORIGIN) return;
+      if (!event.data || event.data.event !== "calendly.event_scheduled") return;
+
+      const widget = document.querySelector(".calendly-inline-widget");
+      const iframe = widget ? widget.querySelector("iframe") : null;
+      if (!iframe || event.source !== iframe.contentWindow) return;
+      if (bookingConfirmedOnThisPage) return;
+      bookingConfirmedOnThisPage = true;
+
+      // Réservation réellement enregistrée : on mémorise la confirmation
+      // (et la langue utilisée) pour la page /confirmation.html, puis on y
+      // redirige. Le comptage publicitaire n'a lieu que sur cette page.
+      try {
+        sessionStorage.setItem(
+          BOOKING_CONFIRMED_KEY,
+          JSON.stringify({ lang: currentLang, at: Date.now() }),
+        );
+      } catch {
+        // Stockage indisponible : la confirmation s'affiche quand même.
+      }
+      window.location.assign("confirmation.html");
+    });
+
+    // Page de confirmation : un envoi unique, uniquement si la confirmation
+    // provient d'une réservation Calendly vérifiée. Une visite directe ne
+    // trouve aucun marqueur et ne déclenche donc aucun comptage.
+    if (document.body.hasAttribute("data-booking-confirmation")) {
+      const confirmed = consumeConfirmedBooking();
+      if (confirmed) reportConfirmedBooking(confirmed);
+    }
+
+    document.querySelectorAll("[data-async-form]").forEach(handleFormSubmission);
+  });
+})();
