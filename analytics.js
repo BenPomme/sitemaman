@@ -35,13 +35,10 @@
   tagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GOOGLE_ADS_TAG_ID;
   document.head.appendChild(tagScript);
 
-  // À renseigner quand l'action de conversion "Réservation 30 min" sera créée
-  // dans Google Ads (format AW-18499976691/xxxxxxxx). app.js lit cette valeur
-  // au chargement pour déclencher la conversion sur /confirmation.html.
-  window.SB_GOOGLE_ADS_CONVERSION_SEND_TO =
-    typeof window.SB_GOOGLE_ADS_CONVERSION_SEND_TO === "string"
-      ? window.SB_GOOGLE_ADS_CONVERSION_SEND_TO
-      : "";
+  // Action de conversion "Réservation 30 min" (catégorie Prise de rendez-vous)
+  // créée dans Google Ads le 7 octobre 2026. app.js lit cette valeur au
+  // chargement pour déclencher la conversion sur /confirmation.html.
+  window.SB_GOOGLE_ADS_CONVERSION_SEND_TO = "AW-18499976691/4aizCIre4ZQdEPP7vPVE";
 
   function readChoice() {
     try {
