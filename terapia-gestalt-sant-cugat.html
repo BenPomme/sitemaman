@@ -24,7 +24,7 @@
     <nav class="nav">
       <a href="index.html">Inicio</a><a href="therapy.html">Terapia</a><a href="coaching.html">Coaching</a><a href="about.html">Sobre mí</a><a href="resources.html">Recursos</a><a href="appointments.html">Cita</a><a href="contact.html">Contacto</a>
     </nav>
-    <div class="controls"><select id="language-selector" aria-label="Language selector"><option value="es" selected>ES</option><option value="fr">FR</option><option value="en">EN</option></select></div>
+    <div class="controls"><select id="language-selector" aria-label="Language selector"><option value="es" selected>ES</option><option value="fr">FR</option><option value="en">EN</option></select><a class="btn topbar__cta" href="appointments.html#reserver" data-track="booking_click" data-track-source="header">Reservar 30 min gratuitos</a></div>
   </header>
   <main>
     <section class="hero">
@@ -32,7 +32,8 @@
         <p class="pill">Barcelona · Sant Cugat del Vallès · Online</p>
         <h1>Terapia Gestalt y acompañamiento humanista en Sant Cugat y Barcelona</h1>
         <p class="lead">Un espacio confidencial para atravesar ansiedad, estrés, cambios vitales, duelos, dificultades relacionales o momentos en los que necesitas recuperar claridad y apoyo.</p>
-        <div class="hero__actions"><a class="btn" href="appointments.html">Reservar una primera conversación gratuita</a><a class="btn btn--ghost" href="contact.html">Hacer una pregunta</a></div>
+        <div class="hero__actions"><a class="btn" href="appointments.html#reserver" data-track="booking_click" data-track-source="terapia-gestalt-hero">Reservar 30 min gratuitos</a><a class="btn btn--ghost" href="contact.html">Hacer una pregunta</a></div>
+        <p class="hero__cta-note">Una primera conversación para conocernos y ver si este acompañamiento te conviene. Sin compromiso. No es una sesión de terapia.</p>
         <div class="trust-strip">
           <div class="trust-strip__item"><span class="trust-strip__label">Idiomas</span><span class="trust-strip__value">Francés, inglés, español</span></div>
           <div class="trust-strip__item"><span class="trust-strip__label">Formato</span><span class="trust-strip__value">Presencial u online</span></div>
@@ -45,7 +46,7 @@
         <div class="hero__card">
           <div class="card__header"><p class="card__eyebrow">Primer intercambio</p><p class="card__price">30 min · gratuito</p></div>
           <ul class="card__list"><li>Clarificar tu situación</li><li>Ver si la terapia o el coaching encajan</li><li>Elegir presencial u online</li></ul>
-          <a class="btn btn--wide" href="appointments.html">Ver disponibilidad</a>
+          <a class="btn btn--wide" href="appointments.html#reserver" data-track="booking_click" data-track-source="terapia-gestalt-card">Reservar 30 min gratuitos</a>
           <p class="card__footnote">Respuesta rápida · Sin compromiso</p>
         </div>
       </div>
@@ -58,11 +59,19 @@
         <div class="card card--soft"><h3>Cambios vitales</h3><p>Expatriación, maternidad, duelo, cambio profesional o momentos de pérdida de referencias.</p></div>
       </div>
     </section>
+    <section id="tarifs" class="section">
+      <div class="section__header"><p class="pill pill--subtle">Tarifas y modalidades</p><h2>Tarifas de las sesiones</h2><p class="section__lead">La tarifa aplicable se confirma contigo durante la primera conversación, antes de la primera sesión.</p></div>
+      <div class="card card--highlight">
+        <div class="pricing pricing--compact" data-pricing data-pricing-ids="in-person,online-spain"></div>
+        <p class="pricing__note">Tarifa solidaria posible: coméntalo durante la primera conversación.</p>
+        <p class="pricing__note"><a class="text-link" href="appointments.html#tarifs">Ver todas las tarifas y modalidades</a></p>
+      </div>
+    </section>
     <section class="section">
-      <div class="cta-box"><h2>Empezar con una conversación sencilla</h2><p>La primera llamada gratuita permite aclarar tu necesidad y decidir si este acompañamiento es adecuado para ti.</p><div class="cta-box__actions"><a href="appointments.html" class="btn">Reservar 30 minutos gratis</a><a href="contact.html" class="btn btn--ghost">Escribir antes</a></div></div>
+      <div class="cta-box"><h2>Empezar con una conversación sencilla</h2><p>La primera llamada gratuita permite aclarar tu necesidad y decidir si este acompañamiento es adecuado para ti. No es una sesión de terapia.</p><div class="cta-box__actions"><a href="appointments.html#reserver" class="btn" data-track="booking_click" data-track-source="terapia-gestalt-bottom">Reservar 30 min gratuitos</a><a href="contact.html" class="btn btn--ghost">Escribir antes</a></div></div>
     </section>
   </main>
   <footer class="footer"><p>Sylviane Bahr · Psicoterapia & Coaching · Barcelona & Sant Cugat · en línea</p><p class="footer__meta">Francés, inglés y español · <a href="cercle-hommes-sant-cugat.html">Círculo de hombres Barcelona y Sant Cugat</a></p></footer>
-  <script src="translations.js?v=20260816"></script><script src="app.js?v=20260816"></script>
+  <script src="translations.js?v=20261007"></script><script src="pricing.js?v=20261007"></script><script src="app.js?v=20261007"></script>
 </body>
 </html>

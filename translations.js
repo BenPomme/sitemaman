@@ -20,10 +20,14 @@ const translations = {
 
     // Hero section (HOME)
     heroBadge: "Barcelone / Sant Cugat / En ligne : FR / EN",
-    heroTitle: "Un accompagnement humain, engagé et sur-mesure.",
-    heroSubtitle: "Thérapie Gestalt ou coaching : deux cadres différents, une même intention : aider à retrouver clarté, solidité et mouvement.",
+    heroTitle: "Thérapie Gestalt en français et en anglais : à Barcelone, Sant Cugat et en ligne.",
+    heroSubtitle: "Difficultés relationnelles, périodes de transition, stress, sentiment de perte de repères, expatriation : un espace pour retrouver clarté, solidité et mouvement.",
     heroCTATherapy: "Commencer une thérapie",
     heroCTACoaching: "Démarrer un coaching",
+    bookFreeCta: "Réserver 30 min gratuites",
+    bookFreeCtaNote: "Un premier échange pour faire connaissance et voir si cet accompagnement vous convient. Sans engagement.",
+    freeCallDisclaimer: "Cet échange sert à faire connaissance : il ne constitue pas une séance de thérapie.",
+    bookingBarAria: "Réserver un premier échange gratuit de 30 minutes",
 
     // Entry blocks (HOME)
     entryBadge: "Choisir votre porte d'entrée",
@@ -48,8 +52,52 @@ const translations = {
     cardItem1: "Clarifier votre situation et vos objectifs",
     cardItem2: "Choisir le cadre : thérapie ou coaching, individuel ou groupe",
     cardItem3: "Définir un rythme qui vous convient",
-    cardCTA: "Réserver un créneau",
-    cardNote: "Réponse sous 24h · présentiel ou visio",
+    cardCTA: "Réserver 30 min gratuites",
+    cardNote: "Réponse sous 24h · présentiel ou visio · sans engagement",
+
+    // How to start (HOME)
+    homeStepsBadge: "Comment commencer",
+    homeStepsTitle: "Trois étapes simples",
+    homeSteps1: "Réserver l'échange gratuit de 30 minutes.",
+    homeSteps2: "Faire connaissance et clarifier votre demande.",
+    homeSteps3: "Convenir ensemble du cadre, du tarif et du rythme des séances.",
+    homeCtaMidTitle: "Voir si cet accompagnement vous convient",
+    homeCtaMidText: "Le premier échange de 30 minutes est gratuit. Il permet de faire connaissance et de clarifier ce qui serait le plus juste pour vous.",
+    homeCtaFinalTitle: "Commencer par un échange gratuit",
+    homeCtaFinalText: "Réservez 30 minutes pour faire connaissance, poser vos questions et voir ensemble la suite, sans engagement.",
+    homePricingLink: "Voir les tarifs et modalités",
+
+    // Trust strip (HOME)
+    trustBadge: "Repères",
+    trustQualificationLabel: "Formation",
+    trustQualificationValue: "Gestalt-thérapie, Institut Gestalt de Barcelone",
+    trustCoachLabel: "Coaching",
+    trustCoachValue: "Coach certifiée ACC (ICF)",
+    trustFrameLabel: "Cadre",
+    trustFrameValue: "Pratique supervisée, en français, anglais ou espagnol",
+    trustPlacesLabel: "Consultations",
+    trustPlacesValue: "Cabinet à Sant Cugat del Vallès (Josep Puig i Cadafalch 42-44) · Barcelone · visio",
+
+    // Pricing (APPOINTMENTS + CONSULTATION PAGES)
+    pricingBadge: "Tarifs et modalités",
+    pricingTitle: "Tarifs des séances de thérapie",
+    pricingLead: "Des tarifs clairs, selon le format et votre pays de résidence. Le tarif applicable est confirmé avec vous lors du premier échange, avant la première séance.",
+    pricingDraft: "Grille proposée, en validation avant publication",
+    pricingSolidarity: "Tarif solidaire possible : à évoquer lors du premier échange.",
+    pricingScopeNote: "Ces tarifs concernent les séances de thérapie. Pour le coaching, les conditions sont précisées lors du premier échange.",
+    pricingSeeAll: "Voir tous les tarifs et modalités",
+    apptFaq1Q: "Est-ce que le premier échange est gratuit ?",
+    apptFaq1A: "Oui. Le premier échange de 30 minutes sert à clarifier votre demande, répondre aux questions pratiques et voir si le cadre proposé vous convient.",
+    apptFaq2Q: "Est-ce possible en visio ?",
+    apptFaq2A: "Oui, les séances peuvent se faire en ligne lorsque ce format est adapté à votre situation. Le présentiel est possible à Barcelone et à Sant Cugat del Vallès.",
+    apptFaq3Q: "Dans quelles langues ?",
+    apptFaq3A: "Les séances peuvent se dérouler en français, en anglais ou en espagnol.",
+    apptFaq4Q: "Thérapie ou coaching : comment choisir ?",
+    apptFaq4A: "Si vous hésitez, nous le clarifions ensemble. La thérapie travaille davantage l'expérience émotionnelle et relationnelle ; le coaching convient mieux à un objectif professionnel ou personnel précis.",
+    apptFaq5Q: "Combien coûte une séance ?",
+    apptFaq5A: "La grille complète figure dans la rubrique <a class=\"text-link\" href=\"#tarifs\">Tarifs et modalités</a> : présentiel à Barcelone / Sant Cugat, visio pour l'Espagne, le Royaume-Uni et Singapour. Un tarif solidaire est possible.",
+    apptFaq6Q: "Cet échange est-il une séance de thérapie ?",
+    apptFaq6A: "Non. Le premier échange de 30 minutes sert à faire connaissance, à clarifier votre demande et les modalités ; il ne constitue pas une séance de thérapie.",
 
     // Meta info
     metaLocationLabel: "Cabinet",
@@ -94,7 +142,7 @@ const translations = {
     therapyApproachBlock3b: "* européenne et anglo-saxonne",
     therapyApproachBlock4: "Je considère essentiel, en tant que thérapeute, de <strong>rester en lien avec la recherche européenne et anglo-saxonne</strong>, les évolutions des pratiques cliniques et de continuer à me former régulièrement. La thérapie est un champ vivant, et mon engagement professionnel est de rester en apprentissage constant.",
     therapyApproachBlock5: "Je suis également <strong>supervisée</strong>, ce qui est pour moi une condition indispensable à une pratique éthique, responsable et de qualité. La supervision garantit un espace de recul, de réflexion et de soutien, au service du travail thérapeutique et de la sécurité des personnes accompagnées.",
-    therapyCTA: "Prendre un 1er RDV",
+    therapyCTA: "Réserver 30 min gratuites",
     therapyOnlineCTA: "Thérapie en ligne depuis l'étranger",
 
     // ============ COACHING PAGE ============
@@ -116,8 +164,9 @@ const translations = {
     coachingNotTitle: "Ce que le coaching n'est pas",
     coachingNotText: "Le coaching n'est pas une psychothérapie et ne remplace pas un suivi médical ou thérapeutique.",
 
-    coachingCTA: "Réserver une session de clarté",
+    coachingCTA: "Réserver 30 min gratuites",
     coachingOnlineCTA: "Coaching en ligne pour expatriés",
+    coachingScopeNote: "Pour le coaching, le rythme, la durée et le tarif sont précisés lors du premier échange.",
 
     // My coaching approach
     coachingApproachBadge: "Mon approche",
@@ -170,7 +219,7 @@ const translations = {
     contactLead: "Vous pouvez réserver un premier échange gratuit sur Calendly, m'écrire directement ou me contacter sur WhatsApp. Je réponds rapidement.",
     contactBookTitle: "Prendre un rendez-vous",
     contactBookText: "Pour réserver un premier échange gratuit de 30 minutes, utilisez le calendrier. Si vous préférez poser une question d'abord, le formulaire ci-contre arrive directement sur ma boîte Hotmail, ou vous pouvez m'écrire sur WhatsApp.",
-    contactBookCTA: "Prendre un rendez-vous",
+    contactBookCTA: "Réserver 30 min gratuites",
     contactWriteIntro: "Envoyer une question",
     contactFormTitle: "Formulaire de contact",
     contactNameLabel: "Nom complet",
@@ -194,7 +243,7 @@ const translations = {
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Séances",
     appointmentsTitle: "Prendre rendez-vous",
-    appointmentsLead: "Réservez un premier échange gratuit de 30 minutes sur Calendly ou utilisez le formulaire plus bas pour m'écrire avant de réserver.",
+    appointmentsLead: "Choisissez directement un créneau ci-dessous pour votre premier échange gratuit de 30 minutes, ou utilisez le formulaire plus bas pour m'écrire avant de réserver.",
     appointmentFormTitle: "Choisir un créneau",
     apptNameLabel: "Nom complet",
     apptNamePlaceholder: "Votre nom",
@@ -208,9 +257,9 @@ const translations = {
     apptReasonPlaceholder: "Ex. stress, relations, transitions, ado",
     apptSubmit: "Envoyer la demande",
     apptNote: "Sélectionnez une date et un horaire disponible.",
-    calendlyText: "Cliquez sur le bouton ci-dessous pour accéder au calendrier et réserver votre premier échange gratuit.",
-    calendlyBtn: "Voir les disponibilités",
-    calendlyNote: "Calendly s'ouvrira dans un nouvel onglet et appliquera sa propre politique de confidentialité. <a href=\"privacy.html\">En savoir plus</a>.",
+    calendlyText: "Choisissez directement un créneau ci-dessous pour votre premier échange gratuit.",
+    calendlyNote: "Le calendrier est intégré à cette page par Calendly, qui applique sa propre politique de confidentialité. <a href=\"privacy.html\">En savoir plus</a>.",
+    calendlyFallbackNote: "Le calendrier ne s'affiche pas ? <a href=\"https://calendly.com/sylvianebahr/30min?utm_source=sylvianebahr.com&amp;utm_medium=website&amp;utm_campaign=appointments-fallback\" target=\"_blank\" rel=\"noopener\">Ouvrir Calendly dans un nouvel onglet</a>. Une réservation faite par ce lien externe n'est pas comptée automatiquement.",
     calendlySecondaryCTA: "Envoyer une question à la place",
     appointmentDetailsTitle: "Formats proposés",
     formatInPersonTitle: "Présentiel",
@@ -219,9 +268,9 @@ const translations = {
     formatOnlineText: "Séances en ligne, support entre séances possible.",
     formatGroupTitle: "Groupes & cercles",
     formatGroupText: "Groupes Gestalt, ateliers ados/parents, cercles de parole, dont le <a class=\"text-link\" href=\"cercle-hommes-sant-cugat.html\">cercle d'hommes à Sant Cugat</a>.",
-    rateLabel: "Tarifs",
-    rateValue: "Individuel, couple, groupes · tarif solidaire possible",
-    rateNote: "Détails confirmés lors du rendez-vous.",
+    rateLabel: "Tarifs et modalités",
+    rateValue: "Séances de thérapie, individuel, couple et groupes · tarif solidaire possible",
+    rateNote: "<a class=\"text-link\" href=\"#tarifs\">Voir la grille des tarifs</a>",
 
     // ============ CV PAGE ============
     cvBadge: "Parcours",
@@ -231,7 +280,7 @@ const translations = {
     cvBlock2: "Ces expériences m'ont permis de développer une <strong>compréhension fine et concrète du fonctionnement des organisations</strong> : leurs rouages, leurs contraintes, leurs systèmes, mais surtout les dynamiques humaines et relationnelles qui s'y déploient — enjeux de pouvoir, de reconnaissance, de loyauté, de performance, de sens, d'identité professionnelle, ainsi que les effets de la pression et du changement sur les individus.",
     cvBlock3: "Aujourd'hui, ce parcours <strong>nourrit profondément ma pratique thérapeutique</strong>. Il me permet d'accueillir avec justesse des problématiques liées au travail, aux transitions professionnelles, à l'épuisement, aux tensions relationnelles ou aux conflits de valeurs, sans les réduire à des concepts abstraits ou déconnectés du réel.",
     cvBlock4: "Je suis également <strong>coach certifiée ACC</strong> (Associate Certified Coach) par l'International Coaching Federation (ICF). Cette formation me permet, lorsque le cadre s'y prête et en fonction des besoins de la personne, d'ajuster mon accompagnement. Thérapie et coaching répondent à des intentions différentes ; mon rôle est de poser un cadre clair et de choisir l'approche la plus adaptée à la demande formulée.",
-    cvBookCTA: "Prendre rendez-vous",
+    cvBookCTA: "Réserver 30 min gratuites",
     cvContactCTA: "Poser une question",
 
     // ============ GROUPS PAGE ============
@@ -412,10 +461,14 @@ const translations = {
 
     // Hero section (HOME)
     heroBadge: "Barcelona / Sant Cugat / Online: FR / EN",
-    heroTitle: "Human, committed, and tailored support.",
-    heroSubtitle: "Gestalt therapy or coaching: two different frameworks, one shared intention — helping you find clarity, stability, and movement.",
+    heroTitle: "Gestalt therapy in English and French: in Barcelona, Sant Cugat and online.",
+    heroSubtitle: "Relationship difficulties, life transitions, stress, feeling lost, life abroad: a space to find clarity, steadiness and movement.",
     heroCTATherapy: "Start therapy",
     heroCTACoaching: "Start coaching",
+    bookFreeCta: "Book a free 30-min call",
+    bookFreeCtaNote: "A first conversation to get to know each other and see whether this support is right for you. No commitment.",
+    freeCallDisclaimer: "This call is a chance to get to know each other: it is not a therapy session.",
+    bookingBarAria: "Book a free 30-minute first conversation",
 
     // Entry blocks (HOME)
     entryBadge: "Choose your path",
@@ -440,8 +493,52 @@ const translations = {
     cardItem1: "Clarify your situation and goals",
     cardItem2: "Choose the framework: therapy or coaching, individual or group",
     cardItem3: "Set a pace that works for you",
-    cardCTA: "Book a slot",
-    cardNote: "Reply within 24h · in-person or video",
+    cardCTA: "Book a free 30-min call",
+    cardNote: "Reply within 24h · in-person or video · no commitment",
+
+    // How to start (HOME)
+    homeStepsBadge: "How to start",
+    homeStepsTitle: "Three simple steps",
+    homeSteps1: "Book the free 30-minute first conversation.",
+    homeSteps2: "Get to know each other and clarify what you are looking for.",
+    homeSteps3: "Agree together on the frame, the fee and the pace of sessions.",
+    homeCtaMidTitle: "See whether this support is right for you",
+    homeCtaMidText: "The first 30-minute conversation is free of charge. It is a chance to get to know each other and clarify what would help most.",
+    homeCtaFinalTitle: "Start with a free first conversation",
+    homeCtaFinalText: "Book 30 minutes to get to know each other, ask your questions and look at the next step together, with no commitment.",
+    homePricingLink: "See fees and practical details",
+
+    // Trust strip (HOME)
+    trustBadge: "Key facts",
+    trustQualificationLabel: "Training",
+    trustQualificationValue: "Gestalt therapy training, Institut Gestalt de Barcelona",
+    trustCoachLabel: "Coaching",
+    trustCoachValue: "ACC-certified coach (ICF)",
+    trustFrameLabel: "Frame",
+    trustFrameValue: "Supervised practice, sessions in English, French or Spanish",
+    trustPlacesLabel: "Locations",
+    trustPlacesValue: "Practice in Sant Cugat del Vallès (Josep Puig i Cadafalch 42-44) · Barcelona · online",
+
+    // Pricing (APPOINTMENTS + CONSULTATION PAGES)
+    pricingBadge: "Fees and practical details",
+    pricingTitle: "Therapy session fees",
+    pricingLead: "Clear fees, depending on the format and your country of residence. The applicable fee is confirmed with you during the first call, before the first session.",
+    pricingDraft: "Proposed price list, pending validation before publication",
+    pricingSolidarity: "A sliding-scale rate is possible: mention it during the first call.",
+    pricingScopeNote: "These fees apply to therapy sessions. Coaching conditions are explained during the first call.",
+    pricingSeeAll: "See all fees and practical details",
+    apptFaq1Q: "Is the first conversation free?",
+    apptFaq1A: "Yes. The free 30-minute first conversation is there to clarify what you are looking for, answer practical questions and see whether the proposed frame suits you.",
+    apptFaq2Q: "Are online sessions possible?",
+    apptFaq2A: "Yes, sessions can take place online when this format suits your situation. In-person sessions are possible in Barcelona and Sant Cugat del Vallès.",
+    apptFaq3Q: "Which languages are available?",
+    apptFaq3A: "Sessions can be held in English, French or Spanish.",
+    apptFaq4Q: "Therapy or coaching: how do I choose?",
+    apptFaq4A: "If you are unsure, we clarify it together. Therapy works more deeply with emotional and relational experience; coaching suits a specific professional or personal goal.",
+    apptFaq5Q: "How much does a session cost?",
+    apptFaq5A: "The full fee table is in the <a class=\"text-link\" href=\"#tarifs\">Fees and practical details</a> section: in-person in Barcelona / Sant Cugat, online for Spain, the United Kingdom and Singapore. A sliding-scale rate is possible.",
+    apptFaq6Q: "Is this first conversation a therapy session?",
+    apptFaq6A: "No. The free 30-minute first conversation is a chance to get to know each other and clarify your request and practical details; it is not a therapy session.",
 
     // Meta info
     metaLocationLabel: "Practice",
@@ -486,7 +583,7 @@ const translations = {
     therapyApproachBlock3b: "* European and Anglo-Saxon",
     therapyApproachBlock4: "I consider it essential, as a therapist, to <strong>stay connected with European and Anglo-Saxon research</strong>, developments in clinical practice, and to continue training regularly. Therapy is a living field, and my professional commitment is to remain in constant learning.",
     therapyApproachBlock5: "I am also <strong>supervised</strong>, which for me is an essential condition for ethical, responsible, and quality practice. Supervision provides a space for stepping back, reflection, and support, in service of the therapeutic work and the safety of those I accompany.",
-    therapyCTA: "Book a first session",
+    therapyCTA: "Book a free 30-min call",
     therapyOnlineCTA: "Online therapy while living abroad",
 
     // ============ COACHING PAGE ============
@@ -508,8 +605,9 @@ const translations = {
     coachingNotTitle: "What coaching is not",
     coachingNotText: "Coaching is not psychotherapy and does not replace medical or therapeutic support.",
 
-    coachingCTA: "Book a clarity session",
+    coachingCTA: "Book a free 30-min call",
     coachingOnlineCTA: "Online coaching for expats",
+    coachingScopeNote: "For coaching, the pace, session length and fee are explained during the first call.",
 
     // My coaching approach
     coachingApproachBadge: "My approach",
@@ -562,7 +660,7 @@ const translations = {
     contactLead: "You can book a free first conversation on Calendly, write to me directly, or contact me on WhatsApp. I reply quickly.",
     contactBookTitle: "Book a meeting",
     contactBookText: "If you'd like to schedule a free 30-minute first conversation, use the calendar. If you prefer to ask a question first, the form on this page goes directly to my Hotmail inbox, or you can write to me on WhatsApp.",
-    contactBookCTA: "Book a meeting",
+    contactBookCTA: "Book a free 30-min call",
     contactWriteIntro: "Send an inquiry",
     contactFormTitle: "Contact form",
     contactNameLabel: "Full name",
@@ -586,7 +684,7 @@ const translations = {
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Sessions",
     appointmentsTitle: "Book an appointment",
-    appointmentsLead: "Book a free 30-minute first conversation on Calendly or use the form below to write before booking.",
+    appointmentsLead: "Choose a slot directly below for your free 30-minute first conversation, or use the form below to write before booking.",
     appointmentFormTitle: "Choose a time slot",
     apptNameLabel: "Full name",
     apptNamePlaceholder: "Your name",
@@ -600,9 +698,9 @@ const translations = {
     apptReasonPlaceholder: "e.g. stress, relationships, transitions, teen",
     apptSubmit: "Send request",
     apptNote: "Select a date and available time.",
-    calendlyText: "Click the button below to access the calendar and book your free first conversation.",
-    calendlyBtn: "View availability",
-    calendlyNote: "Calendly will open in a new tab and apply its own privacy policy. <a href=\"privacy.html#english\">Learn more</a>.",
+    calendlyText: "Choose a slot directly below for your free 30-minute first conversation.",
+    calendlyNote: "The calendar is embedded in this page by Calendly, which applies its own privacy policy. <a href=\"privacy.html#english\">Learn more</a>.",
+    calendlyFallbackNote: "Calendar not loading? <a href=\"https://calendly.com/sylvianebahr/30min?utm_source=sylvianebahr.com&amp;utm_medium=website&amp;utm_campaign=appointments-fallback\" target=\"_blank\" rel=\"noopener\">Open Calendly in a new tab</a>. Bookings made through this external link are not automatically counted.",
     calendlySecondaryCTA: "Send an inquiry instead",
     appointmentDetailsTitle: "Session formats",
     formatInPersonTitle: "In person",
@@ -611,9 +709,9 @@ const translations = {
     formatOnlineText: "Online sessions, between-session support if needed.",
     formatGroupTitle: "Groups & circles",
     formatGroupText: "Gestalt groups, teen/parent workshops, talking circles, including the <a class=\"text-link\" href=\"cercle-hommes-sant-cugat.html\">men's circle in Sant Cugat</a>.",
-    rateLabel: "Rates",
-    rateValue: "Individual, couples, groups · sliding scale available",
-    rateNote: "Details confirmed during booking.",
+    rateLabel: "Fees and practical details",
+    rateValue: "Therapy sessions, individual, couples and groups · sliding scale available",
+    rateNote: "<a class=\"text-link\" href=\"#tarifs\">See the fee table</a>",
 
     // ============ CV PAGE ============
     cvBadge: "Background",
@@ -623,7 +721,7 @@ const translations = {
     cvBlock2: "These experiences allowed me to develop a <strong>deep and practical understanding of how organizations work</strong>: their mechanisms, constraints, and systems, but above all the human and relational dynamics at play — issues of power, recognition, loyalty, performance, meaning, professional identity, as well as the effects of pressure and change on individuals.",
     cvBlock3: "Today, this background <strong>deeply informs my therapeutic practice</strong>. It allows me to accurately address issues related to work, professional transitions, burnout, relational tensions, or value conflicts, without reducing them to abstract concepts disconnected from reality.",
     cvBlock4: "I am also an <strong>ACC certified coach</strong> (Associate Certified Coach) by the International Coaching Federation (ICF). This training allows me, when appropriate and depending on the person's needs, to adjust my approach. Therapy and coaching serve different purposes; my role is to establish a clear framework and choose the most suitable approach for the request at hand.",
-    cvBookCTA: "Book an appointment",
+    cvBookCTA: "Book a free 30-min call",
     cvContactCTA: "Ask a question",
 
     // ============ GROUPS PAGE ============
@@ -804,10 +902,14 @@ const translations = {
 
     // Hero section (HOME)
     heroBadge: "Barcelona / Sant Cugat / En línea: FR / EN",
-    heroTitle: "Un acompañamiento humano, comprometido y a medida.",
-    heroSubtitle: "Terapia Gestalt o coaching: dos marcos diferentes, una misma intención: ayudarte a encontrar claridad, solidez y movimiento.",
+    heroTitle: "Terapia Gestalt en francés y en inglés: en Barcelona, Sant Cugat y en línea.",
+    heroSubtitle: "Dificultades relacionales, períodos de transición, estrés, sensación de pérdida de referencias, expatriación: un espacio para recuperar claridad, solidez y movimiento.",
     heroCTATherapy: "Comenzar una terapia",
     heroCTACoaching: "Iniciar un coaching",
+    bookFreeCta: "Reservar 30 min gratuitos",
+    bookFreeCtaNote: "Una primera conversación para conocernos y ver si este acompañamiento te conviene. Sin compromiso.",
+    freeCallDisclaimer: "Esta conversación sirve para conocernos: no constituye una sesión de terapia.",
+    bookingBarAria: "Reservar una primera conversación gratuita de 30 minutos",
 
     // Entry blocks (HOME)
     entryBadge: "Elige tu camino",
@@ -832,8 +934,52 @@ const translations = {
     cardItem1: "Clarificar tu situación y objetivos",
     cardItem2: "Elegir el marco: terapia o coaching, individual o grupal",
     cardItem3: "Definir un ritmo que te convenga",
-    cardCTA: "Reservar horario",
-    cardNote: "Respuesta en 24h · presencial o video",
+    cardCTA: "Reservar 30 min gratuitos",
+    cardNote: "Respuesta en 24h · presencial o video · sin compromiso",
+
+    // How to start (HOME)
+    homeStepsBadge: "Cómo empezar",
+    homeStepsTitle: "Tres pasos sencillos",
+    homeSteps1: "Reservar la conversación gratuita de 30 minutos.",
+    homeSteps2: "Conocernos y clarificar tu demanda.",
+    homeSteps3: "Acordar juntos el marco, la tarifa y el ritmo de las sesiones.",
+    homeCtaMidTitle: "Ver si este acompañamiento te conviene",
+    homeCtaMidText: "La primera conversación de 30 minutos es gratuita. Permite conocernos y clarificar qué sería lo más adecuado para ti.",
+    homeCtaFinalTitle: "Empezar con una conversación gratuita",
+    homeCtaFinalText: "Reserva 30 minutos para conocernos, plantear tus preguntas y ver juntos el siguiente paso, sin compromiso.",
+    homePricingLink: "Ver tarifas y modalidades",
+
+    // Trust strip (HOME)
+    trustBadge: "Datos clave",
+    trustQualificationLabel: "Formación",
+    trustQualificationValue: "Terapia Gestalt, Institut Gestalt de Barcelona",
+    trustCoachLabel: "Coaching",
+    trustCoachValue: "Coach certificada ACC (ICF)",
+    trustFrameLabel: "Marco",
+    trustFrameValue: "Práctica supervisada, sesiones en francés, inglés o español",
+    trustPlacesLabel: "Consultas",
+    trustPlacesValue: "Consulta en Sant Cugat del Vallès (Josep Puig i Cadafalch 42-44) · Barcelona · online",
+
+    // Pricing (APPOINTMENTS + CONSULTATION PAGES)
+    pricingBadge: "Tarifas y modalidades",
+    pricingTitle: "Tarifas de las sesiones de terapia",
+    pricingLead: "Tarifas claras, según el formato y tu país de residencia. La tarifa aplicable se confirma contigo durante la primera conversación, antes de la primera sesión.",
+    pricingDraft: "Grilla propuesta, pendiente de validación antes de publicar",
+    pricingSolidarity: "Tarifa solidaria posible: coméntalo durante la primera conversación.",
+    pricingScopeNote: "Estas tarifas corresponden a las sesiones de terapia. Para el coaching, las condiciones se precisan durante la primera conversación.",
+    pricingSeeAll: "Ver todas las tarifas y modalidades",
+    apptFaq1Q: "¿La primera conversación es gratuita?",
+    apptFaq1A: "Sí. La primera conversación de 30 minutos sirve para clarificar tu demanda, responder preguntas prácticas y ver si el marco propuesto te conviene.",
+    apptFaq2Q: "¿Es posible en videollamada?",
+    apptFaq2A: "Sí, las sesiones pueden hacerse online cuando este formato se adapta a tu situación. El presencial es posible en Barcelona y Sant Cugat del Vallès.",
+    apptFaq3Q: "¿En qué idiomas?",
+    apptFaq3A: "Las sesiones pueden desarrollarse en francés, inglés o español.",
+    apptFaq4Q: "Terapia o coaching: ¿cómo elegir?",
+    apptFaq4A: "Si dudas, lo clarificamos juntos. La terapia trabaja más la experiencia emocional y relacional; el coaching conviene mejor para un objetivo profesional o personal preciso.",
+    apptFaq5Q: "¿Cuánto cuesta una sesión?",
+    apptFaq5A: "La tabla completa figura en la sección <a class=\"text-link\" href=\"#tarifs\">Tarifas y modalidades</a>: presencial en Barcelona / Sant Cugat, online para España, Reino Unido y Singapur. La tarifa solidaria es posible.",
+    apptFaq6Q: "¿Esta conversación es una sesión de terapia?",
+    apptFaq6A: "No. La primera conversación gratuita de 30 minutos sirve para conocernos y clarificar tu demanda y las modalidades; no constituye una sesión de terapia.",
 
     // Meta info
     metaLocationLabel: "Consultorio",
@@ -878,7 +1024,7 @@ const translations = {
     therapyApproachBlock3b: "* europea y anglosajona",
     therapyApproachBlock4: "Considero esencial, como terapeuta, <strong>mantenerme conectada con la investigación europea y anglosajona</strong>, las evoluciones de las prácticas clínicas y seguir formándome regularmente. La terapia es un campo vivo, y mi compromiso profesional es permanecer en aprendizaje constante.",
     therapyApproachBlock5: "También estoy <strong>supervisada</strong>, lo cual para mí es una condición indispensable para una práctica ética, responsable y de calidad. La supervisión garantiza un espacio de distancia, reflexión y apoyo, al servicio del trabajo terapéutico y de la seguridad de las personas acompañadas.",
-    therapyCTA: "Pedir primera cita",
+    therapyCTA: "Reservar 30 min gratuitos",
     therapyOnlineCTA: "Terapia online desde el extranjero",
 
     // ============ COACHING PAGE ============
@@ -900,8 +1046,9 @@ const translations = {
     coachingNotTitle: "Lo que el coaching no es",
     coachingNotText: "El coaching no es psicoterapia y no reemplaza un seguimiento médico o terapéutico.",
 
-    coachingCTA: "Reservar una sesión de claridad",
+    coachingCTA: "Reservar 30 min gratuitos",
     coachingOnlineCTA: "Coaching online para expatriados",
+    coachingScopeNote: "Para el coaching, el ritmo, la duración y la tarifa se precisan durante la primera conversación.",
 
     // My coaching approach
     coachingApproachBadge: "Mi enfoque",
@@ -954,7 +1101,7 @@ const translations = {
     contactLead: "Puedes reservar una primera conversación gratuita en Calendly, escribirme directamente o contactarme por WhatsApp. Respondo pronto.",
     contactBookTitle: "Reservar una cita",
     contactBookText: "Si quieres reservar una primera conversación gratuita de 30 minutos, utiliza el calendario. Si prefieres hacer una pregunta antes, el formulario de esta página llega directamente a mi bandeja de Hotmail, o puedes escribirme por WhatsApp.",
-    contactBookCTA: "Reservar una cita",
+    contactBookCTA: "Reservar 30 min gratuitos",
     contactWriteIntro: "Enviar una consulta",
     contactFormTitle: "Formulario de contacto",
     contactNameLabel: "Nombre completo",
@@ -978,7 +1125,7 @@ const translations = {
     // ============ APPOINTMENTS PAGE ============
     appointmentsBadge: "Sesiones",
     appointmentsTitle: "Reservar una cita",
-    appointmentsLead: "Reserva una primera conversación gratuita de 30 minutos en Calendly o utiliza el formulario de abajo para escribirme antes de reservar.",
+    appointmentsLead: "Elige un horario directamente abajo para tu primera conversación gratuita de 30 minutos, o utiliza el formulario de abajo para escribirme antes de reservar.",
     appointmentFormTitle: "Elegir un horario",
     apptNameLabel: "Nombre completo",
     apptNamePlaceholder: "Tu nombre",
@@ -992,9 +1139,9 @@ const translations = {
     apptReasonPlaceholder: "Ej. estrés, relaciones, transiciones, adolescente",
     apptSubmit: "Enviar solicitud",
     apptNote: "Selecciona una fecha y un horario disponible.",
-    calendlyText: "Haz clic en el botón de abajo para acceder al calendario y reservar tu primera conversación gratuita.",
-    calendlyBtn: "Ver disponibilidad",
-    calendlyNote: "Calendly se abrirá en una nueva pestaña y aplicará su propia política de privacidad. <a href=\"privacy.html\">Más información</a>.",
+    calendlyText: "Elige un horario directamente abajo para tu primera conversación gratuita.",
+    calendlyNote: "El calendario está integrado en esta página por Calendly, que aplica su propia política de privacidad. <a href=\"privacy.html\">Más información</a>.",
+    calendlyFallbackNote: "¿El calendario no se muestra? <a href=\"https://calendly.com/sylvianebahr/30min?utm_source=sylvianebahr.com&amp;utm_medium=website&amp;utm_campaign=appointments-fallback\" target=\"_blank\" rel=\"noopener\">Abrir Calendly en una nueva pestaña</a>. Una reserva hecha por este enlace externo no se cuenta automáticamente.",
     calendlySecondaryCTA: "Enviar una consulta en su lugar",
     appointmentDetailsTitle: "Formatos de sesión",
     formatInPersonTitle: "Presencial",
@@ -1003,9 +1150,9 @@ const translations = {
     formatOnlineText: "Sesiones en línea, apoyo entre sesiones si hace falta.",
     formatGroupTitle: "Grupos y círculos",
     formatGroupText: "Grupos Gestalt, talleres para adolescentes/padres, círculos de palabra, incluido el <a class=\"text-link\" href=\"cercle-hommes-sant-cugat.html\">círculo de hombres en Sant Cugat</a>.",
-    rateLabel: "Tarifas",
-    rateValue: "Individual, pareja, grupos · tarifa solidaria disponible",
-    rateNote: "Detalles confirmados al reservar.",
+    rateLabel: "Tarifas y modalidades",
+    rateValue: "Sesiones de terapia, individual, pareja y grupos · tarifa solidaria disponible",
+    rateNote: "<a class=\"text-link\" href=\"#tarifs\">Ver la tabla de tarifas</a>",
 
     // ============ CV PAGE ============
     cvBadge: "Trayectoria",
@@ -1015,7 +1162,7 @@ const translations = {
     cvBlock2: "Estas experiencias me permitieron desarrollar una <strong>comprensión profunda y concreta del funcionamiento de las organizaciones</strong>: sus mecanismos, sus limitaciones, sus sistemas, pero sobre todo las dinámicas humanas y relacionales que se despliegan en ellas — cuestiones de poder, reconocimiento, lealtad, rendimiento, sentido, identidad profesional, así como los efectos de la presión y el cambio sobre las personas.",
     cvBlock3: "Hoy, este recorrido <strong>nutre profundamente mi práctica terapéutica</strong>. Me permite acoger con precisión problemáticas relacionadas con el trabajo, las transiciones profesionales, el agotamiento, las tensiones relacionales o los conflictos de valores, sin reducirlas a conceptos abstractos o desconectados de la realidad.",
     cvBlock4: "También soy <strong>coach certificada ACC</strong> (Associate Certified Coach) por la International Coaching Federation (ICF). Esta formación me permite, cuando el contexto lo requiere y según las necesidades de la persona, ajustar mi acompañamiento. Terapia y coaching responden a intenciones diferentes; mi rol es establecer un marco claro y elegir el enfoque más adecuado a la demanda planteada.",
-    cvBookCTA: "Pedir cita",
+    cvBookCTA: "Reservar 30 min gratuitos",
     cvContactCTA: "Hacer una pregunta",
 
     // ============ GROUPS PAGE ============

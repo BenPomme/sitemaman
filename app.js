@@ -11,6 +11,48 @@
     en: "Hello Sylviane, I am interested in the men's circle in Barcelona and Sant Cugat.",
     es: "Hola Sylviane, estoy interesado en el círculo de hombres en Barcelona y Sant Cugat.",
   };
+  // Tous les boutons de réservation mènent au calendrier Calendly intégré
+  // dans la page de rendez-vous (widget officiel).
+  const BOOKING_PAGE = "appointments.html#reserver";
+  const CALENDLY_ORIGIN = "https://calendly.com";
+  const BOOKING_CONFIRMED_KEY = "sb-booking-confirmed";
+
+  // ==== Google Ads : une seule méthode de comptage ====
+  // Renseigner ici l'identifiant de conversion Google Ads, par exemple
+  // "AW-123456789/AbCdEfGh". Un seul envoi est effectué par réservation
+  // confirmée, depuis la page /confirmation.html.
+  // Ne pas créer en parallèle une conversion Google Ads sur la simple
+  // visite de /confirmation.html : ce serait un second comptage.
+  const GOOGLE_ADS_CONVERSION_SEND_TO =
+    typeof window.SB_GOOGLE_ADS_CONVERSION_SEND_TO === "string"
+      ? window.SB_GOOGLE_ADS_CONVERSION_SEND_TO
+      : "";
+
+  // Consentement publicitaire. Tant qu'un bandeau de consentement n'expose
+  // pas cette fonction (ou tant qu'elle renvoie false), aucun signal n'est
+  // transmis à Google. Exemple côté bandeau :
+  // window.sbHasAdsConsent = () => true; (après acceptation)
+  const adsConsentGranted = () =>
+    typeof window.sbHasAdsConsent === "function" && window.sbHasAdsConsent() === true;
+
+  const readConfirmedBooking = () => {
+    try {
+      const raw = sessionStorage.getItem(BOOKING_CONFIRMED_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const consumeConfirmedBooking = () => {
+    const confirmed = readConfirmedBooking();
+    try {
+      sessionStorage.removeItem(BOOKING_CONFIRMED_KEY);
+    } catch {
+      // Stockage indisponible : on continue sans comptage publicitaire.
+    }
+    return confirmed;
+  };
 
   const selector = document.getElementById("language-selector");
   const pageLang = (document.documentElement.lang || "fr").split("-")[0];
@@ -24,13 +66,37 @@
       Object.entries(details).filter(([, value]) => value !== undefined && value !== ""),
     );
 
-    if (typeof window.gtag === "function") {
+    if (typeof window.gtag === "function" && adsConsentGranted()) {
       window.gtag("event", eventName, payload);
       return;
     }
 
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: eventName, ...payload });
+  };
+
+  // Comptage unique d'une réservation confirmée. Aucun nom, email ni détail
+  // du rendez-vous n'est transmis : uniquement la page et la langue.
+  const reportConfirmedBooking = (confirmed) => {
+    const details = {
+      source: "calendly_embed",
+      placement: "calendly_embed",
+      page_path: "/confirmation.html",
+      page_language: confirmed && confirmed.lang ? confirmed.lang : "fr",
+    };
+
+    if (GOOGLE_ADS_CONVERSION_SEND_TO && adsConsentGranted() && typeof window.gtag === "function") {
+      window.gtag("event", "conversion", {
+        send_to: GOOGLE_ADS_CONVERSION_SEND_TO,
+        ...details,
+      });
+      return;
+    }
+
+    // Sans identifiant, sans tag Google ou sans consentement : trace interne
+    // uniquement, aucune transmission publicitaire.
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "booking_completed_internal", ...details });
   };
 
   const updateWhatsAppLink = (lang) => {
@@ -49,6 +115,65 @@
       const circleMessage = CIRCLE_WHATSAPP_MESSAGES[lang] || CIRCLE_WHATSAPP_MESSAGES.fr;
       circleLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(circleMessage)}`;
     }
+
+    const bookingBar = document.querySelector("[data-booking-bar]");
+    if (bookingBar) {
+      bookingBar.setAttribute(
+        "aria-label",
+        dict.bookingBarAria || "Réserver un premier échange gratuit de 30 minutes",
+      );
+    }
+  };
+
+  // Prices live in pricing.js so they can be updated in one place.
+  // Containers opt in with data-pricing and can filter rows with
+  // data-pricing-ids="in-person,online-spain".
+  const renderPricing = (lang) => {
+    const config = window.SITE_PRICING;
+    const containers = document.querySelectorAll("[data-pricing]");
+    if (!config || !Array.isArray(config.items) || !containers.length) return;
+
+    const dict = translations[lang] || translations.fr;
+
+    containers.forEach((container) => {
+      const requestedIds = (container.dataset.pricingIds || "")
+        .split(",")
+        .map((id) => id.trim())
+        .filter(Boolean);
+      const items = config.items.filter(
+        (item) => !requestedIds.length || requestedIds.includes(item.id),
+      );
+      if (!items.length) return;
+
+      const list = document.createElement("ul");
+      list.className = "pricing__list";
+
+      items.forEach((item) => {
+        const row = document.createElement("li");
+        row.className = "pricing__row";
+
+        const label = document.createElement("span");
+        label.className = "pricing__label";
+        label.textContent = (item.label && (item.label[lang] || item.label.fr)) || "";
+
+        const amount = document.createElement("span");
+        amount.className = "pricing__amount";
+        amount.textContent = item.amount || "";
+
+        row.append(label, amount);
+        list.append(row);
+      });
+
+      container.replaceChildren(list);
+
+      if (config.draft) {
+        const badge = document.createElement("p");
+        badge.className = "pricing__draft";
+        badge.textContent =
+          dict.pricingDraft || "Grille proposée, en validation avant publication";
+        container.append(badge);
+      }
+    });
   };
 
   const translateTextNodes = (lang) => {
@@ -73,6 +198,7 @@
     });
 
     updateWhatsAppLink(lang);
+    renderPricing(lang);
   };
 
   const handleLanguageChange = (lang) => {
@@ -111,6 +237,29 @@
     `;
 
     document.body.appendChild(link);
+  };
+
+  const createBookingBar = () => {
+    // La page de confirmation n'affiche pas la barre de réservation.
+    if (document.body.hasAttribute("data-booking-confirmation")) return;
+    if (document.querySelector("[data-booking-bar]")) return;
+
+    const bar = document.createElement("div");
+    bar.className = "booking-bar";
+    bar.dataset.bookingBar = "true";
+    bar.setAttribute("role", "region");
+
+    const link = document.createElement("a");
+    link.className = "btn booking-bar__btn";
+    link.href = BOOKING_PAGE;
+    link.dataset.track = "booking_click";
+    link.dataset.trackSource = "mobile-sticky-bar";
+    link.setAttribute("data-i18n", "bookFreeCta");
+    link.textContent = "Réserver 30 min gratuites";
+
+    bar.append(link);
+    document.body.append(bar);
+    document.body.classList.add("has-booking-bar");
   };
 
   const setFormStatus = (form, message, state, actions = []) => {
@@ -262,6 +411,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     if (selector) selector.value = currentLang;
     createWhatsAppButton();
+    createBookingBar();
     translateTextNodes(currentLang);
 
     document.querySelectorAll("[data-form-status]").forEach((node) => {
@@ -280,12 +430,52 @@
       const href = target.getAttribute("href") || "";
       const inferredEvent = href.includes("contact.html") ? "inquiry_path_click" : "booking_path_click";
       const eventName = target.dataset.track || (href.includes("calendly.com") ? "booking_click" : inferredEvent);
+      const source = target.dataset.trackSource || "unspecified";
       trackEvent(eventName, {
-        source: target.dataset.trackSource || "unspecified",
+        source,
+        placement: source,
         page_path: window.location.pathname,
+        page_language: currentLang,
         destination: target.href ? new URL(target.href, window.location.href).hostname : undefined,
       });
     });
+
+    // Un clic n'est pas une réservation. Calendly ne confirme une réservation
+    // que par un message postMessage émis depuis l'iframe de son widget.
+    // On vérifie l'origine exacte, la fenêtre émettrice et le nom de
+    // l'événement avant toute action, puis on ne déclenche qu'une fois.
+    let bookingConfirmedOnThisPage = false;
+    window.addEventListener("message", (event) => {
+      if (event.origin !== CALENDLY_ORIGIN) return;
+      if (!event.data || event.data.event !== "calendly.event_scheduled") return;
+
+      const widget = document.querySelector(".calendly-inline-widget");
+      const iframe = widget ? widget.querySelector("iframe") : null;
+      if (!iframe || event.source !== iframe.contentWindow) return;
+      if (bookingConfirmedOnThisPage) return;
+      bookingConfirmedOnThisPage = true;
+
+      // Réservation réellement enregistrée : on mémorise la confirmation
+      // (et la langue utilisée) pour la page /confirmation.html, puis on y
+      // redirige. Le comptage publicitaire n'a lieu que sur cette page.
+      try {
+        sessionStorage.setItem(
+          BOOKING_CONFIRMED_KEY,
+          JSON.stringify({ lang: currentLang, at: Date.now() }),
+        );
+      } catch {
+        // Stockage indisponible : la confirmation s'affiche quand même.
+      }
+      window.location.assign("/confirmation.html");
+    });
+
+    // Page de confirmation : un envoi unique, uniquement si la confirmation
+    // provient d'une réservation Calendly vérifiée. Une visite directe ne
+    // trouve aucun marqueur et ne déclenche donc aucun comptage.
+    if (document.body.hasAttribute("data-booking-confirmation")) {
+      const confirmed = consumeConfirmedBooking();
+      if (confirmed) reportConfirmedBooking(confirmed);
+    }
 
     document.querySelectorAll("[data-async-form]").forEach(handleFormSubmission);
   });
