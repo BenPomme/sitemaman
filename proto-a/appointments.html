@@ -16,27 +16,27 @@
 </head>
 <body class="page-inner">
   <div class="ticker-top">
-  <p><span class="dot"></span> Premier échange de 30 minutes offert · Barcelone, Sant Cugat et visio</p>
-  <a href="appointments.html#reserver">Prendre RDV <span aria-hidden="true">→</span></a>
+  <p><span class="dot"></span> <span data-i18n="tickerOffer">Premier échange de 30 minutes offert · Barcelone, Sant Cugat et visio</span></p>
+  <a href="appointments.html#reserver"><span data-i18n="headerBookingCta">Prendre RDV</span> <span aria-hidden="true">→</span></a>
 </div>
 <header class="site-head" id="siteHead">
   <a class="wordmark" href="index.html">
     <span class="wordmark__name">Sylviane Bahr</span>
-    <span class="wordmark__role">Psychothérapie · Coaching</span>
+    <span class="wordmark__role" data-i18n="brandRole">Psychothérapie · Coaching</span>
   </a>
   <nav class="site-nav" id="siteNav">
-    <a href="therapy.html">Thérapie</a>
-    <a href="coaching.html">Coaching</a>
-    <a href="compare.html">Thérapie ou coaching&nbsp;?</a>
-    <a href="groups.html">Groupes &amp; ateliers</a>
-    <a href="cercle-hommes-sant-cugat.html">Cercle d'hommes</a>
-    <a href="about.html">À propos</a>
-    <a href="resources.html">Ressources</a>
-    <a href="appointments.html">RDV</a>
+    <a href="therapy.html" data-i18n="navTherapy">Thérapie</a>
+    <a href="coaching.html" data-i18n="navCoaching">Coaching</a>
+    <a href="compare.html" data-i18n="navTherapyOrCoaching">Thérapie ou coaching&nbsp;?</a>
+    <a href="groups.html" data-i18n="navGroups">Groupes &amp; ateliers</a>
+    <a href="cercle-hommes-sant-cugat.html" data-i18n="navCircle">Cercle d'hommes</a>
+    <a href="about.html" data-i18n="navAbout">À propos</a>
+    <a href="resources.html" data-i18n="navResources">Ressources</a>
+    <a href="appointments.html" data-i18n="navAppointments">RDV</a>
   </nav>
   <div class="head-tools">
     <select id="language-selector" aria-label="Language selector"><option value="fr">FR</option><option value="en">EN</option></select>
-    <a class="pill pill--light head-cta" href="appointments.html#reserver" data-track="booking_click" data-track-source="header"><span class="cta-long">Prendre RDV</span><span class="cta-short">RDV</span></a>
+    <a class="pill pill--light head-cta" href="appointments.html#reserver" data-track="booking_click" data-track-source="header"><span class="cta-long" data-i18n="headerBookingCta">Prendre RDV</span><span class="cta-short" data-i18n="navAppointments">RDV</span></a>
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
   </div>
 </header>
@@ -75,7 +75,7 @@
             <input type="hidden" name="_subject" value="Question depuis la page de rendez-vous de Sylviane Bahr">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
-            <label class="form__honeypot" aria-hidden="true">Ne pas remplir<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+            <label class="form__honeypot" aria-hidden="true"><span data-i18n="formHoneypot">Ne pas remplir</span><input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
             <label>
               <span data-i18n="contactNameLabel">Nom complet</span>
               <input type="text" name="name" required maxlength="100" autocomplete="name" data-i18n-placeholder="contactNamePlaceholder" placeholder="Votre nom">
@@ -140,8 +140,8 @@
 
     <section class="section section--alt">
       <div class="section__header">
-        <p class="pill pill--subtle">Questions fréquentes</p>
-        <h2>Avant de réserver</h2>
+        <p class="pill pill--subtle" data-i18n="faqBadge">Questions fréquentes</p>
+        <h2 data-i18n="faqTitle">Avant de réserver</h2>
       </div>
       <div class="faq-list">
         <div class="faq-item"><h3 data-i18n="apptFaq1Q">Est-ce que le premier échange est gratuit ?</h3><p data-i18n="apptFaq1A">Oui. Le premier échange de 30 minutes sert à clarifier votre demande, répondre aux questions pratiques et voir si le cadre proposé vous convient.</p></div>
@@ -157,11 +157,11 @@
   <footer class="foot">
   <p class="foot__mark">Sylviane&nbsp;Bahr</p>
   <div class="foot__cols">
-    <div><span class="micro micro--inverse">Cabinet</span><p>Josep Puig i Cadafalch, 42-44<br>08172 Sant Cugat del Vallès</p></div>
-    <div><span class="micro micro--inverse">Contact</span><p><a href="mailto:sylviane_bahr@hotmail.com">sylviane_bahr@hotmail.com</a><br>WhatsApp via le bouton du site</p></div>
-    <div><span class="micro micro--inverse">Pages</span><p><a href="therapy.html">Thérapie</a> · <a href="coaching.html">Coaching</a> · <a href="groups.html">Groupes</a><br><a href="appointments.html">RDV</a> · <a href="resources.html">Ressources</a> · <a href="about.html">À propos</a></p></div>
+    <div><span class="micro micro--inverse" data-i18n="footerPracticeLabel">Cabinet</span><p>Josep Puig i Cadafalch, 42-44<br>08172 Sant Cugat del Vallès</p></div>
+    <div><span class="micro micro--inverse" data-i18n="footerContactLabel">Contact</span><p><a href="mailto:sylviane_bahr@hotmail.com">sylviane_bahr@hotmail.com</a><br><span data-i18n="footerWhatsApp">WhatsApp via le bouton du site</span></p></div>
+    <div><span class="micro micro--inverse" data-i18n="footerPagesLabel">Pages</span><p><a href="therapy.html" data-i18n="navTherapy">Thérapie</a> · <a href="coaching.html" data-i18n="navCoaching">Coaching</a> · <a href="groups.html" data-i18n="navGroups">Groupes</a><br><a href="appointments.html" data-i18n="navAppointments">RDV</a> · <a href="resources.html" data-i18n="navResources">Ressources</a> · <a href="about.html" data-i18n="navAbout">À propos</a></p></div>
   </div>
-  <p class="micro micro--inverse foot__legal"><a href="privacy.html">Confidentialité</a> · <a href="legal.html">Mentions légales</a> · Français / English</p>
+  <p class="micro micro--inverse foot__legal"><a href="privacy.html" data-i18n="footerPrivacy">Confidentialité</a> · <a href="legal.html" data-i18n="footerLegalNotice">Mentions légales</a> · <span data-i18n="footerLang">Français / English</span></p>
 </footer>
 
   <script src="translations.js?v=20261007"></script>

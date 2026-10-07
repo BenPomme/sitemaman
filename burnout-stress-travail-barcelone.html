@@ -14,15 +14,36 @@
   <meta property="og:image" content="https://www.sylvianebahr.com/sylviane.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="theme.css">
 </head>
-<body>
-  <header class="topbar">
-    <div class="brand"><div class="brand__logo">SB</div><div><p class="brand__name">Sylviane Bahr</p><p class="brand__role">Psychothérapie & Coaching</p></div></div>
-    <nav class="nav"><a href="index.html">Accueil</a><a href="therapy.html">Thérapie</a><a href="coaching.html">Coaching</a><a href="resources.html">Ressources</a><a href="appointments.html">RDV</a><a href="contact.html">Contact</a></nav>
-    <div class="controls"><select id="language-selector" aria-label="Language selector"><option value="fr" selected>FR</option><option value="en">EN</option></select><a class="btn topbar__cta" href="appointments.html#reserver" data-track="booking_click" data-track-source="header">Réserver 30 min gratuites</a></div>
-  </header>
+<body class="page-inner">
+  <div class="ticker-top">
+  <p><span class="dot"></span> <span data-i18n="tickerOffer">Premier échange de 30 minutes offert · Barcelone, Sant Cugat et visio</span></p>
+  <a href="appointments.html#reserver"><span data-i18n="headerBookingCta">Prendre RDV</span> <span aria-hidden="true">→</span></a>
+</div>
+<header class="site-head" id="siteHead">
+  <a class="wordmark" href="index.html">
+    <span class="wordmark__name">Sylviane Bahr</span>
+    <span class="wordmark__role" data-i18n="brandRole">Psychothérapie · Coaching</span>
+  </a>
+  <nav class="site-nav" id="siteNav">
+    <a href="therapy.html" data-i18n="navTherapy">Thérapie</a>
+    <a href="coaching.html" data-i18n="navCoaching">Coaching</a>
+    <a href="compare.html" data-i18n="navTherapyOrCoaching">Thérapie ou coaching&nbsp;?</a>
+    <a href="groups.html" data-i18n="navGroups">Groupes &amp; ateliers</a>
+    <a href="cercle-hommes-sant-cugat.html" data-i18n="navCircle">Cercle d'hommes</a>
+    <a href="about.html" data-i18n="navAbout">À propos</a>
+    <a href="resources.html" data-i18n="navResources">Ressources</a>
+    <a href="appointments.html" data-i18n="navAppointments">RDV</a>
+  </nav>
+  <div class="head-tools">
+    <select id="language-selector" aria-label="Language selector"><option value="fr">FR</option><option value="en">EN</option></select>
+    <a class="pill pill--light head-cta" href="appointments.html#reserver" data-track="booking_click" data-track-source="header"><span class="cta-long" data-i18n="headerBookingCta">Prendre RDV</span><span class="cta-short" data-i18n="navAppointments">RDV</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+  </div>
+</header>
   <main>
     <section class="section">
       <article class="article">
@@ -40,7 +61,15 @@
       </article>
     </section>
   </main>
-  <footer class="footer"><p>Sylviane Bahr · Psychothérapie & Coaching · Barcelone & Sant Cugat · en ligne</p><p class="footer__meta">Français, anglais et espagnol · <a href="cercle-hommes-sant-cugat.html">Cercle d'hommes Barcelone &amp; Sant Cugat</a></p></footer>
+  <footer class="foot">
+  <p class="foot__mark">Sylviane&nbsp;Bahr</p>
+  <div class="foot__cols">
+    <div><span class="micro micro--inverse" data-i18n="footerPracticeLabel">Cabinet</span><p>Josep Puig i Cadafalch, 42-44<br>08172 Sant Cugat del Vallès</p></div>
+    <div><span class="micro micro--inverse" data-i18n="footerContactLabel">Contact</span><p><a href="mailto:sylviane_bahr@hotmail.com">sylviane_bahr@hotmail.com</a><br><span data-i18n="footerWhatsApp">WhatsApp via le bouton du site</span></p></div>
+    <div><span class="micro micro--inverse" data-i18n="footerPagesLabel">Pages</span><p><a href="therapy.html" data-i18n="navTherapy">Thérapie</a> · <a href="coaching.html" data-i18n="navCoaching">Coaching</a> · <a href="groups.html" data-i18n="navGroups">Groupes</a><br><a href="appointments.html" data-i18n="navAppointments">RDV</a> · <a href="resources.html" data-i18n="navResources">Ressources</a> · <a href="about.html" data-i18n="navAbout">À propos</a></p></div>
+  </div>
+  <p class="micro micro--inverse foot__legal"><a href="privacy.html" data-i18n="footerPrivacy">Confidentialité</a> · <a href="legal.html" data-i18n="footerLegalNotice">Mentions légales</a> · <span data-i18n="footerLang">Français / English</span></p>
+</footer>
   <script src="translations.js"></script><script src="app.js"></script>
 </body>
 </html>
