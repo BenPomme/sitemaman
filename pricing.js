@@ -22,6 +22,15 @@ window.SITE_PRICING = {
       },
     },
     {
+      id: "online-world",
+      amount: "60 €",
+      label: {
+        fr: "Séance en visio, France et reste du monde",
+        en: "Online session, France and rest of the world",
+        es: "Sesión online, Francia y resto del mundo",
+      },
+    },
+    {
       id: "online-spain",
       amount: "60 €",
       label: {
