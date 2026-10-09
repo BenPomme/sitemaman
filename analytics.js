@@ -1,16 +1,24 @@
 /* ============================================================
-   Google tag (gtag.js) + consentement publicitaire
+   Google tag (gtag.js) + consentement de mesure
    ------------------------------------------------------------
-   Tag du compte Google Ads de Sylviane Bahr : AW-18499976691.
+   Deux destinations partagent un seul chargeur gtag.js :
+     - Google Ads         : AW-18499976691 (réservations, messages)
+     - Google Analytics 4 : G-G20ED3FMXT (audience agrégée)
    Le mode Consentement v2 est refusé par défaut. La bannière
    maison met à jour le consentement et la fonction attendue par
    app.js (window.sbHasAdsConsent).
+   GA4 n'est configuré, et n'envoie donc aucune donnée, qu'APRÈS un
+   consentement explicite. La clé de consentement est versionnée
+   (sb-measurement-consent-v2) : un ancien accord publicitaire seul
+   (sb-ads-consent) n'enrôle pas silencieusement l'audience.
    ============================================================ */
 (function () {
   "use strict";
 
   var GOOGLE_ADS_TAG_ID = "AW-18499976691";
-  var CONSENT_KEY = "sb-ads-consent";
+  var GA4_MEASUREMENT_ID = "G-G20ED3FMXT";
+  var CONSENT_KEY = "sb-measurement-consent-v2";
+  var LEGACY_ADS_CONSENT_KEY = "sb-ads-consent";
 
   window.dataLayer = window.dataLayer || [];
   function gtag() {
@@ -40,9 +48,9 @@
   // chargement pour déclencher la conversion sur /confirmation.html.
   window.SB_GOOGLE_ADS_CONVERSION_SEND_TO = "AW-18499976691/4aizCIre4ZQdEPP7vPVE";
 
-  function readChoice() {
+  function readKey(key) {
     try {
-      return localStorage.getItem(CONSENT_KEY);
+      return localStorage.getItem(key);
     } catch (error) {
       return null;
     }
@@ -56,44 +64,106 @@
     }
   }
 
-  function applyConsent(granted) {
+  // Consentement publicitaire et consentement d'audience sont mis à jour
+  // ensemble depuis la bannière, mais restent distincts : un ancien accord
+  // publicitaire n'ouvre pas l'audience, et refuser ferme les deux.
+  function applyConsent(adsGranted, analyticsGranted) {
     gtag("consent", "update", {
-      ad_storage: granted ? "granted" : "denied",
-      ad_user_data: granted ? "granted" : "denied",
-      ad_personalization: granted ? "granted" : "denied",
-      analytics_storage: granted ? "granted" : "denied",
+      ad_storage: adsGranted ? "granted" : "denied",
+      ad_user_data: adsGranted ? "granted" : "denied",
+      ad_personalization: adsGranted ? "granted" : "denied",
+      analytics_storage: analyticsGranted ? "granted" : "denied",
     });
     window.sbHasAdsConsent = function () {
-      return granted;
+      return adsGranted;
     };
   }
 
-  var storedChoice = readChoice();
-  if (storedChoice === "granted") {
-    applyConsent(true);
+  // Origine + chemin uniquement : aucun paramètre de requête ni fragment
+  // n'est transmis à la mesure.
+  function sanitizedUrl(raw) {
+    if (!raw) {
+      return "";
+    }
+    try {
+      var parsed = new URL(raw, window.location.href);
+      if (!parsed.origin || parsed.origin === "null") {
+        return "";
+      }
+      return parsed.origin + parsed.pathname;
+    } catch (error) {
+      return "";
+    }
+  }
+
+  var ga4Initialized = false;
+
+  // Configure GA4 une seule fois, uniquement après consentement explicite.
+  // Aucune donnée saisie par l'utilisateur n'est transmise : la pagevue
+  // automatique ne porte que la page (origine + chemin) et le référent sans
+  // query ni hash. La personnalisation publicitaire est désactivée pour GA4.
+  function initGa4() {
+    if (ga4Initialized) {
+      return;
+    }
+    ga4Initialized = true;
+
+    var params = {
+      allow_ad_personalization_signals: false,
+      allow_google_signals: false,
+    };
+    var pageLocation = sanitizedUrl(window.location.href);
+    if (pageLocation) {
+      params.page_location = pageLocation;
+    }
+    var pageReferrer = sanitizedUrl(document.referrer);
+    params.page_referrer = pageReferrer;
+
+    gtag("config", GA4_MEASUREMENT_ID, params);
+  }
+
+  var storedChoice = readKey(CONSENT_KEY);
+  var legacyChoice = readKey(LEGACY_ADS_CONSENT_KEY);
+
+  // Le choix versionné fait foi. À défaut de choix versionné, on honore
+  // l'ancien accord publicitaire (sb-ads-consent) pour ne pas interrompre la
+  // mesure Google Ads déjà consentie ; un accord ancien ne donne en revanche
+  // jamais accès à GA4, qui exige le choix versionné.
+  var adsGranted =
+    storedChoice === "granted" || (storedChoice === null && legacyChoice === "granted");
+  var analyticsGranted = storedChoice === "granted";
+
+  if (adsGranted) {
+    applyConsent(true, analyticsGranted);
   } else {
     window.sbHasAdsConsent = function () {
       return false;
     };
   }
 
+  if (analyticsGranted) {
+    initGa4();
+  }
+
   var TEXTS = {
     fr: {
-      aria: "Consentement à la mesure publicitaire",
+      aria: "Consentement à la mesure d'audience et publicitaire",
       text:
-        "Mesure publicitaire : ce site utilise la balise Google Ads pour savoir " +
-        "quelles annonces mènent à une réservation ou à un message. Aucun cookie " +
-        "de mesure n'est posé avant votre accord.",
+        "Mesure d'audience et publicité : ce site utilise Google Analytics pour " +
+        "mesurer la fréquentation de façon agrégée et la balise Google Ads pour " +
+        "savoir quelles annonces mènent à une réservation ou à un message. Aucun " +
+        "cookie de mesure n'est posé avant votre accord.",
       accept: "Accepter",
       decline: "Refuser",
       more: "En savoir plus",
       link: "privacy.html",
     },
     en: {
-      aria: "Advertising measurement consent",
+      aria: "Analytics and advertising measurement consent",
       text:
-        "Advertising measurement: this site uses the Google Ads tag to understand " +
-        "which ads lead to a booking or a message. No measurement cookies are set " +
+        "Analytics and advertising measurement: this site uses Google Analytics " +
+        "to measure aggregate traffic and the Google Ads tag to understand which " +
+        "ads lead to a booking or a message. No measurement cookies are set " +
         "before you agree.",
       accept: "Accept",
       decline: "Decline",
@@ -101,11 +171,12 @@
       link: "privacy.html#english",
     },
     es: {
-      aria: "Consentimiento de medición publicitaria",
+      aria: "Consentimiento de medición de audiencia y publicitaria",
       text:
-        "Medición publicitaria: este sitio utiliza la etiqueta de Google Ads para " +
-        "saber qué anuncios generan una reserva o un mensaje. No se instala ninguna " +
-        "cookie de medición antes de tu consentimiento.",
+        "Medición de audiencia y publicidad: este sitio utiliza Google Analytics " +
+        "para medir la audiencia de forma agregada y la etiqueta de Google Ads " +
+        "para saber qué anuncios generan una reserva o un mensaje. No se instala " +
+        "ninguna cookie de medición antes de tu consentimiento.",
       accept: "Aceptar",
       decline: "Rechazar",
       more: "Más información",
@@ -138,7 +209,11 @@
 
   function setChoice(value) {
     storeChoice(value);
-    applyConsent(value === "granted");
+    var granted = value === "granted";
+    applyConsent(granted, granted);
+    if (granted) {
+      initGa4();
+    }
     removeBanner();
   }
 
