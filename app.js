@@ -13,7 +13,9 @@
   };
   // Tous les boutons de réservation mènent au calendrier Calendly intégré
   // dans la page de rendez-vous (widget officiel).
-  const BOOKING_PAGE = "appointments.html#reserver";
+  // Chemin absolu : la barre mobile injectée doit atteindre la page racine
+  // depuis n'importe quelle page, y compris les guides sous /guides/.
+  const BOOKING_PAGE = "/appointments.html#reserver";
   const CALENDLY_ORIGIN = "https://calendly.com";
   const BOOKING_CONFIRMED_KEY = "sb-booking-confirmed";
 
@@ -28,12 +30,25 @@
       ? window.SB_GOOGLE_ADS_CONVERSION_SEND_TO
       : "";
 
+  // Destination GA4 (audience agrégée). Lue depuis analytics.js au chargement.
+  // Sert uniquement à cibler l'événement de réservation vers GA4 (send_to) pour
+  // qu'il n'atteigne jamais la conversion Google Ads.
+  const GA4_MEASUREMENT_ID =
+    typeof window.SB_GA4_MEASUREMENT_ID === "string" ? window.SB_GA4_MEASUREMENT_ID : "";
+
   // Consentement publicitaire. Tant qu'un bandeau de consentement n'expose
   // pas cette fonction (ou tant qu'elle renvoie false), aucun signal n'est
   // transmis à Google. Exemple côté bandeau :
   // window.sbHasAdsConsent = () => true; (après acceptation)
   const adsConsentGranted = () =>
     typeof window.sbHasAdsConsent === "function" && window.sbHasAdsConsent() === true;
+
+  // Consentement d'audience (GA4). Distinct du consentement publicitaire :
+  // seul un accord versionné explicite l'ouvre, un ancien accord Ads ne
+  // l'ouvre jamais.
+  const analyticsConsentGranted = () =>
+    typeof window.sbHasAnalyticsConsent === "function" &&
+    window.sbHasAnalyticsConsent() === true;
 
   const readConfirmedBooking = () => {
     try {
@@ -85,18 +100,35 @@
       page_language: confirmed && confirmed.lang ? confirmed.lang : "fr",
     };
 
+    let reported = false;
+
+    // Comptage Google Ads (cible et logique unique inchangées) : uniquement
+    // avec l'identifiant, le tag et le consentement publicitaire.
     if (GOOGLE_ADS_CONVERSION_SEND_TO && adsConsentGranted() && typeof window.gtag === "function") {
       window.gtag("event", "conversion", {
         send_to: GOOGLE_ADS_CONVERSION_SEND_TO,
         ...details,
       });
-      return;
+      reported = true;
+    }
+
+    // Résultat organique pour GA4 : envoyé une seule fois, explicitement ciblé
+    // sur la destination GA4 (send_to), et uniquement avec le consentement
+    // d'audience versionné. Le consentement publicitaire seul ne suffit pas.
+    if (analyticsConsentGranted() && GA4_MEASUREMENT_ID && typeof window.gtag === "function") {
+      window.gtag("event", "booking_confirmed", {
+        send_to: GA4_MEASUREMENT_ID,
+        ...details,
+      });
+      reported = true;
     }
 
     // Sans identifiant, sans tag Google ou sans consentement : trace interne
-    // uniquement, aucune transmission publicitaire.
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: "booking_completed_internal", ...details });
+    // uniquement, aucune transmission publicitaire ni d'audience.
+    if (!reported) {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "booking_completed_internal", ...details });
+    }
   };
 
   const updateWhatsAppLink = (lang) => {

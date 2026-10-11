@@ -48,6 +48,11 @@
   // chargement pour déclencher la conversion sur /confirmation.html.
   window.SB_GOOGLE_ADS_CONVERSION_SEND_TO = "AW-18499976691/4aizCIre4ZQdEPP7vPVE";
 
+  // Identifiant public de la destination GA4 (audience agrégée). app.js le lit
+  // au chargement pour cibler explicitement l'événement de réservation vers
+  // GA4 uniquement (send_to), sans jamais l'envoyer à Google Ads.
+  window.SB_GA4_MEASUREMENT_ID = GA4_MEASUREMENT_ID;
+
   function readKey(key) {
     try {
       return localStorage.getItem(key);
@@ -76,6 +81,11 @@
     });
     window.sbHasAdsConsent = function () {
       return adsGranted;
+    };
+    // Exposé pour app.js : miroir exact du consentement d'audience courant.
+    // Un accord publicitaire seul (ou un ancien sb-ads-consent) ne l'ouvre pas.
+    window.sbHasAnalyticsConsent = function () {
+      return analyticsGranted;
     };
   }
 
@@ -139,6 +149,9 @@
     window.sbHasAdsConsent = function () {
       return false;
     };
+    window.sbHasAnalyticsConsent = function () {
+      return false;
+    };
   }
 
   if (analyticsGranted) {
@@ -156,7 +169,7 @@
       accept: "Accepter",
       decline: "Refuser",
       more: "En savoir plus",
-      link: "privacy.html",
+      link: "/privacy.html",
     },
     en: {
       aria: "Analytics and advertising measurement consent",
@@ -168,7 +181,7 @@
       accept: "Accept",
       decline: "Decline",
       more: "Learn more",
-      link: "privacy.html#english",
+      link: "/privacy.html#english",
     },
     es: {
       aria: "Consentimiento de medición de audiencia y publicitaria",
@@ -180,7 +193,7 @@
       accept: "Aceptar",
       decline: "Rechazar",
       more: "Más información",
-      link: "privacy.html",
+      link: "/privacy.html",
     },
   };
 

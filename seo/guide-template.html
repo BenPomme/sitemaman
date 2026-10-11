@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+{{GENERATED_MARKER}}
+{{HTML_OPEN}}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <link rel="alternate" hreflang="fr" href="{{URL_FR}}">
+  <link rel="alternate" hreflang="en" href="{{URL_EN}}">
+  <link rel="alternate" hreflang="x-default" href="{{URL_FR}}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:image" content="{{OG_IMAGE}}">
+  <meta property="og:locale" content="{{OG_LOCALE}}">
+  <meta property="og:locale:alternate" content="{{OG_LOCALE_ALT}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/theme.css">
+  <script type="application/ld+json">
+{{JSONLD_ARTICLE}}
+  </script>
+  <script type="application/ld+json">
+{{JSONLD_BREADCRUMB}}
+  </script>
+  <script src="/analytics.js"></script>
+</head>
+<body class="page-inner">
+  <div class="ticker-top">
+  <p><span class="dot"></span> <span data-i18n="tickerOffer">{{tickerOffer}}</span></p>
+  <a href="/appointments.html#reserver"><span data-i18n="headerBookingCta">{{headerBookingCta}}</span> <span aria-hidden="true">&#8594;</span></a>
+</div>
+<header class="site-head" id="siteHead">
+  <a class="wordmark" href="/index.html">
+    <span class="wordmark__name">Sylviane Bahr</span>
+    <span class="wordmark__role" data-i18n="brandRole">{{brandRole}}</span>
+  </a>
+  <nav class="site-nav" id="siteNav">
+    <a href="/therapy.html" data-i18n="navTherapy">{{navTherapy}}</a>
+    <a href="/coaching.html" data-i18n="navCoaching">{{navCoaching}}</a>
+    <a href="/compare.html" data-i18n="navTherapyOrCoaching">{{navTherapyOrCoaching}}</a>
+    <a href="/groups.html" data-i18n="navGroups">{{navGroups}}</a>
+    <a href="/cercle-hommes-sant-cugat.html" data-i18n="navCircle">{{navCircle}}</a>
+    <a href="/about.html" data-i18n="navAbout">{{navAbout}}</a>
+    <a href="/resources.html" data-i18n="navResources">{{navResources}}</a>
+    <a href="/appointments.html" data-i18n="navAppointments">{{navAppointments}}</a>
+  </nav>
+  <div class="head-tools">
+    <select id="language-selector" aria-label="Language selector"><option value="fr">FR</option><option value="en">EN</option></select>
+    <a class="pill pill--light head-cta" href="/appointments.html#reserver" data-track="booking_click" data-track-source="header"><span class="cta-long" data-i18n="headerBookingCta">{{headerBookingCta}}</span><span class="cta-short" data-i18n="navAppointments">{{navAppointments}}</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+  </div>
+</header>
+  <main>
+    <section class="section">
+      <div class="section__header">
+        <p class="pill pill--subtle">{{EYEBROW}}</p>
+        <h1>{{H1}}</h1>
+      </div>
+      <div class="article">
+        <nav class="article__meta" aria-label="Breadcrumb">
+          <span><a class="text-link" href="/">{{crumbHome}}</a></span>
+          <span><a class="text-link" href="/resources.html">{{crumbResources}}</a></span>
+          <span aria-current="page">{{H1}}</span>
+        </nav>
+        <p class="article__meta">
+          <span>{{published}} <time datetime="{{PUBLISHED_ISO}}">{{PUBLISHED_HUMAN}}</time></span>
+          <span>{{modified}} <time datetime="{{MODIFIED_ISO}}">{{MODIFIED_HUMAN}}</time></span>
+          <span>{{PROVENANCE}}</span>
+        </p>
+        <p class="article__meta"><span><a class="text-link" href="{{ALTERNATE_URL}}" hreflang="{{ALTERNATE_LANG}}">{{TWIN_LABEL}}</a></span></p>
+{{#INTRO}}        <p>{{.}}</p>
+{{/INTRO}}{{#SECTIONS}}        <h2 id="{{ID}}">{{HEADING}}</h2>
+{{#PARAGRAPHS}}        <p>{{.}}</p>
+{{/PARAGRAPHS}}{{?BULLETS}}        <ul>
+{{#BULLETS}}          <li>{{.}}</li>
+{{/BULLETS}}        </ul>
+{{/BULLETS}}{{/SECTIONS}}        <h2 id="exercise">{{EXERCISE_HEADING}}</h2>
+        <p>{{EXERCISE_INTRO}}</p>
+        <ol>
+{{#EXERCISE_ITEMS}}          <li>{{.}}</li>
+{{/EXERCISE_ITEMS}}        </ol>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="section__header">
+        <p class="pill pill--subtle">{{faqBadge}}</p>
+        <h2>{{faqTitle}}</h2>
+      </div>
+      <div class="faq-list">
+{{#FAQS}}        <div class="faq-item"><h3>{{Q}}</h3><p>{{A}}</p></div>
+{{/FAQS}}      </div>
+    </section>
+
+    <section class="section">
+      <div class="article">
+        <h2>{{relatedTitle}}</h2>
+        <ul>
+{{#RELATED}}          <li><a class="text-link" href="{{HREF}}">{{LABEL}}</a></li>
+{{/RELATED}}        </ul>
+        <h2 id="sources">{{sourcesTitle}}</h2>
+        <p class="article__meta"><span>{{sourcesNote}}</span></p>
+        <ul>
+{{#SOURCES}}          <li><a class="text-link" href="{{URL}}" target="_blank" rel="noopener noreferrer">{{TITLE}}</a> &#183; {{NOTE}}</li>
+{{/SOURCES}}        </ul>
+        <p>{{providerNote}} <a class="text-link" href="/about.html">{{aboutLabel}}</a> &#183; <a class="text-link" href="/cv.html">{{cvLabel}}</a></p>
+        <p class="article__meta"><span>{{editorialNote}}</span></p>
+      </div>
+      <div class="cta-box cta-box--spaced">
+        <h2>{{ctaHeading}}</h2>
+        <p>{{CTA_NOTE}}</p>
+        <div class="cta-box__actions">
+          <a class="btn" data-track="booking_click" data-track-source="{{CTA_SOURCE}}" href="/appointments.html#reserver">{{CTA_LABEL}}</a>
+          <a class="btn btn--ghost" data-track="inquiry_click" data-track-source="{{CTA_SOURCE}}-contact" href="/appointments.html#contact">{{contactLabel}}</a>
+        </div>
+        <p class="article__meta"><span>{{freeCallNote}}</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+  <p class="foot__mark">Sylviane&nbsp;Bahr</p>
+  <div class="foot__cols">
+    <div><span class="micro micro--inverse" data-i18n="footerPracticeLabel">{{footerPracticeLabel}}</span><p>Josep Puig i Cadafalch, 42-44<br>08172 Sant Cugat del Vallès</p></div>
+    <div><span class="micro micro--inverse" data-i18n="footerContactLabel">{{footerContactLabel}}</span><p><a href="mailto:sylviane_bahr@hotmail.com">sylviane_bahr@hotmail.com</a><br><span data-i18n="footerWhatsApp">{{footerWhatsApp}}</span></p></div>
+    <div><span class="micro micro--inverse" data-i18n="footerPagesLabel">{{footerPagesLabel}}</span><p><a href="/therapy.html" data-i18n="navTherapy">{{navTherapy}}</a> &#183; <a href="/coaching.html" data-i18n="navCoaching">{{navCoaching}}</a> &#183; <a href="/groups.html" data-i18n="navGroups">{{navGroups}}</a><br><a href="/appointments.html" data-i18n="navAppointments">{{navAppointments}}</a> &#183; <a href="/resources.html" data-i18n="navResources">{{navResources}}</a> &#183; <a href="/about.html" data-i18n="navAbout">{{navAbout}}</a></p></div>
+  </div>
+  <p class="micro micro--inverse foot__legal"><a href="/privacy.html" data-i18n="footerPrivacy">{{footerPrivacy}}</a> &#183; <a href="/legal.html" data-i18n="footerLegalNotice">{{footerLegalNotice}}</a> &#183; <span data-i18n="footerLang">{{footerLang}}</span></p>
+</footer>
+
+  <script src="/translations.js?v={{ASSET_VERSION}}"></script>
+  <script src="/app.js?v={{ASSET_VERSION}}"></script>
+</body>
+</html>

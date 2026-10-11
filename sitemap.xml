@@ -210,4 +210,42 @@
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
+<!-- pseo:guides:start -->
+  <url>
+    <loc>https://www.sylvianebahr.com/guides/reconversion-professionnelle-a-l-etranger.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.sylvianebahr.com/guides/career-change-while-living-abroad.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.sylvianebahr.com/guides/choisir-un-therapeute-a-l-etranger.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.sylvianebahr.com/guides/how-to-choose-a-therapist-abroad.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.sylvianebahr.com/guides/solitude-et-expatriation.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.sylvianebahr.com/guides/loneliness-when-living-abroad.html</loc>
+    <lastmod>2026-10-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<!-- pseo:guides:end -->
 </urlset>

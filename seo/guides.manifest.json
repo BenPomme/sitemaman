@@ -1,0 +1,68 @@
+{
+  "asset_version": "20261011",
+  "dataset_sha256": "9ca606bb59e52cf08ae2718ff684521b13e1ed0c21e33d19a336b8de123a99af",
+  "generator": "scripts/generate_guides.py",
+  "integration": {
+    "llms.txt": "83ef6fd4a0279cfa751a6d00f48a0fe74f58674a00c3ef6354aa27ba9846e4f4",
+    "resources.html": "61e1be0a51ea1744ff335a85a8a8d38fe89c7529551677b39d5ab9cedcd8616e",
+    "sitemap.xml": "2cc3dab9ee1867474e2b4edb66b94c0c11f7c68c900afff403afc2ae616f5e7c"
+  },
+  "pages": [
+    {
+      "id": "career-change-fr",
+      "lang": "fr",
+      "path": "guides/reconversion-professionnelle-a-l-etranger.html",
+      "sha256": "6d78c3bb58e78333c632f2aca32ec4748380e85f0fddf6cf8f9bf68961340d5e",
+      "slug": "reconversion-professionnelle-a-l-etranger",
+      "topic": "career-change",
+      "url": "https://www.sylvianebahr.com/guides/reconversion-professionnelle-a-l-etranger.html"
+    },
+    {
+      "id": "career-change-en",
+      "lang": "en",
+      "path": "guides/career-change-while-living-abroad.html",
+      "sha256": "00f914db9d32b3afb5f9f6e4d0ffaa57f3458ab8a54f54ac4815edac7ddb1d0e",
+      "slug": "career-change-while-living-abroad",
+      "topic": "career-change",
+      "url": "https://www.sylvianebahr.com/guides/career-change-while-living-abroad.html"
+    },
+    {
+      "id": "choosing-therapist-fr",
+      "lang": "fr",
+      "path": "guides/choisir-un-therapeute-a-l-etranger.html",
+      "sha256": "e4877ad27785bc3f04de570e9abc5c8f447745f02308f208b1e786e00eca8d81",
+      "slug": "choisir-un-therapeute-a-l-etranger",
+      "topic": "choosing-therapist",
+      "url": "https://www.sylvianebahr.com/guides/choisir-un-therapeute-a-l-etranger.html"
+    },
+    {
+      "id": "choosing-therapist-en",
+      "lang": "en",
+      "path": "guides/how-to-choose-a-therapist-abroad.html",
+      "sha256": "75b64123a2eb127075f6ffe8986049b91fa1739578ecbd036b0722a7249bb857",
+      "slug": "how-to-choose-a-therapist-abroad",
+      "topic": "choosing-therapist",
+      "url": "https://www.sylvianebahr.com/guides/how-to-choose-a-therapist-abroad.html"
+    },
+    {
+      "id": "loneliness-fr",
+      "lang": "fr",
+      "path": "guides/solitude-et-expatriation.html",
+      "sha256": "b82a9f5518e68b2e599900d6531f16e5131cacc1a4fe06e3587f2f98658110f7",
+      "slug": "solitude-et-expatriation",
+      "topic": "loneliness",
+      "url": "https://www.sylvianebahr.com/guides/solitude-et-expatriation.html"
+    },
+    {
+      "id": "loneliness-en",
+      "lang": "en",
+      "path": "guides/loneliness-when-living-abroad.html",
+      "sha256": "41a532dba44987cf83e0588783da82a7c9fab1739e7fe0c270ac511961f4108e",
+      "slug": "loneliness-when-living-abroad",
+      "topic": "loneliness",
+      "url": "https://www.sylvianebahr.com/guides/loneliness-when-living-abroad.html"
+    }
+  ],
+  "site_origin": "https://www.sylvianebahr.com",
+  "version": 1
+}

@@ -1,0 +1,17 @@
+# GitHub Pages build configuration (Jekyll).
+#
+# Purpose: keep pipeline code, the guide template, the editorial dataset and
+# operator docs out of the published, indexable site. Jekyll otherwise renders
+# markdown and non-excluded assets into public pages (for example CLAUDE.md
+# was published as /CLAUDE.html with its own canonical and JSON-LD).
+#
+# Deliberately NOT adding .nojekyll: that would publish raw template and source
+# files verbatim instead of hiding them.
+#
+# The existing HTML pages are untouched and continue to be published as-is.
+
+exclude:
+  - seo
+  - scripts
+  - docs
+  - CLAUDE.md

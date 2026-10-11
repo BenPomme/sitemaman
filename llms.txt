@@ -50,3 +50,12 @@ Contact:
 
 Suggested factual description:
 Sylviane Bahr is a humanistic and integrative therapist and ICF-certified coach based in Sant Cugat del Vallès, working with clients across Barcelona and Sant Cugat del Vallès. She supports adults and internationally mobile clients in English, French and Spanish, with in-person and online sessions.
+<!-- pseo:guides:start -->
+Guides (FR / EN):
+- Changer de métier à l'étranger : séparer le poste et le pays avant de décider (FR): https://www.sylvianebahr.com/guides/reconversion-professionnelle-a-l-etranger.html
+- Career change while living abroad: separate the role from the country first (EN): https://www.sylvianebahr.com/guides/career-change-while-living-abroad.html
+- Choisir un thérapeute à l'étranger : les questions à poser avant de commencer (FR): https://www.sylvianebahr.com/guides/choisir-un-therapeute-a-l-etranger.html
+- How to choose a therapist abroad: the questions to ask before you start (EN): https://www.sylvianebahr.com/guides/how-to-choose-a-therapist-abroad.html
+- Pourquoi la solitude peut apparaître après le déménagement, et ce qui aide vraiment (FR): https://www.sylvianebahr.com/guides/solitude-et-expatriation.html
+- Why loneliness can appear after the move, and what actually helps (EN): https://www.sylvianebahr.com/guides/loneliness-when-living-abroad.html
+<!-- pseo:guides:end -->
