@@ -31,6 +31,42 @@ window.SITE_PRICING = {
       },
     },
     {
+      id: "couples-world",
+      amount: "90 €",
+      label: {
+        fr: "Séance de couple en visio, 75 min, France et reste du monde",
+        en: "Online couples session, 75 min, France and rest of the world",
+        es: "Sesión de pareja online, 75 min, Francia y resto del mundo",
+      },
+    },
+    {
+      id: "couples-spain",
+      amount: "90 €",
+      label: {
+        fr: "Séance de couple en visio, 75 min, clients en Espagne",
+        en: "Online couples session, 75 min, clients in Spain",
+        es: "Sesión de pareja online, 75 min, clientes en España",
+      },
+    },
+    {
+      id: "couples-uk",
+      amount: "£90",
+      label: {
+        fr: "Séance de couple en visio, 75 min, Royaume-Uni",
+        en: "Online couples session, 75 min, United Kingdom",
+        es: "Sesión de pareja online, 75 min, Reino Unido",
+      },
+    },
+    {
+      id: "couples-singapore",
+      amount: "S$240",
+      label: {
+        fr: "Séance de couple en visio, 75 min, Singapour",
+        en: "Online couples session, 75 min, Singapore",
+        es: "Sesión de pareja online, 75 min, Singapur",
+      },
+    },
+    {
       id: "online-spain",
       amount: "60 €",
       label: {
