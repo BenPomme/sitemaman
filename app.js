@@ -30,6 +30,14 @@
       ? window.SB_GOOGLE_ADS_CONVERSION_SEND_TO
       : "";
 
+  // Action de conversion "Contact WhatsApp", déclenchée au clic sur un bouton
+  // WhatsApp. Un clic n'est pas un message envoyé : c'est une intention de
+  // contact, comptée comme conversion principale dans Google Ads.
+  const GOOGLE_ADS_WHATSAPP_SEND_TO =
+    typeof window.SB_GOOGLE_ADS_WHATSAPP_SEND_TO === "string"
+      ? window.SB_GOOGLE_ADS_WHATSAPP_SEND_TO
+      : "";
+
   // Destination GA4 (audience agrégée). Lue depuis analytics.js au chargement.
   // Sert uniquement à cibler l'événement de réservation vers GA4 (send_to) pour
   // qu'il n'atteigne jamais la conversion Google Ads.
@@ -318,6 +326,8 @@
         link.target = "_blank";
         link.rel = "noopener";
       }
+      if (track) link.dataset.track = track;
+      if (trackSource) link.dataset.trackSource = trackSource;
       list.append(link);
     });
     statusNode.append(list);
@@ -355,6 +365,8 @@
         href: `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(body)}`,
         label: dict.formWhatsAppFallback || "Envoyer par WhatsApp",
         external: true,
+        track: "whatsapp_click",
+        trackSource: "form_fallback",
       },
     ];
   };
@@ -470,6 +482,24 @@
         page_language: currentLang,
         destination: target.href ? new URL(target.href, window.location.href).hostname : undefined,
       });
+
+      // Clic WhatsApp : conversion Google Ads dédiée ("Contact WhatsApp").
+      // Même règle que la réservation : uniquement avec le consentement
+      // publicitaire et si le label est configuré dans analytics.js.
+      if (
+        eventName === "whatsapp_click" &&
+        GOOGLE_ADS_WHATSAPP_SEND_TO &&
+        adsConsentGranted() &&
+        typeof window.gtag === "function"
+      ) {
+        window.gtag("event", "conversion", {
+          send_to: GOOGLE_ADS_WHATSAPP_SEND_TO,
+          source,
+          placement: source,
+          page_path: window.location.pathname,
+          page_language: currentLang,
+        });
+      }
     });
 
     // Un clic n'est pas une réservation. Calendly ne confirme une réservation

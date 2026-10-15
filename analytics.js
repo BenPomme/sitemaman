@@ -48,6 +48,12 @@
   // chargement pour déclencher la conversion sur /confirmation.html.
   window.SB_GOOGLE_ADS_CONVERSION_SEND_TO = "AW-18499976691/4aizCIre4ZQdEPP7vPVE";
 
+  // Action de conversion "Contact WhatsApp" (catégorie Contact) créée dans
+  // Google Ads le 15 octobre 2026. app.js la déclenche au clic sur un bouton
+  // WhatsApp : c'est une intention de contact direct, pas une réservation
+  // confirmée. Même règle de consentement que la réservation.
+  window.SB_GOOGLE_ADS_WHATSAPP_SEND_TO = "AW-18499976691/6N4YCO7hw50dEPP7vPVE";
+
   // Identifiant public de la destination GA4 (audience agrégée). app.js le lit
   // au chargement pour cibler explicitement l'événement de réservation vers
   // GA4 uniquement (send_to), sans jamais l'envoyer à Google Ads.
