@@ -186,6 +186,7 @@ const bannerDecline = (body) =>
 function runApp(opts = {}) {
   const {
     url = "https://www.sylvianebahr.com/confirmation.html",
+    referrer = "",
     confirmedReceipt = null,
     adsConsent = false,
     analyticsConsent = false,
@@ -231,7 +232,7 @@ function runApp(opts = {}) {
   const pageUrl = new URL(url);
   const doc = {
     readyState: "complete",
-    referrer: "",
+    referrer,
     documentElement,
     body,
     head: makeEl("head"),
@@ -282,6 +283,7 @@ function runApp(opts = {}) {
     localStorage,
     translations: {},
     URL,
+    URLSearchParams,
     Date,
     console,
     setTimeout,
@@ -456,6 +458,56 @@ const receipt = { lang: "fr", at: 1 };
     "J2 direct confirmation visit: no internal fallback either",
     r.win.dataLayer.filter((e) => e.event === "booking_completed_internal").length === 0,
   );
+}
+
+{
+  // External Calendly booking: Calendly redirects to the confirmation page.
+  const redirectUrl = "https://www.sylvianebahr.com/confirmation.html?booked=calendly";
+  const referrer = "https://calendly.com/sylvianebahr/30min";
+  const r = runApp({
+    url: redirectUrl,
+    referrer,
+    confirmationPage: true,
+    adsConsent: true,
+    analyticsConsent: true,
+  });
+  check("Q1 Calendly redirect: exactly one Ads conversion", eventsNamed(r, "conversion").length === 1);
+  check("Q2 Calendly redirect: exactly one GA4 booking_confirmed", eventsNamed(r, "booking_confirmed").length === 1);
+  check(
+    "Q3 Calendly redirect: redirect counted flag set",
+    r.sessionStore.get("sb-calendly-redirect-counted") === "1",
+  );
+
+  const r2 = runApp({
+    url: redirectUrl,
+    referrer,
+    confirmationPage: true,
+    adsConsent: true,
+    analyticsConsent: true,
+    sessionStore: r.sessionStore,
+  });
+  check("Q4 Calendly redirect reload: no double count", r2.gtagCalls.length === 0, `got ${r2.gtagCalls.length}`);
+}
+
+{
+  const redirectUrl = "https://www.sylvianebahr.com/confirmation.html?booked=calendly";
+  const r = runApp({
+    url: redirectUrl,
+    referrer: "",
+    confirmationPage: true,
+    adsConsent: true,
+    analyticsConsent: true,
+  });
+  check("Q5 Calendly redirect without referrer: no count", r.gtagCalls.length === 0, `got ${r.gtagCalls.length}`);
+
+  const r2 = runApp({
+    url: redirectUrl,
+    referrer: "https://evil.example/booking",
+    confirmationPage: true,
+    adsConsent: true,
+    analyticsConsent: true,
+  });
+  check("Q6 Calendly redirect from another referrer: no count", r2.gtagCalls.length === 0, `got ${r2.gtagCalls.length}`);
 }
 
 {
