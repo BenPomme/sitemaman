@@ -38,6 +38,13 @@
       ? window.SB_GOOGLE_ADS_WHATSAPP_SEND_TO
       : "";
 
+  // Action de conversion "Message formulaire", déclenchée après un envoi de
+  // formulaire de contact réussi (FormSubmit en AJAX).
+  const GOOGLE_ADS_FORM_SEND_TO =
+    typeof window.SB_GOOGLE_ADS_FORM_SEND_TO === "string"
+      ? window.SB_GOOGLE_ADS_FORM_SEND_TO
+      : "";
+
   // Destination GA4 (audience agrégée). Lue depuis analytics.js au chargement.
   // Sert uniquement à cibler l'événement de réservation vers GA4 (send_to) pour
   // qu'il n'atteigne jamais la conversion Google Ads.
@@ -100,10 +107,10 @@
 
   // Comptage unique d'une réservation confirmée. Aucun nom, email ni détail
   // du rendez-vous n'est transmis : uniquement la page et la langue.
-  const reportConfirmedBooking = (confirmed) => {
+  const reportConfirmedBooking = (confirmed, source = "calendly_embed") => {
     const details = {
-      source: "calendly_embed",
-      placement: "calendly_embed",
+      source,
+      placement: source,
       page_path: "/confirmation.html",
       page_language: confirmed && confirmed.lang ? confirmed.lang : "fr",
     };
@@ -426,10 +433,25 @@
 
         form.reset();
         setFormStatus(form, dict.formSuccess || "Thanks for your message!", "success");
-        trackEvent("inquiry_form_success", {
+        const formDetails = {
           form_id: form.id || "contact-form",
           page_path: window.location.pathname,
-        });
+          page_language: currentLang,
+        };
+        trackEvent("inquiry_form_success", formDetails);
+
+        // Formulaire envoyé : conversion Google Ads dédiée ("Message
+        // formulaire"), avec la même règle de consentement que la réservation.
+        if (
+          GOOGLE_ADS_FORM_SEND_TO &&
+          adsConsentGranted() &&
+          typeof window.gtag === "function"
+        ) {
+          window.gtag("event", "conversion", {
+            send_to: GOOGLE_ADS_FORM_SEND_TO,
+            ...formDetails,
+          });
+        }
       } catch (error) {
         console.error(error);
         const needsActivation = isActivationNotice(error);
@@ -536,7 +558,40 @@
     // trouve aucun marqueur et ne déclenche donc aucun comptage.
     if (document.body.hasAttribute("data-booking-confirmation")) {
       const confirmed = consumeConfirmedBooking();
-      if (confirmed) reportConfirmedBooking(confirmed);
+      if (confirmed) {
+        reportConfirmedBooking(confirmed);
+      } else {
+        // Repli pour les réservations Calendly terminées hors widget intégré
+        // (nouvel onglet mobile, lien direct). Si Calendly redirige vers
+        // /confirmation.html?booked=calendly, on compte la réservation une
+        // seule fois par session, et seulement avec un référent calendly.com.
+        const params = new URLSearchParams(window.location.search);
+        let referrerHost = "";
+        try {
+          referrerHost = new URL(document.referrer).hostname;
+        } catch {
+          referrerHost = "";
+        }
+        let alreadyCounted = false;
+        try {
+          alreadyCounted =
+            sessionStorage.getItem("sb-calendly-redirect-counted") === "1";
+        } catch {
+          alreadyCounted = false;
+        }
+        if (
+          !alreadyCounted &&
+          params.get("booked") === "calendly" &&
+          /(^|\.)calendly\.com$/i.test(referrerHost)
+        ) {
+          try {
+            sessionStorage.setItem("sb-calendly-redirect-counted", "1");
+          } catch {
+            // Stockage indisponible : on compte quand même une fois ici.
+          }
+          reportConfirmedBooking({ lang: currentLang, at: Date.now() }, "calendly_redirect");
+        }
+      }
     }
 
     document.querySelectorAll("[data-async-form]").forEach(handleFormSubmission);

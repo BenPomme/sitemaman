@@ -54,6 +54,11 @@
   // confirmée. Même règle de consentement que la réservation.
   window.SB_GOOGLE_ADS_WHATSAPP_SEND_TO = "AW-18499976691/6N4YCO7hw50dEPP7vPVE";
 
+  // Action de conversion "Message formulaire" (catégorie Envoi de formulaire
+  // de lead) créée dans Google Ads le 17 octobre 2026. app.js la déclenche
+  // après un envoi de formulaire réussi, avec le consentement publicitaire.
+  window.SB_GOOGLE_ADS_FORM_SEND_TO = "AW-18499976691/a2erCN_j3J8dEPP7vPVE";
+
   // Identifiant public de la destination GA4 (audience agrégée). app.js le lit
   // au chargement pour cibler explicitement l'événement de réservation vers
   // GA4 uniquement (send_to), sans jamais l'envoyer à Google Ads.
