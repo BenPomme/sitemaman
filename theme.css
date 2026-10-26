@@ -526,6 +526,20 @@ body:not(.page-home) .site-head .pill--light { background: var(--ink); color: va
 .page-inner .section__lead { font-size: 16.5px; color: var(--muted); }
 .page-inner .section__cta { margin-top: 34px; }
 
+/* Landing page thérapie en ligne : aligner tous les blocs sur un même axe central. */
+.page-online-therapy .section__header {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.page-online-therapy .section__header .section__lead {
+  max-width: 68ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+body.page-online-therapy .article { max-width: 860px; }
+
 /* Cartes et grilles */
 .page-inner .grid { gap: 22px; }
 .page-inner .card {
