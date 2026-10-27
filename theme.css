@@ -493,6 +493,9 @@ body:not(.page-home) .site-head {
 }
 body:not(.page-home) .site-head .pill--light { background: var(--ink); color: var(--cream); }
 
+/* Parcours publicitaire dédié : une seule action principale. */
+.page-anxiety-therapy .whatsapp-float { display: none; }
+
 .head-tools select {
   font-family: var(--mono);
   font-size: 10.5px;
