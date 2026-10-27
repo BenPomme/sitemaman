@@ -165,7 +165,16 @@ function runAnalytics({ stored = {}, url, referrer = "", lang = "fr" } = {}) {
     document: doc,
     location: new URL(url || "https://www.sylvianebahr.com/privacy.html"),
   };
-  const sandbox = { window: win, document: doc, localStorage, URL, Date, console, setTimeout };
+  const sandbox = {
+    window: win,
+    document: doc,
+    localStorage,
+    URL,
+    URLSearchParams,
+    Date,
+    console,
+    setTimeout,
+  };
   vm.createContext(sandbox);
   vm.runInContext(ANALYTICS_SRC, sandbox, { filename: "analytics.js" });
   return { win, doc, store, head, body };
@@ -344,6 +353,39 @@ console.log("== analytics.js consent gate ==");
   check("B2 v2 accept: key stored granted", store.get(CONSENT_KEY) === "granted");
   check("B3 v2 accept: sbHasAnalyticsConsent() true", win.sbHasAnalyticsConsent() === true);
   check("B4 v2 accept: banner removed", body.children.length === 0);
+}
+
+{
+  const { win, body } = runAnalytics({
+    url:
+      "https://www.sylvianebahr.com/therapie-en-ligne.html" +
+      "?email=private%40example.com&utm_source=google&gclid=test-click-id&utm_medium=cpc#reserver",
+    referrer: "https://www.google.com/search?q=private-query#fragment",
+  });
+  bannerAccept(body);
+  const configs = aGaConfigs(win);
+  const params = configs.length === 1 ? configs[0][2] : {};
+  const pageLocation = params.page_location ? new URL(params.page_location) : null;
+  check(
+    "B5 GA4 page location keeps Google Ads click attribution",
+    pageLocation &&
+      pageLocation.searchParams.get("gclid") === "test-click-id" &&
+      pageLocation.searchParams.get("utm_source") === "google" &&
+      pageLocation.searchParams.get("utm_medium") === "cpc",
+    params.page_location || "missing",
+  );
+  check(
+    "B6 GA4 page location removes unrelated query values and fragment",
+    pageLocation &&
+      !pageLocation.searchParams.has("email") &&
+      pageLocation.hash === "",
+    params.page_location || "missing",
+  );
+  check(
+    "B7 GA4 referrer keeps only origin and path",
+    params.page_referrer === "https://www.google.com/search",
+    String(params.page_referrer),
+  );
 }
 
 {

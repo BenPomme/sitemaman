@@ -100,9 +100,58 @@
     };
   }
 
-  // Origine + chemin uniquement : aucun paramètre de requête ni fragment
-  // n'est transmis à la mesure.
-  function sanitizedUrl(raw) {
+  // Paramètres utiles à l'attribution Google Ads et GA4. Toute autre valeur
+  // présente dans l'URL est retirée avant la mesure.
+  var ATTRIBUTION_PARAMETERS = {
+    gad_source: true,
+    gbraid: true,
+    gclid: true,
+    utm_campaign: true,
+    utm_content: true,
+    utm_id: true,
+    utm_medium: true,
+    utm_source: true,
+    utm_term: true,
+    wbraid: true,
+  };
+
+  // Origine + chemin. Pour la page de destination uniquement, les paramètres
+  // d'attribution connus sont conservés afin que GA4 puisse relier une visite
+  // à Google Ads. Les autres paramètres et le fragment ne sont jamais envoyés.
+  function sanitizedPageLocation(raw) {
+    if (!raw) {
+      return "";
+    }
+    try {
+      var parsed = new URL(raw, window.location.href);
+      if (!parsed.origin || parsed.origin === "null") {
+        return "";
+      }
+      var allowed = [];
+      parsed.searchParams.forEach(function (value, name) {
+        if (ATTRIBUTION_PARAMETERS[name] && value) {
+          allowed.push([name, value]);
+        }
+      });
+      allowed.sort(function (a, b) {
+        if (a[0] === b[0]) {
+          return a[1].localeCompare(b[1]);
+        }
+        return a[0].localeCompare(b[0]);
+      });
+      var search = new URLSearchParams();
+      allowed.forEach(function (entry) {
+        search.append(entry[0], entry[1]);
+      });
+      var query = search.toString();
+      return parsed.origin + parsed.pathname + (query ? "?" + query : "");
+    } catch (error) {
+      return "";
+    }
+  }
+
+  // Le référent ne contient jamais de paramètres de requête ni de fragment.
+  function sanitizedReferrer(raw) {
     if (!raw) {
       return "";
     }
@@ -121,8 +170,9 @@
 
   // Configure GA4 une seule fois, uniquement après consentement explicite.
   // Aucune donnée saisie par l'utilisateur n'est transmise : la pagevue
-  // automatique ne porte que la page (origine + chemin) et le référent sans
-  // query ni hash. La personnalisation publicitaire est désactivée pour GA4.
+  // automatique ne porte que la page, avec les paramètres d'attribution
+  // strictement nécessaires, et le référent sans query ni hash. La
+  // personnalisation publicitaire est désactivée pour GA4.
   function initGa4() {
     if (ga4Initialized) {
       return;
@@ -133,11 +183,11 @@
       allow_ad_personalization_signals: false,
       allow_google_signals: false,
     };
-    var pageLocation = sanitizedUrl(window.location.href);
+    var pageLocation = sanitizedPageLocation(window.location.href);
     if (pageLocation) {
       params.page_location = pageLocation;
     }
-    var pageReferrer = sanitizedUrl(document.referrer);
+    var pageReferrer = sanitizedReferrer(document.referrer);
     params.page_referrer = pageReferrer;
 
     gtag("config", GA4_MEASUREMENT_ID, params);
