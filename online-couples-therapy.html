@@ -23,7 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme.css?v=20261107">
+  <link rel="stylesheet" href="landing.css?v=20261107">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,7 +40,7 @@
   </script>
   <script src="analytics.js?v=20261027"></script>
 </head>
-<body class="page-inner">
+<body class="page-inner page-online-therapy page-online-therapy--offer">
   <div class="ticker-top">
   <p><span class="dot"></span> <span data-i18n="tickerOffer">Premier échange de 30 minutes offert · Barcelone, Sant Cugat et visio</span></p>
   <a href="appointments.html#reserver"><span data-i18n="headerBookingCta">Prendre RDV</span> <span aria-hidden="true">→</span></a>
@@ -66,38 +67,62 @@
   </div>
 </header>
   <main>
-    <section class="hero hero--service">
+    <section class="hero hero--service hero--offer" aria-labelledby="offer-title">
       <div class="hero__content">
-        <p class="pill">Couples therapy · English / French</p>
-        <h1>Online couples therapy, in English</h1>
-        <p class="hero__subtitle">When the same argument keeps coming back, when communication wears thin or a decision weighs on you both, a space for two helps to put things back on the table. Sessions are online, in English, with both partners present at the same time.</p>
+        <p class="hero__eyebrow">Online couples sessions</p>
+        <h1 id="offer-title">Online couples therapy, in English</h1>
+        <p class="hero__subtitle">The same argument keeps coming back. One of you asks for a clear answer, the other goes quiet, then the pressure rises. Online, with both of you present, we look at what happens in that moment instead of replaying the same debate.</p>
+        <p class="hero__fee"><strong>€90</strong> for a paid 75 minute couples session in France, Spain and the rest of the world · £90 in the United Kingdom · S$240 in Singapore</p>
         <div class="hero__actions">
-          <a class="btn" data-track="booking_click" data-track-source="couples-en-hero" href="appointments.html#reserver">Book a free 30 minute call</a>
-          <a class="btn btn--ghost" data-track="inquiry_click" data-track-source="couples-en-hero" href="appointments.html#contact">Ask a question</a>
+          <a class="btn hero__cta" data-track="booking_click" data-track-source="couples-en-hero" href="appointments.html#reserver">Book an introductory call</a>
         </div>
-        <div class="article__meta"><span>Free 30 minute first call</span><span>Online</span><span>75 minute sessions</span><span>International time zones</span></div>
-        <p class="hero__cta-note">The first call can be with both partners, or with the person who gets in touch. It is a chance to check the request and the frame. It is not a therapy session.</p>
+        <p class="hero__cta-note"><strong>The 30 minute introductory call is free.</strong> It is not a therapy session.</p>
+        <p class="hero__question"><a class="hero__question-link" data-track="inquiry_click" data-track-source="couples-en-hero" href="appointments.html#contact">Ask about the couples format</a></p>
       </div>
-      <div class="hero__visual hero__visual--portrait">
-        <img class="hero__photo hero__photo--portrait" src="sylviane-420.webp" width="420" height="420" alt="Sylviane Bahr" fetchpriority="high" decoding="async">
-        <div class="hero__card">
-          <div class="card__header"><p class="card__eyebrow">A first step</p><p class="card__price">30 min · free</p></div>
-          <ul class="card__list"><li>Lay out the situation together</li><li>Check that online sessions suit you</li><li>Clarify rhythm and fee</li></ul>
-          <a class="btn btn--wide" data-track="booking_click" data-track-source="couples-en-card" href="appointments.html#reserver">Book a free 30 minute call</a>
-        </div>
+      <figure class="hero__portrait">
+        <picture>
+          <source media="(max-width: 980px)" srcset="sylviane-session-portrait-640.webp 640w, sylviane-session-portrait-960.webp 960w" sizes="(max-width: 720px) 104px, 150px">
+          <img class="hero__photo" src="sylviane-session-960.webp" srcset="sylviane-session-640.webp 640w, sylviane-session-960.webp 960w" sizes="330px" width="1792" height="1008" alt="Sylviane Bahr" fetchpriority="high" decoding="async">
+        </picture>
+        <figcaption class="hero__caption">
+          <strong>Sylviane Bahr</strong>
+          <span>Gestalt therapist</span>
+          <span>Trained at Institut Gestalt de Barcelone</span>
+          <span>Supervised practice</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="gestalt-title">
+      <div class="section__header">
+        <p class="pill pill--subtle">Approach</p>
+        <h2 id="gestalt-title">What Gestalt helps you see</h2>
       </div>
+      <article class="article">
+        <p>Take a familiar exchange. One partner presses for a clear answer. The other withdraws. The first speaks more forcefully; the second closes down further. In session, I may stop the discussion there. I ask each of you what you notice in your body, what you feel, what you need, and how you are responding to the other. We then look at what just happened between you. Each tries one different sentence: naming the fear beneath the pressure, saying what makes it hard to answer, or proposing a specific time to return to the subject. We notice what changes and what does not.</p>
+        <p>Attention to present experience, physical sensation and the relationship is central to Gestalt work. It is built from both perspectives; I do not apply a ready-made script. Our work aims to make the repeating pattern visible and to open another way of speaking, listening and responding. We try that possibility in the session, then notice what changes in your exchange.</p>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="training-title">
+      <article class="article">
+        <p class="pill pill--subtle">Background</p>
+        <h2 id="training-title">Training and practice</h2>
+        <p>I am Sylviane Bahr. I trained in Gestalt therapy at Institut Gestalt de Barcelone and practise under supervision. Sessions are available in English or French.</p>
+      </article>
     </section>
 
     <section id="fees" class="section">
       <div class="section__header">
         <p class="pill pill--subtle">Fees and practicalities</p>
-        <h2>Online couples session fees</h2>
-        <p class="section__lead">A 75 minute session, so that each of you has room to be heard and the work has time to happen. The fee is agreed before the first session.</p>
+        <h2>Session length and fees</h2>
+        <p class="section__lead">A couples session lasts 75 minutes. The fee depends on your country of residence.</p>
       </div>
-      <div class="card card--highlight">
-        <div class="pricing pricing--compact" data-pricing data-pricing-ids="couples-uk,couples-singapore,couples-spain,couples-world"></div>
-        <p class="pricing__note">Payment by bank transfer or payment link, depending on your country of residence.</p>
-        <p class="pricing__note">A reduced fee is possible: raise it during the first call.</p>
+      <div class="card card--highlight pricing-card">
+        <div class="pricing pricing--compact" data-pricing data-pricing-ids="couples-world,couples-spain,couples-uk,couples-singapore">
+          <p class="price-fallback"><strong>75 minutes</strong> · €90 (France, Spain and rest of the world) · £90 (United Kingdom) · S$240 (Singapore)</p>
+        </div>
+        <p class="pricing__note">The fee and time zone are confirmed before the first session. Payment is by bank transfer or payment link.</p>
       </div>
     </section>
 
@@ -114,7 +139,7 @@
       <article class="article">
         <h2>How sessions work</h2>
         <ol class="process-list">
-          <li><strong>Free first call.</strong> Thirty minutes to understand the request, hear both points of view and check feasibility from your country.</li>
+          <li><strong>Free first call.</strong> Thirty minutes to understand the request, hear both points of view and check feasibility from your country. It is not a therapy session.</li>
           <li><strong>A clear frame.</strong> We agree the rhythm, times, fee and how the online sessions will run before we start.</li>
           <li><strong>75 minute sessions.</strong> Each of you joins from a calm, private place with a stable connection. Both partners need to be present.</li>
           <li><strong>Reviews.</strong> We look at how the work is going and adjust to what changes.</li>
@@ -130,13 +155,13 @@
       <div class="section__header"><p class="pill pill--subtle">Practical questions</p><h2>Before you start</h2></div>
       <div class="faq-list">
         <div class="faq-item"><h3>Should we both join the first call?</h3><p>Ideally yes. If your partner is unsure, the person who gets in touch can come alone first, and we decide the next step together.</p></div>
-        <div class="faq-item"><h3>What is the fee?</h3><p>It depends on your country of residence and is listed under <a class="text-link" href="#fees">Fees and practicalities</a> on this page. A reduced fee is possible.</p></div>
+        <div class="faq-item"><h3>What is the fee?</h3><p>It depends on your country of residence and is listed under <a class="text-link" href="#fees">Fees and practicalities</a> on this page: €90 in France, Spain and the rest of the world, £90 in the United Kingdom and S$240 in Singapore, for a 75 minute session.</p></div>
         <div class="faq-item"><h3>Which languages?</h3><p>Sessions can be held in English or French.</p></div>
         <div class="faq-item"><h3>How many sessions?</h3><p>It depends on the situation. The first call is where we agree a realistic rhythm, often one session every two to four weeks.</p></div>
         <div class="faq-item"><h3>Is it confidential?</h3><p>Yes. What is said in session is confidential, within the limits set by professional ethics and the law.</p></div>
         <div class="faq-item"><h3>Is this an emergency service?</h3><p>No. In an emergency, or if there is violence or immediate danger, contact the emergency services in the country where you are.</p></div>
       </div>
-      <div class="cta-box cta-box--spaced"><h2>See whether this frame suits you</h2><p>The first call is free and commits you to nothing. It is a calm way to check the request, the time zone and the fee.</p><div class="cta-box__actions"><a class="btn" data-track="booking_click" data-track-source="couples-en-bottom" href="appointments.html#reserver">Book a free 30 minute call</a><a class="btn btn--ghost" data-track="inquiry_click" data-track-source="couples-en-bottom" href="appointments.html#contact">Ask a question</a></div></div>
+      <div class="cta-box cta-box--spaced"><h2>See whether this frame suits you</h2><p>The introductory call lasts 30 minutes. It is free and is not a therapy session. A paid couples session lasts 75 minutes: €90 in France, Spain and the rest of the world, £90 in the United Kingdom and S$240 in Singapore.</p><div class="cta-box__actions"><a class="btn" data-track="booking_click" data-track-source="couples-en-bottom" href="appointments.html#reserver">Book an introductory call</a><a class="cta-box__question" data-track="inquiry_click" data-track-source="couples-en-bottom" href="appointments.html#contact">Ask about the couples format</a></div></div>
     </section>
   </main>
   <footer class="foot">
@@ -148,6 +173,6 @@
   </div>
   <p class="micro micro--inverse foot__legal"><a href="privacy.html" data-i18n="footerPrivacy">Confidentialité</a> · <a href="legal.html" data-i18n="footerLegalNotice">Mentions légales</a> · Français / English</p>
 </footer>
-  <script src="translations.js?v=20261012"></script><script src="pricing.js?v=20261007"></script><script src="app.js?v=20261017"></script>
+  <script src="translations.js?v=20261012"></script><script src="pricing.js?v=20261007"></script><script src="app.js?v=20261107"></script>
 </body>
 </html>

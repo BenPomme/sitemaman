@@ -84,12 +84,47 @@
     return confirmed;
   };
 
+  const HANDOFF_LANGUAGES = ["fr", "en"];
+  const normalizeHandoffLanguage = (value) => {
+    const lang = String(value || "").trim().toLowerCase().split("-")[0];
+    return HANDOFF_LANGUAGES.includes(lang) ? lang : "";
+  };
+
+  const readStoredLanguage = () => {
+    try {
+      return normalizeHandoffLanguage(localStorage.getItem("site-lang"));
+    } catch {
+      return "";
+    }
+  };
+
+  const persistLanguage = (lang) => {
+    const normalized = normalizeHandoffLanguage(lang);
+    if (!normalized) return;
+    try {
+      localStorage.setItem("site-lang", normalized);
+    } catch {
+      // Stockage bloqué : la langue reste active pour la page courante.
+    }
+  };
+
   const selector = document.getElementById("language-selector");
-  const pageLang = (document.documentElement.lang || "fr").split("-")[0];
+  const pageLang = (document.documentElement.lang || "fr").split("-")[0].toLowerCase();
   const isStaticLanguagePage = document.documentElement.hasAttribute("data-static-language");
-  const storedLang = localStorage.getItem("site-lang");
-  const defaultLang = isStaticLanguagePage ? pageLang : storedLang || pageLang;
+  const queryLang = (() => {
+    try {
+      return normalizeHandoffLanguage(new URLSearchParams(window.location.search).get("lang"));
+    } catch {
+      return "";
+    }
+  })();
+  const storedLang = readStoredLanguage();
+  const defaultLang = isStaticLanguagePage ? pageLang : queryLang || storedLang || pageLang;
   let currentLang = translations[defaultLang] ? defaultLang : "fr";
+
+  if (!isStaticLanguagePage && queryLang && queryLang !== storedLang) {
+    persistLanguage(queryLang);
+  }
 
   const trackEvent = (eventName, details = {}) => {
     const payload = Object.fromEntries(
@@ -223,6 +258,23 @@
     });
   };
 
+  const renderAppointmentFees = (lang) => {
+    const note = document.querySelector("[data-booking-fee-note]");
+    if (!note || (lang !== "fr" && lang !== "en")) return;
+
+    const config = window.SITE_PRICING;
+    if (!config || !Array.isArray(config.items)) return;
+
+    const amounts = new Map(config.items.map((item) => [item.id, item.amount]));
+    const requiredIds = ["online-world", "couples-world", "in-person"];
+    if (!requiredIds.every((id) => amounts.get(id))) return;
+
+    note.textContent =
+      lang === "en"
+        ? `The free 30-minute first call remains separate from paid sessions. For paid online sessions (France, Spain and the rest of the world): ${amounts.get("online-world")} for 60 minutes individual, ${amounts.get("couples-world")} for 75 minutes for two. In person in Sant Cugat: ${amounts.get("in-person")} per session. Fees for the United Kingdom and Singapore are listed in the full fee table.`
+        : `Ce premier échange de 30 minutes reste gratuit et distinct des séances payantes. Pour les séances payantes en visio (France, Espagne et reste du monde) : ${amounts.get("online-world")} les 60 minutes en individuel, ${amounts.get("couples-world")} les 75 minutes à deux. En présentiel à Sant Cugat : ${amounts.get("in-person")} la séance. Les tarifs du Royaume-Uni et de Singapour figurent dans la grille complète.`;
+  };
+
   const translateTextNodes = (lang) => {
     const dict = translations[lang] || translations.fr;
     if (!isStaticLanguagePage) document.documentElement.lang = lang;
@@ -246,13 +298,68 @@
 
     updateWhatsAppLink(lang);
     renderPricing(lang);
+    renderAppointmentFees(lang);
+    applyBookingLanguageHandoff(lang);
+  };
+
+  const appointmentHref = (href, lang) => {
+    const handoffLang = normalizeHandoffLanguage(lang);
+    if (!handoffLang) return href;
+
+    let target;
+    try {
+      target = new URL(href, window.location.href);
+    } catch {
+      return href;
+    }
+    if (target.origin !== window.location.origin || target.pathname !== "/appointments.html") {
+      return href;
+    }
+
+    target.searchParams.set("lang", handoffLang);
+    return `${target.pathname}${target.search}${target.hash}`;
+  };
+
+  const applyBookingLanguageHandoff = (lang) => {
+    const handoffLang = normalizeHandoffLanguage(isStaticLanguagePage ? pageLang : lang);
+    if (!handoffLang) return;
+
+    const updateLink = (link) => {
+      const href = link.getAttribute("href") || link.href;
+      if (!href) return;
+      const nextHref = appointmentHref(href, handoffLang);
+      if (nextHref !== href) link.setAttribute("href", nextHref);
+    };
+
+    document.querySelectorAll('a[href*="appointments.html"]').forEach(updateLink);
+
+    const bookingBar = document.querySelector("[data-booking-bar]");
+    const stickyLink = bookingBar && bookingBar.children ? bookingBar.children[0] : null;
+    if (stickyLink) updateLink(stickyLink);
+  };
+
+  const replaceLanguageInUrl = (lang) => {
+    const normalized = normalizeHandoffLanguage(lang);
+    if (!normalized || typeof window.history?.replaceState !== "function") return;
+
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", normalized);
+      window.history.replaceState(
+        window.history.state,
+        "",
+        `${url.pathname}${url.search}${url.hash}`,
+      );
+    } catch {
+      // URL indisponible : le changement de langue reste actif.
+    }
   };
 
   const handleLanguageChange = (lang) => {
     if (isStaticLanguagePage) {
       const targetUrl = document.documentElement.getAttribute(`data-lang-${lang}`);
       if (targetUrl) {
-        localStorage.setItem("site-lang", lang);
+        persistLanguage(lang);
         window.location.href = targetUrl;
         return;
       }
@@ -262,8 +369,9 @@
     }
 
     currentLang = translations[lang] ? lang : "fr";
-    localStorage.setItem("site-lang", currentLang);
+    persistLanguage(currentLang);
     translateTextNodes(currentLang);
+    replaceLanguageInUrl(currentLang);
   };
 
   const createWhatsAppButton = () => {
@@ -298,7 +406,7 @@
 
     const link = document.createElement("a");
     link.className = "btn booking-bar__btn";
-    link.href = BOOKING_PAGE;
+    link.href = appointmentHref(BOOKING_PAGE, currentLang);
     link.dataset.track = "booking_click";
     link.dataset.trackSource = "mobile-sticky-bar";
     link.setAttribute("data-i18n", "bookFreeCta");
@@ -307,6 +415,35 @@
     bar.append(link);
     document.body.append(bar);
     document.body.classList.add("has-booking-bar");
+  };
+
+  const initSiteMenu = () => {
+    const toggle = document.getElementById("menuToggle");
+    const navigation = document.getElementById("siteNav");
+    if (!toggle || !navigation) return;
+
+    const isOpen = () => navigation.classList.contains("is-open");
+    const setOpen = (open, { focusToggle = false } = {}) => {
+      navigation.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("menu-open", open);
+      if (focusToggle) toggle.focus();
+    };
+
+    toggle.addEventListener("click", () => setOpen(!isOpen()));
+
+    navigation.addEventListener("click", (event) => {
+      if (event.target.closest("a")) setOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || !isOpen()) return;
+      setOpen(false, { focusToggle: true });
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 980) setOpen(false);
+    });
   };
 
   const setFormStatus = (form, message, state, actions = []) => {
@@ -324,7 +461,7 @@
 
     const list = document.createElement("span");
     list.className = "form__status-actions";
-    actions.forEach(({ href, label, external }) => {
+    actions.forEach(({ href, label, external, track, trackSource }) => {
       const link = document.createElement("a");
       link.className = "form__status-action";
       link.href = href;
@@ -478,6 +615,7 @@
     if (selector) selector.value = currentLang;
     createWhatsAppButton();
     createBookingBar();
+    initSiteMenu();
     translateTextNodes(currentLang);
 
     document.querySelectorAll("[data-form-status]").forEach((node) => {

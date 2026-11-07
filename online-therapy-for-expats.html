@@ -23,7 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme.css?v=20261107">
+  <link rel="stylesheet" href="landing.css?v=20261107">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,7 +39,7 @@
   </script>
   <script src="analytics.js?v=20261027"></script>
 </head>
-<body class="page-inner">
+<body class="page-inner page-online-therapy page-online-therapy--offer">
   <div class="ticker-top">
   <p><span class="dot"></span> <span data-i18n="tickerOffer">Premier échange de 30 minutes offert · Barcelone, Sant Cugat et visio</span></p>
   <a href="appointments.html#reserver"><span data-i18n="headerBookingCta">Prendre RDV</span> <span aria-hidden="true">→</span></a>
@@ -65,38 +66,42 @@
   </div>
 </header>
   <main>
-    <section class="hero hero--service">
+    <section class="hero hero--service hero--offer" aria-labelledby="offer-title">
       <div class="hero__content">
-        <p class="pill">Online · English / Français</p>
-        <h1>Online therapy for expats living and working abroad</h1>
-        <p class="hero__subtitle">An international life can be expansive and demanding at the same time. Therapy offers a consistent space to understand what feels unsettled, work through recurring patterns and reconnect with your own direction.</p>
+        <p class="hero__eyebrow">Online · English / Français</p>
+        <h1 id="offer-title">Online individual therapy, in English</h1>
+        <p class="hero__subtitle">You may be dealing with stress, moving abroad, anxiety or relationship difficulties. In our sessions, we start from a situation you are facing now and explore your feelings, your reactions and the way you respond to it.</p>
+        <p class="hero__fee"><strong>£55</strong> for a 60 minute session in the United Kingdom · S$120 in Singapore · €60 for 60 minutes in other countries</p>
         <div class="hero__actions">
-          <a class="btn" data-track="booking_click" data-track-source="online-therapy-en-hero" href="appointments.html#reserver">Book a free 30-min call</a>
-          <a class="btn btn--ghost" data-track="inquiry_click" data-track-source="online-therapy-en-hero" href="appointments.html#contact">Send an inquiry</a>
+          <a class="btn hero__cta" data-track="booking_click" data-track-source="online-therapy-en-hero" href="appointments.html#reserver">Book an introductory call</a>
         </div>
-        <div class="article__meta"><span>Free 30-minute first call</span><span>Video sessions</span><span>International time zones</span></div>
-        <p class="hero__cta-note">A first conversation to get to know each other and see whether this support is right for you. No commitment. This is not a therapy session.</p>
+        <p class="hero__cta-note"><strong>The 30 minute introductory call is free.</strong> It is not a therapy session.</p>
+        <p class="hero__question"><a class="hero__question-link" data-track="inquiry_click" data-track-source="online-therapy-en-hero" href="appointments.html#contact">Ask a question</a></p>
       </div>
-      <div class="hero__visual hero__visual--portrait">
-        <img class="hero__photo hero__photo--portrait" src="sylviane-420.webp" width="420" height="420" alt="Sylviane Bahr" fetchpriority="high" decoding="async">
-        <div class="hero__card">
-          <div class="card__header"><p class="card__eyebrow">A first point of contact</p><p class="card__price">30 min · free</p></div>
-          <ul class="card__list"><li>Share what brings you here</li><li>Check whether online therapy is a suitable frame</li><li>Clarify practical questions</li></ul>
-          <a class="btn btn--wide" data-track="booking_click" data-track-source="online-therapy-en-card" href="appointments.html#reserver">Book a free 30-min call</a>
-        </div>
-      </div>
+      <figure class="hero__portrait">
+        <picture>
+          <source media="(max-width: 980px)" srcset="sylviane-session-portrait-640.webp 640w, sylviane-session-portrait-960.webp 960w" sizes="(max-width: 720px) 104px, 150px">
+          <img class="hero__photo" src="sylviane-session-960.webp" srcset="sylviane-session-640.webp 640w, sylviane-session-960.webp 960w" sizes="330px" width="1792" height="1008" alt="Sylviane Bahr" fetchpriority="high" decoding="async">
+        </picture>
+        <figcaption class="hero__caption">
+          <strong>Sylviane Bahr</strong>
+          <span>Gestalt therapist</span>
+          <span>Trained at Institut Gestalt de Barcelone</span>
+          <span>Supervised practice</span>
+        </figcaption>
+      </figure>
     </section>
 
     <section id="tarifs" class="section">
       <div class="section__header">
         <p class="pill pill--subtle">Fees and practical details</p>
         <h2>Online session fees</h2>
-        <p class="section__lead">Clear fees depending on your country of residence. The applicable fee is confirmed with you during the first call, before the first session.</p>
+        <p class="section__lead">All online sessions last 60 minutes. The fee depends on your country of residence and is confirmed before the first paid session.</p>
       </div>
       <div class="card card--highlight">
-        <div class="pricing pricing--compact" data-pricing data-pricing-ids="online-uk,online-singapore"></div>
+        <div class="pricing pricing--compact" data-pricing data-pricing-ids="online-world,online-uk,online-singapore"></div>
         <p class="pricing__note">A sliding-scale rate is possible: mention it during the first call.</p>
-        <p class="pricing__note">Sessions take place online: Sylviane practises from Spain and does not have a practice in the United Kingdom or Singapore. Rates for other countries are discussed during the first call.</p>
+        <p class="pricing__note">Sessions take place online: Sylviane practises from Spain and does not have a practice in the United Kingdom or Singapore. Other countries: €60 for a 60 minute session.</p>
       </div>
     </section>
 
@@ -132,11 +137,11 @@
       <div class="faq-list">
         <div class="faq-item"><h3>Which languages are available?</h3><p>Online sessions can be held in English or French.</p></div>
         <div class="faq-item"><h3>Can we work across time zones?</h3><p>Potential times are coordinated around your location and availability. The first call helps establish whether a sustainable regular slot is possible.</p></div>
-        <div class="faq-item"><h3>What are the fees?</h3><p>The fee table is in the <a class="text-link" href="#tarifs">Fees and practical details</a> section above: online sessions for clients in the United Kingdom and Singapore. A sliding-scale rate is possible, and other countries are discussed during the first call.</p></div>
+        <div class="faq-item"><h3>What are the fees?</h3><p>A 60 minute session costs £55 in the United Kingdom, S$120 in Singapore and €60 in other countries. The table is in the <a class="text-link" href="#tarifs">Fees and practical details</a> section above. A sliding-scale rate is possible.</p></div>
         <div class="faq-item"><h3>Is online therapy available in every country?</h3><p>Not automatically. Eligibility depends on your physical location, individual situation, the applicable local framework and whether video work is suitable for your needs.</p></div>
         <div class="faq-item"><h3>Is this an emergency service?</h3><p>No. If you are in immediate danger or need urgent help, contact the emergency services where you are physically located.</p></div>
       </div>
-      <div class="cta-box cta-box--spaced"><h2>Explore whether this is the right frame</h2><p>The first call is free and carries no obligation. It is a practical way to check fit, location and timing before deciding. The first call is not a therapy session.</p><div class="cta-box__actions"><a class="btn" data-track="booking_click" data-track-source="online-therapy-en-bottom" href="appointments.html#reserver">Book a free 30-min call</a><a class="btn btn--ghost" data-track="inquiry_click" data-track-source="online-therapy-en-bottom" href="appointments.html#contact">Send an inquiry</a></div></div>
+      <div class="cta-box cta-box--spaced"><h2>Explore whether this is the right frame</h2><p>A paid online session lasts 60 minutes: £55 in the United Kingdom, S$120 in Singapore and €60 in other countries. The 30 minute introductory call is free and is not a therapy session.</p><div class="cta-box__actions"><a class="btn" data-track="booking_click" data-track-source="online-therapy-en-bottom" href="appointments.html#reserver">Book an introductory call</a><a class="cta-box__question" data-track="inquiry_click" data-track-source="online-therapy-en-bottom" href="appointments.html#contact">Ask a question</a></div></div>
     </section>
   </main>
   <footer class="foot">
@@ -148,6 +153,6 @@
   </div>
   <p class="micro micro--inverse foot__legal"><a href="privacy.html" data-i18n="footerPrivacy">Confidentialité</a> · <a href="legal.html" data-i18n="footerLegalNotice">Mentions légales</a> · <span data-i18n="footerLang">Français / English</span></p>
 </footer>
-  <script src="translations.js?v=20261012"></script><script src="pricing.js?v=20261007"></script><script src="app.js?v=20261017"></script>
+  <script src="translations.js?v=20261012"></script><script src="pricing.js?v=20261007"></script><script src="app.js?v=20261107"></script>
 </body>
 </html>

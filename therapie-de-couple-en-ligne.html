@@ -23,7 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme.css?v=20261107">
+  <link rel="stylesheet" href="landing.css?v=20261107">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,7 +40,7 @@
   </script>
   <script src="analytics.js?v=20261027"></script>
 </head>
-<body class="page-inner">
+<body class="page-inner page-online-therapy page-online-therapy--offer">
   <div class="ticker-top">
   <p><span class="dot"></span> <span data-i18n="tickerOffer">Premier échange de 30 minutes offert · Barcelone, Sant Cugat et visio</span></p>
   <a href="appointments.html#reserver"><span data-i18n="headerBookingCta">Prendre RDV</span> <span aria-hidden="true">→</span></a>
@@ -66,38 +67,62 @@
   </div>
 </header>
   <main>
-    <section class="hero hero--service">
+    <section class="hero hero--service hero--offer" aria-labelledby="offer-title">
       <div class="hero__content">
-        <p class="pill">Thérapie de couple · <span data-i18n="footerLang">Français / English</span></p>
-        <h1>Thérapie de couple en ligne, en français</h1>
-        <p class="hero__subtitle">Quand les mêmes disputes reviennent, que la communication s'use ou qu'une décision pèse, un espace à deux permet de remettre les choses à plat. Les séances se tiennent en visio, en français, avec les deux partenaires présents au même créneau.</p>
+        <p class="hero__eyebrow">Séances de couple en visio</p>
+        <h1 id="offer-title">Thérapie de couple en ligne, en français</h1>
+        <p class="hero__subtitle">La même dispute revient depuis des mois. L'un demande une réponse claire, l'autre se tait, puis la pression monte. En visio, à deux, nous regardons ce qui se passe dans ces moments au lieu de rejouer le même débat.</p>
+        <p class="hero__fee"><strong>90 €</strong> pour une séance de couple payante de 75 minutes en France, en Espagne et dans le reste du monde · £90 au Royaume-Uni · S$240 à Singapour</p>
         <div class="hero__actions">
-          <a class="btn" data-track="booking_click" data-track-source="couples-fr-hero" href="appointments.html#reserver">Réserver 30 min gratuites</a>
-          <a class="btn btn--ghost" data-track="inquiry_click" data-track-source="couples-fr-hero" href="appointments.html#contact">Poser une question</a>
+          <a class="btn hero__cta" data-track="booking_click" data-track-source="couples-fr-hero" href="appointments.html#reserver">Réserver un premier échange</a>
         </div>
-        <div class="article__meta"><span>Premier échange de 30 min offert</span><span>Visio</span><span>Séance de 75 minutes</span><span>Fuseaux horaires internationaux</span></div>
-        <p class="hero__cta-note">Le premier échange se fait à deux, ou avec la personne qui prend contact. Il sert à vérifier la demande et le cadre. Ce n'est pas une séance de thérapie.</p>
+        <p class="hero__cta-note"><strong>Le premier échange de 30 minutes est gratuit.</strong> Il n'est pas une séance de thérapie.</p>
+        <p class="hero__question"><a class="hero__question-link" data-track="inquiry_click" data-track-source="couples-fr-hero" href="appointments.html#contact">Poser une question sur le format</a></p>
       </div>
-      <div class="hero__visual hero__visual--portrait">
-        <img class="hero__photo hero__photo--portrait" src="sylviane-420.webp" width="420" height="420" alt="Sylviane Bahr" fetchpriority="high" decoding="async">
-        <div class="hero__card">
-          <div class="card__header"><p class="card__eyebrow">Un premier repère</p><p class="card__price">30 min · offert</p></div>
-          <ul class="card__list"><li>Poser la situation à deux</li><li>Vérifier que la visio convient</li><li>Clarifier le rythme et le tarif</li></ul>
-          <a class="btn btn--wide" data-track="booking_click" data-track-source="couples-fr-card" href="appointments.html#reserver">Réserver 30 min gratuites</a>
-        </div>
+      <figure class="hero__portrait">
+        <picture>
+          <source media="(max-width: 980px)" srcset="sylviane-session-portrait-640.webp 640w, sylviane-session-portrait-960.webp 960w" sizes="(max-width: 720px) 104px, 150px">
+          <img class="hero__photo" src="sylviane-session-960.webp" srcset="sylviane-session-640.webp 640w, sylviane-session-960.webp 960w" sizes="330px" width="1792" height="1008" alt="Sylviane Bahr" fetchpriority="high" decoding="async">
+        </picture>
+        <figcaption class="hero__caption">
+          <strong>Sylviane Bahr</strong>
+          <span>Gestalt-thérapeute</span>
+          <span>Formée à l'Institut Gestalt de Barcelone</span>
+          <span>Pratique supervisée</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="gestalt-title">
+      <div class="section__header">
+        <p class="pill pill--subtle">Approche</p>
+        <h2 id="gestalt-title">Ce que la Gestalt permet de voir</h2>
       </div>
+      <article class="article">
+        <p>Prenons un échange fréquent&nbsp;: l'un insiste pour obtenir une réponse nette, l'autre se retire. Le premier parle plus fort, le second se ferme davantage. En séance, je peux arrêter la discussion à cet endroit. Je demande à chacun ce qu'il remarque dans son corps, ce qu'il ressent, ce dont il a besoin et comment il répond à l'autre. Nous observons ensuite ce qui vient de se passer entre vous. Chacun essaie une autre phrase&nbsp;: nommer la peur derrière l'insistance, dire ce qui rend la réponse difficile, proposer un moment précis pour reprendre. Nous regardons ce que cette tentative change, et ce qui résiste.</p>
+        <p>Cette attention au présent, aux sensations et à la relation fait partie de l'approche Gestalt. Elle se construit avec vos deux points de vue&nbsp;; je n'applique pas de scénario tout fait. Notre travail vise à rendre visible ce qui se répète et à ouvrir une autre façon de parler, d'écouter et de répondre. Nous testons cette possibilité dans la séance, puis nous regardons ce qu'elle change dans votre échange.</p>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="training-title">
+      <article class="article">
+        <p class="pill pill--subtle">Repères</p>
+        <h2 id="training-title">Formation et pratique</h2>
+        <p>Je suis Sylviane Bahr. J'ai suivi une formation de Gestalt-thérapie à l'Institut Gestalt de Barcelone et je pratique sous supervision. Les séances se font en français ou en anglais.</p>
+      </article>
     </section>
 
     <section id="tarifs" class="section">
       <div class="section__header">
         <p class="pill pill--subtle">Tarifs et modalités</p>
-        <h2>Tarif des séances de couple en visio</h2>
-        <p class="section__lead">Une séance de 75 minutes, pour laisser le temps à chacun de s'exprimer et au travail de se faire. Le tarif est annoncé avant la première séance.</p>
+        <h2>Durée et tarifs</h2>
+        <p class="section__lead">Une séance de couple dure 75 minutes. Le tarif dépend du pays de résidence.</p>
       </div>
-      <div class="card card--highlight">
-        <div class="pricing pricing--compact" data-pricing data-pricing-ids="couples-world,couples-spain,couples-uk,couples-singapore"></div>
-        <p class="pricing__note">Règlement par virement ou par lien de paiement, selon votre pays de résidence.</p>
-        <p class="pricing__note">Tarif solidaire possible : à évoquer lors du premier échange.</p>
+      <div class="card card--highlight pricing-card">
+        <div class="pricing pricing--compact" data-pricing data-pricing-ids="couples-world,couples-spain,couples-uk,couples-singapore">
+          <p class="price-fallback"><strong>75 minutes</strong> · 90 € (France, Espagne et reste du monde) · £90 (Royaume-Uni) · S$240 (Singapour)</p>
+        </div>
+        <p class="pricing__note">Le tarif et le fuseau horaire sont confirmés avant la première séance. Paiement par virement ou lien de paiement.</p>
       </div>
     </section>
 
@@ -114,7 +139,7 @@
       <article class="article">
         <h2>Comment se déroulent les séances</h2>
         <ol class="process-list">
-          <li><strong>Premier échange gratuit.</strong> Trente minutes pour comprendre la demande, entendre les deux points de vue et vérifier la faisabilité depuis votre pays.</li>
+          <li><strong>Premier échange gratuit.</strong> Trente minutes pour comprendre la demande, entendre les deux points de vue et vérifier la faisabilité depuis votre pays. Ce n'est pas une séance de thérapie.</li>
           <li><strong>Cadre clair.</strong> Nous convenons du rythme, des horaires, du tarif et des modalités de visio avant la première séance.</li>
           <li><strong>Séances de 75 minutes.</strong> Chacun s'installe dans un lieu calme et confidentiel, avec une connexion stable. Les deux partenaires doivent être présents.</li>
           <li><strong>Points d'étape.</strong> Le travail est réévalué régulièrement, et l'accompagnement s'ajuste à ce qui évolue.</li>
@@ -130,13 +155,13 @@
       <div class="section__header"><p class="pill pill--subtle">Questions pratiques</p><h2>Avant de commencer</h2></div>
       <div class="faq-list">
         <div class="faq-item"><h3>Faut-il être deux pour le premier échange ?</h3><p>L'idéal est d'être deux. Si l'autre partenaire hésite, la personne qui prend contact peut venir seule pour un premier échange et nous décidons ensemble de la suite.</p></div>
-        <div class="faq-item"><h3>Quel est le tarif ?</h3><p>Il dépend de votre pays de résidence et figure dans la rubrique <a class="text-link" href="#tarifs">Tarifs et modalités</a> de cette page. Un tarif solidaire est possible.</p></div>
+        <div class="faq-item"><h3>Quel est le tarif ?</h3><p>Il dépend de votre pays de résidence et figure dans la rubrique <a class="text-link" href="#tarifs">Tarifs et modalités</a> de cette page : 90 € en France, en Espagne et dans le reste du monde, £90 au Royaume-Uni, S$240 à Singapour, pour une séance de 75 minutes.</p></div>
         <div class="faq-item"><h3>Dans quelles langues ?</h3><p>Les séances peuvent se dérouler en français ou en anglais.</p></div>
         <div class="faq-item"><h3>Combien de séances prévoir ?</h3><p>Le nombre dépend de la situation. Le premier échange sert à clarifier un rythme réaliste, souvent une séance toutes les deux à quatre semaines.</p></div>
         <div class="faq-item"><h3>Est-ce confidentiel ?</h3><p>Oui. Ce qui se dit en séance est confidentiel, dans les limites prévues par le cadre déontologique et la loi.</p></div>
         <div class="faq-item"><h3>Est-ce un service d'urgence ?</h3><p>Non. En cas d'urgence, de violence ou de danger immédiat, contactez les services d'urgence du pays où vous vous trouvez.</p></div>
       </div>
-      <div class="cta-box cta-box--spaced"><h2>Voir si ce cadre vous convient</h2><p>Le premier échange est gratuit et n'engage à rien. Il permet de vérifier sereinement la demande, le fuseau horaire et le tarif.</p><div class="cta-box__actions"><a class="btn" data-track="booking_click" data-track-source="couples-fr-bottom" href="appointments.html#reserver">Réserver 30 min gratuites</a><a class="btn btn--ghost" data-track="inquiry_click" data-track-source="couples-fr-bottom" href="appointments.html#contact">Envoyer une question</a></div></div>
+      <div class="cta-box cta-box--spaced"><h2>Voir si ce cadre vous convient</h2><p>Le premier échange dure 30 minutes. Il est gratuit et n'est pas une séance de thérapie. Séance de couple payante : 75 minutes, 90 € en France, en Espagne et dans le reste du monde, £90 au Royaume-Uni, S$240 à Singapour.</p><div class="cta-box__actions"><a class="btn" data-track="booking_click" data-track-source="couples-fr-bottom" href="appointments.html#reserver">Réserver un premier échange</a><a class="cta-box__question" data-track="inquiry_click" data-track-source="couples-fr-bottom" href="appointments.html#contact">Poser une question sur le format</a></div></div>
     </section>
   </main>
   <footer class="foot">
@@ -148,6 +173,6 @@
   </div>
   <p class="micro micro--inverse foot__legal"><a href="privacy.html" data-i18n="footerPrivacy">Confidentialité</a> · <a href="legal.html" data-i18n="footerLegalNotice">Mentions légales</a> · Français / English</p>
 </footer>
-  <script src="translations.js?v=20261012"></script><script src="pricing.js?v=20261007"></script><script src="app.js?v=20261017"></script>
+  <script src="translations.js?v=20261012"></script><script src="pricing.js?v=20261007"></script><script src="app.js?v=20261107"></script>
 </body>
 </html>

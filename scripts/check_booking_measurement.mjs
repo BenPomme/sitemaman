@@ -25,6 +25,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ANALYTICS_SRC = fs.readFileSync(path.join(ROOT, "analytics.js"), "utf8");
 const APP_SRC = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+const PRICING_SRC = fs.readFileSync(path.join(ROOT, "pricing.js"), "utf8");
 
 const GA4_ID = "G-G20ED3FMXT";
 const ADS_SEND_TO = "AW-18499976691/4aizCIre4ZQdEPP7vPVE";
@@ -141,6 +142,17 @@ function makeStorage(initial = {}) {
   };
 }
 
+function makeBlockedStorage() {
+  const blocked = () => {
+    throw new Error("Storage is blocked");
+  };
+  return {
+    getItem: blocked,
+    setItem: blocked,
+    removeItem: blocked,
+  };
+}
+
 // --------------------------------------------------------------------------
 // analytics.js runner
 // --------------------------------------------------------------------------
@@ -203,6 +215,15 @@ function runApp(opts = {}) {
     analyticsApiPresent = true,
     sessionStore: sharedStore = null,
     documentQuery = {},
+    querySelectorAll: querySelectorAllLists = {},
+    pageLang = "fr",
+    staticLanguage = false,
+    langTargets = {},
+    storedLang = "",
+    storageBlocked = false,
+    bookingLinks = [],
+    languageSelector = null,
+    translations = { fr: {}, en: {}, es: {} },
   } = opts;
 
   const session = sharedStore ? { store: sharedStore, api: {} } : makeStorage();
@@ -215,14 +236,17 @@ function runApp(opts = {}) {
     setItem: (k, v) => sessionStore.set(k, String(v)),
     removeItem: (k) => sessionStore.delete(k),
   };
-  const { api: localStorage } = makeStorage();
+  const local = makeStorage(storedLang ? { "site-lang": storedLang } : {});
+  const localStorageStore = local.store;
+  const localStorage = storageBlocked ? makeBlockedStorage() : local.api;
 
   const gtagCalls = [];
   const assignments = [];
+  const replaceStateCalls = [];
   const winHandlers = {};
 
   const documentElement = {
-    lang: "fr",
+    lang: pageLang,
     _attrs: {},
     hasAttribute(k) {
       return Object.prototype.hasOwnProperty.call(this._attrs, k);
@@ -234,6 +258,10 @@ function runApp(opts = {}) {
       this._attrs[k] = String(v);
     },
   };
+  if (staticLanguage) documentElement.setAttribute("data-static-language", "");
+  Object.entries(langTargets).forEach(([lang, target]) => {
+    documentElement.setAttribute(`data-lang-${lang}`, target);
+  });
 
   const body = makeEl("body");
   if (opts.confirmationPage) body.setAttribute("data-booking-confirmation", "true");
@@ -248,13 +276,21 @@ function runApp(opts = {}) {
     _handlers: {},
     createElement: (t) => makeEl(t),
     querySelector(sel) {
-      return Object.prototype.hasOwnProperty.call(documentQuery, sel) ? documentQuery[sel] : null;
+      if (Object.prototype.hasOwnProperty.call(documentQuery, sel)) return documentQuery[sel];
+      if (sel === "[data-booking-bar]") {
+        return body.children.find((child) => child.dataset?.bookingBar === "true") || null;
+      }
+      return null;
     },
-    querySelectorAll() {
+    querySelectorAll(sel) {
+      if (Object.prototype.hasOwnProperty.call(querySelectorAllLists, sel)) {
+        return querySelectorAllLists[sel];
+      }
+      if (sel === 'a[href*="appointments.html"]') return bookingLinks;
       return [];
     },
-    getElementById() {
-      return null;
+    getElementById(id) {
+      return id === "language-selector" ? languageSelector : null;
     },
     addEventListener(t, fn) {
       (this._handlers[t] = this._handlers[t] || []).push(fn);
@@ -268,11 +304,27 @@ function runApp(opts = {}) {
     _handlers: {},
     location: {
       href: pageUrl.href,
+      origin: pageUrl.origin,
       pathname: pageUrl.pathname,
       search: pageUrl.search,
       hash: pageUrl.hash,
       assign: (u) => assignments.push(u),
       replace: () => {},
+    },
+    history: {
+      state: null,
+      replaceState(state, title, nextUrl) {
+        replaceStateCalls.push(nextUrl);
+        try {
+          const next = new URL(nextUrl, pageUrl.href);
+          win.location.href = next.href;
+          win.location.pathname = next.pathname;
+          win.location.search = next.search;
+          win.location.hash = next.hash;
+        } catch {
+          // The assertion only needs the requested URL.
+        }
+      },
     },
     addEventListener(t, fn) {
       (winHandlers[t] = winHandlers[t] || []).push(fn);
@@ -290,7 +342,7 @@ function runApp(opts = {}) {
     document: doc,
     sessionStorage,
     localStorage,
-    translations: {},
+    translations,
     URL,
     URLSearchParams,
     Date,
@@ -299,6 +351,7 @@ function runApp(opts = {}) {
     clearTimeout,
   };
   vm.createContext(sandbox);
+  vm.runInContext(PRICING_SRC, sandbox, { filename: "pricing.js" });
   vm.runInContext(APP_SRC, sandbox, { filename: "app.js" });
   (doc._handlers.DOMContentLoaded || []).forEach((fn) => fn());
 
@@ -307,8 +360,10 @@ function runApp(opts = {}) {
     doc,
     body,
     sessionStore,
+    localStorageStore,
     gtagCalls,
     assignments,
+    replaceStateCalls,
     fireMessage: (data, origin, source) =>
       (winHandlers.message || []).forEach((fn) => fn({ origin, data, source })),
   };
@@ -316,6 +371,55 @@ function runApp(opts = {}) {
 
 const eventsNamed = (result, name) =>
   result.gtagCalls.filter((c) => c[0] === "event" && c[1] === name);
+
+function extractSetFormStatus(source) {
+  const start = source.indexOf("  const setFormStatus =");
+  const end = source.indexOf("\n\n  // Builds a ready-to-send message", start);
+  if (start < 0 || end < 0) throw new Error("Could not locate setFormStatus in app.js");
+  return source.slice(start, end);
+}
+
+function collectLinks(node, links) {
+  if (!node) return;
+  if (node.tagName === "A") links.push(node);
+  (node.children || []).forEach((child) => collectLinks(child, links));
+}
+
+function executeSetFormStatus(source, actions) {
+  const statusNode = makeEl("div");
+  const document = {
+    createTextNode(text) {
+      return { nodeType: 3, textContent: text, children: [] };
+    },
+    createElement(tagName) {
+      return makeEl(tagName);
+    },
+  };
+
+  const sandbox = { document };
+  vm.createContext(sandbox);
+  vm.runInContext(
+    `${extractSetFormStatus(source)}\nglobalThis.__setFormStatus = setFormStatus;`,
+    sandbox,
+  );
+
+  const form = {
+    querySelector(selector) {
+      return selector === "[data-form-status]" ? statusNode : null;
+    },
+  };
+
+  let error = null;
+  try {
+    sandbox.__setFormStatus(form, "Delivery failed", "error", actions);
+  } catch (caught) {
+    error = caught;
+  }
+
+  const links = [];
+  collectLinks(statusNode, links);
+  return { error, links };
+}
 
 // ==========================================================================
 // 1. analytics.js consent gate
@@ -588,7 +692,425 @@ const receipt = { lang: "fr", at: 1 };
 }
 
 // ==========================================================================
-// 3. Injected booking bar resolves from /guides/
+// 3. Contact-form failure fallback
+// ==========================================================================
+console.log("== contact-form failure fallback ==");
+
+{
+  const actions = [
+    {
+      href: "mailto:test@example.com?subject=Test",
+      label: "Send by email",
+    },
+    {
+      href: "https://wa.me/34647376533?text=Test",
+      label: "Send by WhatsApp",
+      external: true,
+      track: "whatsapp_click",
+      trackSource: "form_fallback",
+    },
+  ];
+  const result = executeSetFormStatus(APP_SRC, actions);
+  check(
+    "P1 fallback renders without ReferenceError",
+    !result.error,
+    result.error ? result.error.stack : "",
+  );
+  check("P2 fallback renders both contact links", result.links.length === 2, `got ${result.links.length}`);
+  check(
+    "P3 fallback keeps the email link",
+    result.links[0]?.href === actions[0].href,
+    result.links[0]?.href || "missing",
+  );
+  check(
+    "P4 WhatsApp fallback keeps conversion metadata",
+    result.links[1]?.dataset.track === "whatsapp_click" &&
+      result.links[1]?.dataset.trackSource === "form_fallback",
+    JSON.stringify(result.links[1]?.dataset || {}),
+  );
+}
+
+// ==========================================================================
+// 4. French/English handoff and fee context
+// ==========================================================================
+console.log("== French/English handoff ==");
+
+const LANGUAGE_TRANSLATIONS = {
+  fr: {
+    headerBookingCta: "Prendre RDV",
+    homePricingLink: "Voir les tarifs et modalités",
+    bookingBarAria: "Réserver un premier échange gratuit de 30 minutes",
+    whatsappAria: "Contacter Sylviane sur WhatsApp",
+  },
+  en: {
+    headerBookingCta: "Book",
+    homePricingLink: "See all fees and practical details",
+    bookingBarAria: "Book a free 30-minute first call",
+    whatsappAria: "Contact Sylviane on WhatsApp",
+  },
+  es: {
+    headerBookingCta: "Reservar",
+    homePricingLink: "Ver tarifas y detalles",
+    bookingBarAria: "Reservar una primera conversación gratuita de 30 minutos",
+    whatsappAria: "Contactar a Sylviane por WhatsApp",
+  },
+};
+
+const makeI18nNode = (key) => {
+  const node = makeEl("span");
+  node.setAttribute("data-i18n", key);
+  return node;
+};
+
+const bookingBarLink = (result) => {
+  const bar = result.body.children.find((child) => child.className.includes("booking-bar"));
+  return bar ? bar.children[0] : null;
+};
+
+const bookingBarUrl = (result) => {
+  const link = bookingBarLink(result);
+  if (!link || !link.href) return null;
+  try {
+    return new URL(link.href, result.win.location.href);
+  } catch {
+    return null;
+  }
+};
+
+{
+  const heading = makeI18nNode("headerBookingCta");
+  const link = makeEl("a");
+  link.setAttribute("href", "appointments.html?utm_source=static&lang=fr#reserver");
+  const selector = makeEl("select");
+  const r = runApp({
+    url: "https://www.sylvianebahr.com/english-therapist-sant-cugat.html",
+    pageLang: "en",
+    staticLanguage: true,
+    storedLang: "fr",
+    langTargets: { fr: "therapeute-francophone-barcelone.html" },
+    languageSelector: selector,
+    bookingLinks: [link],
+    querySelectorAll: { "[data-i18n]": [heading] },
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  const barUrl = bookingBarUrl(r);
+  const linkUrl = new URL(link.getAttribute("href"), r.win.location.href);
+  check(
+    "T1 authored EN wins over stored FR",
+    r.doc.documentElement.lang === "en" &&
+      selector.value === "en" &&
+      heading.textContent === "Book",
+    `${r.doc.documentElement.lang}/${selector.value}/${heading.textContent}`,
+  );
+  check(
+    "T2 injected booking bar carries EN",
+    !!barUrl && barUrl.pathname === "/appointments.html" && barUrl.searchParams.get("lang") === "en",
+    barUrl ? barUrl.href : "missing",
+  );
+  check(
+    "T3 static anchor keeps query/hash and replaces lang",
+    linkUrl.pathname === "/appointments.html" &&
+      linkUrl.searchParams.get("lang") === "en" &&
+      linkUrl.searchParams.get("utm_source") === "static" &&
+      linkUrl.hash === "#reserver",
+    linkUrl.href,
+  );
+}
+
+{
+  const heading = makeI18nNode("headerBookingCta");
+  const selector = makeEl("select");
+  const r = runApp({
+    url: "https://www.sylvianebahr.com/therapie-en-ligne.html",
+    pageLang: "fr",
+    staticLanguage: true,
+    storedLang: "en",
+    languageSelector: selector,
+    querySelectorAll: { "[data-i18n]": [heading] },
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  const barUrl = bookingBarUrl(r);
+  check(
+    "T4 authored FR wins over stored EN",
+    r.doc.documentElement.lang === "fr" &&
+      selector.value === "fr" &&
+      heading.textContent === "Prendre RDV" &&
+      !!barUrl &&
+      barUrl.searchParams.get("lang") === "fr",
+    `${r.doc.documentElement.lang}/${selector.value}/${heading.textContent}/${barUrl ? barUrl.href : "missing"}`,
+  );
+}
+
+{
+  const selector = makeEl("select");
+  const r = runApp({
+    url: "https://www.sylvianebahr.com/appointments.html?lang=en&utm_source=ads#reserver",
+    pageLang: "fr",
+    storedLang: "fr",
+    languageSelector: selector,
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  check(
+    "T5 explicit valid lang overrides stored opposite",
+    r.doc.documentElement.lang === "en" && selector.value === "en",
+    `${r.doc.documentElement.lang}/${selector.value}`,
+  );
+  check(
+    "T6 explicit valid lang is persisted safely",
+    r.localStorageStore.get("site-lang") === "en",
+    String(r.localStorageStore.get("site-lang")),
+  );
+}
+
+{
+  const selector = makeEl("select");
+  const r = runApp({
+    url: "https://www.sylvianebahr.com/appointments.html?lang=xx#reserver",
+    pageLang: "fr",
+    storedLang: "en",
+    languageSelector: selector,
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  check(
+    "T7 invalid lang falls back to stored EN",
+    r.doc.documentElement.lang === "en" && selector.value === "en",
+    `${r.doc.documentElement.lang}/${selector.value}`,
+  );
+}
+
+{
+  const selector = makeEl("select");
+  const r = runApp({
+    url: "https://www.sylvianebahr.com/appointments.html?lang=en#reserver",
+    pageLang: "fr",
+    storedLang: "fr",
+    storageBlocked: true,
+    languageSelector: selector,
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  const barUrl = bookingBarUrl(r);
+  check(
+    "T8 blocked storage still honors explicit lang",
+    r.doc.documentElement.lang === "en" &&
+      selector.value === "en" &&
+      !!barUrl &&
+      barUrl.searchParams.get("lang") === "en",
+    `${r.doc.documentElement.lang}/${selector.value}/${barUrl ? barUrl.href : "missing"}`,
+  );
+
+  const staticSelector = makeEl("select");
+  const staticResult = runApp({
+    url: "https://www.sylvianebahr.com/online-couples-therapy.html",
+    pageLang: "en",
+    staticLanguage: true,
+    storageBlocked: true,
+    languageSelector: staticSelector,
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  const staticBarUrl = bookingBarUrl(staticResult);
+  check(
+    "T9 blocked storage keeps static page authored language",
+    staticResult.doc.documentElement.lang === "en" &&
+      staticSelector.value === "en" &&
+      !!staticBarUrl &&
+      staticBarUrl.searchParams.get("lang") === "en",
+    `${staticResult.doc.documentElement.lang}/${staticSelector.value}/${staticBarUrl ? staticBarUrl.href : "missing"}`,
+  );
+}
+
+{
+  const selector = makeEl("select");
+  const r = runApp({
+    url: "https://www.sylvianebahr.com/appointments.html?utm_source=ads#reserver",
+    pageLang: "fr",
+    storedLang: "fr",
+    languageSelector: selector,
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  selector._handlers.change[0]({ target: { value: "en" } });
+  const replacedUrl = new URL(r.replaceStateCalls[0], "https://www.sylvianebahr.com");
+  check(
+    "T10 selector still switches the shared page",
+    r.doc.documentElement.lang === "en" && r.localStorageStore.get("site-lang") === "en",
+    `${r.doc.documentElement.lang}/${r.localStorageStore.get("site-lang")}`,
+  );
+  check(
+    "T11 selector URL keeps other query/hash content",
+    r.replaceStateCalls.length === 1 &&
+      replacedUrl.pathname === "/appointments.html" &&
+      replacedUrl.searchParams.get("lang") === "en" &&
+      replacedUrl.searchParams.get("utm_source") === "ads" &&
+      replacedUrl.hash === "#reserver",
+    r.replaceStateCalls[0] || "missing",
+  );
+}
+
+{
+  const heading = makeI18nNode("headerBookingCta");
+  const headerLink = makeEl("a");
+  headerLink.setAttribute("href", "appointments.html?utm_source=header#reserver");
+  const unrelated = makeEl("a");
+  unrelated.setAttribute("href", "contact.html?lang=fr&utm_source=header#form");
+  const unrelatedHref = unrelated.getAttribute("href");
+  const selector = makeEl("select");
+  const r = runApp({
+    url: "https://www.sylvianebahr.com/therapie-en-ligne.html?utm_source=ads#intro",
+    pageLang: "fr",
+    storedLang: "fr",
+    storageBlocked: true,
+    languageSelector: selector,
+    bookingLinks: [headerLink],
+    querySelectorAll: { "[data-i18n]": [heading] },
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+
+  selector._handlers.change[0]({ target: { value: "en" } });
+  const headerUrl = new URL(headerLink.getAttribute("href"), r.win.location.href);
+  const barUrl = bookingBarUrl(r);
+  check(
+    "T16 blocked-storage selector FR->EN updates header and sticky handoff",
+    r.doc.documentElement.lang === "en" &&
+      heading.textContent === "Book" &&
+      headerUrl.searchParams.get("lang") === "en" &&
+      headerUrl.searchParams.get("utm_source") === "header" &&
+      headerUrl.hash === "#reserver" &&
+      !!barUrl &&
+      barUrl.searchParams.get("lang") === "en" &&
+      barUrl.hash === "#reserver",
+    `${r.doc.documentElement.lang}/${heading.textContent}/${headerUrl.href}/${barUrl ? barUrl.href : "missing bar"}`,
+  );
+  check(
+    "T17 language handoff leaves unrelated links untouched",
+    unrelated.getAttribute("href") === unrelatedHref,
+    unrelated.getAttribute("href") || "missing",
+  );
+}
+
+{
+  const heading = makeI18nNode("headerBookingCta");
+  const headerLink = makeEl("a");
+  headerLink.setAttribute("href", "appointments.html?utm_source=static#reserver");
+  const selector = makeEl("select");
+  const r = runApp({
+    url: "https://www.sylvianebahr.com/therapie-en-ligne.html?lang=en#reserver",
+    pageLang: "fr",
+    staticLanguage: true,
+    storedLang: "en",
+    storageBlocked: true,
+    languageSelector: selector,
+    bookingLinks: [headerLink],
+    querySelectorAll: { "[data-i18n]": [heading] },
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  const headerUrl = new URL(headerLink.getAttribute("href"), r.win.location.href);
+  const barUrl = bookingBarUrl(r);
+  check(
+    "T18 static authored FR ignores conflicting lang parameter",
+    r.doc.documentElement.lang === "fr" &&
+      heading.textContent === "Prendre RDV" &&
+      headerUrl.searchParams.get("lang") === "fr" &&
+      headerUrl.searchParams.get("utm_source") === "static" &&
+      headerUrl.hash === "#reserver" &&
+      !!barUrl &&
+      barUrl.searchParams.get("lang") === "fr",
+    `${r.doc.documentElement.lang}/${heading.textContent}/${headerUrl.href}/${barUrl ? barUrl.href : "missing bar"}`,
+  );
+}
+
+{
+  const frNote = makeEl("p");
+  runApp({
+    url: "https://www.sylvianebahr.com/appointments.html",
+    pageLang: "fr",
+    languageSelector: makeEl("select"),
+    documentQuery: { "[data-booking-fee-note]": frNote },
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  check(
+    "T12 FR fee note covers free intro, France/world, couples and in-person",
+    /Ce premier échange de 30 minutes reste gratuit/.test(frNote.textContent) &&
+      /Pour les séances payantes en visio \(France, Espagne et reste du monde\) : 60 € les 60 minutes en individuel, 90 € les 75 minutes à deux\./.test(
+        frNote.textContent,
+      ) &&
+      /En présentiel à Sant Cugat : 65 € la séance\./.test(frNote.textContent) &&
+      /Les tarifs du Royaume-Uni et de Singapour figurent dans la grille complète\./.test(
+        frNote.textContent,
+      ) &&
+      !/£|S\$/.test(frNote.textContent) &&
+      !/En présentiel[^.]*minutes/.test(frNote.textContent) &&
+      !/durée à confirmer/.test(frNote.textContent),
+    frNote.textContent,
+  );
+
+  const enNote = makeEl("p");
+  runApp({
+    url: "https://www.sylvianebahr.com/appointments.html?lang=en",
+    pageLang: "fr",
+    languageSelector: makeEl("select"),
+    documentQuery: { "[data-booking-fee-note]": enNote },
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  check(
+    "T13 EN fee note covers free intro, France/world, couples and in-person",
+    /The free 30-minute first call remains separate from paid sessions\./.test(enNote.textContent) &&
+      /For paid online sessions \(France, Spain and the rest of the world\): 60 € for 60 minutes individual, 90 € for 75 minutes for two\./.test(
+        enNote.textContent,
+      ) &&
+      /In person in Sant Cugat: 65 € per session\./.test(enNote.textContent) &&
+      /Fees for the United Kingdom and Singapore are listed in the full fee table\./.test(
+        enNote.textContent,
+      ) &&
+      !/£|S\$/.test(enNote.textContent) &&
+      !/In person[^.]*minutes/.test(enNote.textContent) &&
+      !/duration to be confirmed/.test(enNote.textContent),
+    enNote.textContent,
+  );
+  const appointmentsHtml = fs.readFileSync(path.join(ROOT, "appointments.html"), "utf8");
+  check(
+    "T14 appointments keeps the free 30-minute intro clear",
+    /premier échange gratuit de 30 minutes/.test(appointmentsHtml) &&
+      /calendly\.com\/sylvianebahr\/30min/.test(appointmentsHtml) &&
+      /data-booking-fee-note/.test(appointmentsHtml) &&
+      /Pour les séances payantes en visio \(France, Espagne et reste du monde\) : 60 €/.test(
+        appointmentsHtml,
+      ) &&
+      /En présentiel à Sant Cugat : 65 € la séance/.test(appointmentsHtml),
+  );
+}
+
+{
+  const heading = makeI18nNode("headerBookingCta");
+  const link = makeEl("a");
+  link.setAttribute("href", "appointments.html?utm_source=static#reserver");
+  const selector = makeEl("select");
+  const r = runApp({
+    url: "https://www.sylvianebahr.com/terapia-gestalt-sant-cugat.html",
+    pageLang: "es",
+    staticLanguage: true,
+    storedLang: "en",
+    languageSelector: selector,
+    bookingLinks: [link],
+    querySelectorAll: { "[data-i18n]": [heading] },
+    translations: LANGUAGE_TRANSLATIONS,
+  });
+  const barUrl = bookingBarUrl(r);
+  const linkUrl = new URL(link.getAttribute("href"), r.win.location.href);
+  check(
+    "T15 authored ES stays ES without language handoff",
+    r.doc.documentElement.lang === "es" &&
+      selector.value === "es" &&
+      heading.textContent === "Reservar" &&
+      !linkUrl.searchParams.has("lang") &&
+      linkUrl.searchParams.get("utm_source") === "static" &&
+      linkUrl.hash === "#reserver" &&
+      !!barUrl &&
+      !barUrl.searchParams.has("lang"),
+    `${r.doc.documentElement.lang}/${selector.value}/${heading.textContent}/${linkUrl.href}/${barUrl ? barUrl.href : "missing bar"}`,
+  );
+}
+
+// ==========================================================================
+// 5. Injected booking bar resolves from /guides/
 // ==========================================================================
 console.log("== injected booking bar from /guides/ ==");
 

@@ -32,7 +32,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme.css?v=20261107">
+  <link rel="stylesheet" href="local-offer.css">
   <script src="analytics.js?v=20261027"></script>
 </head>
 <body class="page-inner">
@@ -65,18 +66,23 @@
   <main>
     <section class="hero">
       <div class="hero__content">
-        <p class="pill">Thérapeute Francophone · Barcelone</p>
-        <h1>Thérapie en Français pour Expatriés en Espagne</h1>
-        <p class="lead">Vous cherchez un accompagnement thérapeutique dans votre langue maternelle ? Je propose un espace sécurisé et bienveillant pour les francophones vivant dans la région de Barcelone.</p>
+        <p class="pill">Thérapeute francophone · Sant Cugat</p>
+        <h1>Thérapie individuelle en français à Sant Cugat</h1>
+        <p class="lead">Vous habitez à Sant Cugat ou dans les environs et souhaitez travailler en français. Les séances ont lieu au cabinet, Josep Puig i Cadafalch, 42-44, 08172 Sant Cugat del Vallès.</p>
+        <div class="local-offer-fee" aria-label="Tarif de la séance en présentiel">
+          <p class="local-offer-fee__label">En présentiel · Sant Cugat</p>
+          <p class="local-offer-fee__amount">65 € <span>la séance</span></p>
+          <p class="local-offer-fee__note">Durée et modalités confirmées avant la première séance.</p>
+        </div>
         <div class="hero__actions">
-          <a class="btn" href="appointments.html#reserver" data-track="booking_click" data-track-source="therapeute-fr-hero">Réserver 30 min gratuites</a>
+          <a class="btn" href="appointments.html#reserver" data-track="booking_click" data-track-source="therapeute-fr-hero">Réserver un premier échange</a>
           <a class="btn btn--ghost" href="about.html">Découvrir mon approche</a>
         </div>
-        <p class="hero__cta-note">Un premier échange pour faire connaissance et voir si cet accompagnement vous convient. Sans engagement. Ce n'est pas une séance de thérapie.</p>
+        <p class="hero__cta-note">Le premier échange de 30 min est gratuit et n'est pas une séance de thérapie.</p>
         <div class="hero__meta">
           <div>
             <p class="meta__label">Lieu</p>
-            <p class="meta__value">Barcelone · Sant Cugat del Vallès · Téléconsultation</p>
+            <p class="meta__value">Cabinet : Josep Puig i Cadafalch, 42-44, 08172 Sant Cugat del Vallès</p>
           </div>
           <div>
             <p class="meta__label">Spécialités</p>
@@ -85,7 +91,7 @@
         </div>
       </div>
       <div class="hero__visual hero__visual--portrait">
-        <img class="hero__photo hero__photo--portrait" src="sylviane-420.webp" width="420" height="420" alt="Sylviane Bähr, thérapeute francophone à Sant Cugat" fetchpriority="high" decoding="async">
+        <img class="hero__photo hero__photo--portrait" src="sylviane-session-portrait-960.webp" srcset="sylviane-session-portrait-640.webp 640w, sylviane-session-portrait-960.webp 960w" sizes="(max-width: 680px) 90vw, 420px" width="960" height="1200" alt="Sylviane Bähr, thérapeute Gestalt francophone" fetchpriority="high" decoding="async">
         <div class="hero__card">
           <div class="card__header">
             <p class="card__eyebrow">Premier échange</p>
@@ -217,6 +223,6 @@
 
   <script src="translations.js?v=20261012"></script>
   <script src="pricing.js?v=20261007"></script>
-  <script src="app.js?v=20261017"></script>
+  <script src="app.js?v=20261107"></script>
 </body>
 </html>

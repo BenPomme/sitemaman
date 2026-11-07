@@ -417,13 +417,31 @@ body.page-home .final__actions { display: flex; align-items: center; gap: 24px; 
   body.page-home .rates__table { grid-template-columns: 1fr; }
   .site-nav { display: none; }
   .menu-toggle { display: inline-flex; }
+  body.menu-open .site-head {
+    z-index: 80;
+    background: rgba(246, 243, 238, 0.97);
+    color: var(--ink);
+    border-bottom-color: var(--line);
+  }
+  body.menu-open .site-head .wordmark,
+  body.menu-open .site-head .head-tools {
+    position: relative;
+    z-index: 80;
+  }
   .site-nav.is-open {
     display: flex;
     position: fixed;
     inset: 0;
     z-index: 70;
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
     margin: 0;
-    padding: 96px 24px 40px;
+    padding: 112px 24px 40px;
+    padding: 112px 24px max(40px, env(safe-area-inset-bottom));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     background: var(--paper);
     color: var(--ink);
     flex-direction: column;
@@ -492,6 +510,8 @@ body:not(.page-home) .site-head {
   border-bottom: 1px solid var(--line);
 }
 body:not(.page-home) .site-head .pill--light { background: var(--ink); color: var(--cream); }
+
+body.menu-open .site-head { backdrop-filter: none; }
 
 /* Parcours publicitaire dédié : une seule action principale. */
 .page-anxiety-therapy .whatsapp-float { display: none; }

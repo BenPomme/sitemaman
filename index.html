@@ -10,10 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="theme.css?v=20261107">
+  <link rel="stylesheet" href="local-offer.css">
   <script src="analytics.js?v=20261027"></script>
 </head>
-<body class="page-home" class="page-home">
+<body class="page-home">
   <div class="ticker-top">
   <p><span class="dot"></span> <span data-i18n="tickerOffer">Premier échange de 30 minutes offert · Barcelone, Sant Cugat et visio</span></p>
   <a href="appointments.html#reserver"><span data-i18n="headerBookingCta">Prendre RDV</span> <span aria-hidden="true">→</span></a>
@@ -41,7 +42,7 @@
 </header>
 
   <section class="hero">
-    <img class="hero__img" src="chairs.webp" alt="Deux fauteuils face à face dans un cabinet chaleureux" fetchpriority="high">
+    <img class="hero__img" src="sylviane-session-portrait-960.webp" srcset="sylviane-session-portrait-640.webp 640w, sylviane-session-portrait-960.webp 960w" sizes="(max-width: 980px) 92vw, 44vw" width="960" height="1200" alt="Sylviane Bahr, thérapeute Gestalt, dans un espace de consultation" fetchpriority="high">
     <div class="hero__veil"></div>
     <div class="hero__content">
       <p class="micro hero__place" data-i18n="heroPlace">Barcelone · Sant Cugat · En ligne</p>
@@ -67,7 +68,7 @@
 
   <section class="intro">
     <figure class="intro__portrait">
-      <img src="sylviane.jpeg" alt="Sylviane Bahr, thérapeute Gestalt à Barcelone" loading="lazy">
+      <img src="sylviane-session-portrait-640.webp" srcset="sylviane-session-portrait-640.webp 640w, sylviane-session-portrait-960.webp 960w" sizes="(max-width: 980px) 90vw, 340px" width="960" height="1200" alt="Sylviane Bahr, thérapeute Gestalt" loading="lazy">
       <figcaption class="micro" data-i18n="photoCaption">Sylviane Bahr · Thérapeute Gestalt · Institut Gestalt de Barcelone</figcaption>
     </figure>
     <div class="intro__body">
@@ -190,15 +191,9 @@
 </footer>
 
   <script>
-    const toggle = document.getElementById("menuToggle");
-    const nav = document.getElementById("siteNav");
     const onScroll = () => document.body.classList.toggle("is-scrolled", window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    toggle.addEventListener("click", () => {
-      const open = nav.classList.toggle("is-open");
-      toggle.setAttribute("aria-expanded", String(open));
-    });
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("is-visible")),
       { threshold: 0.12 },
@@ -210,6 +205,6 @@
   </script>
   <script src="translations.js?v=20261012"></script>
   <script src="pricing.js?v=20261007"></script>
-  <script src="app.js?v=20261017"></script>
+  <script src="app.js?v=20261107"></script>
 </body>
 </html>

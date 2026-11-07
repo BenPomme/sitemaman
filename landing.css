@@ -1,0 +1,387 @@
+/* Shared styling for approved visio landing pages.
+   Every rule stays scoped to the offer body class so existing pages and
+   shared components are not changed globally. */
+
+.page-online-therapy--offer .site-nav {
+  gap: 20px;
+}
+
+.page-online-therapy--offer .site-nav a:last-child {
+  opacity: 1;
+  border-bottom-color: currentColor;
+}
+
+.page-online-therapy--offer .head-tools {
+  margin-left: 0;
+}
+
+.page-online-therapy--offer .hero--offer {
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+  align-items: start;
+  gap: 56px;
+  padding-top: 54px;
+  padding-bottom: 58px;
+}
+
+.page-online-therapy--offer .hero--offer .hero__content {
+  max-width: 740px;
+}
+
+.page-online-therapy--offer .hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.page-online-therapy--offer .hero__eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d8a15f;
+}
+
+.page-online-therapy--offer .hero__content h1 {
+  max-width: 14ch;
+  margin: 0 0 20px;
+  color: var(--ink);
+  font-size: clamp(38px, 4.8vw, 62px);
+  line-height: 1.03;
+}
+
+.page-online-therapy--offer .hero__subtitle {
+  max-width: 56ch;
+  margin: 0 0 24px;
+  font-size: 17.5px;
+  line-height: 1.68;
+}
+
+.page-online-therapy--offer .hero__fee {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 9px;
+  margin: 0 0 20px;
+  padding: 11px 16px;
+  border-left: 3px solid var(--brown);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.35;
+}
+
+.page-online-therapy--offer .hero__fee strong {
+  color: var(--brown);
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.page-online-therapy--offer .hero__actions {
+  margin: 0 0 16px;
+}
+
+.page-online-therapy--offer .hero__cta {
+  min-height: 56px;
+  padding: 16px 28px;
+  font-size: 12.5px;
+}
+
+.page-online-therapy--offer .hero__cta-note {
+  max-width: 54ch;
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.62;
+}
+
+.page-online-therapy--offer .hero__cta-note strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.page-online-therapy--offer .hero__question {
+  margin: 14px 0 0;
+}
+
+.page-online-therapy--offer .hero__question-link {
+  display: inline-block;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.page-online-therapy--offer .hero__question-link:hover {
+  color: var(--ink);
+  border-bottom-color: currentColor;
+}
+
+.page-online-therapy--offer .hero__portrait {
+  justify-self: end;
+  width: 100%;
+  max-width: 330px;
+  margin: 0;
+}
+
+.page-online-therapy--offer .hero__portrait picture {
+  display: block;
+}
+
+.page-online-therapy--offer .hero__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+
+.page-online-therapy--offer .hero__caption {
+  display: grid;
+  gap: 3px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.page-online-therapy--offer .hero__caption strong {
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.page-online-therapy--offer .section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.page-online-therapy--offer .section__header {
+  margin-bottom: 32px;
+}
+
+.page-online-therapy--offer .article h2 {
+  margin-top: 0;
+}
+
+.page-online-therapy--offer .safety-note {
+  margin-top: 28px;
+  padding: 16px 18px;
+  border-left: 2px solid var(--brown);
+  background: var(--cream);
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.page-online-therapy--offer .process-list li {
+  color: var(--muted);
+}
+
+.page-online-therapy--offer .process-list strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.page-online-therapy--offer .pricing-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.page-online-therapy--offer .price-fallback {
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.page-online-therapy--offer .price-fallback strong {
+  color: var(--brown);
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.page-online-therapy--offer .pricing-card .pricing__note + .pricing__note {
+  margin-top: 8px;
+}
+
+.page-online-therapy--offer .cta-box {
+  background: var(--brown);
+  margin-top: 56px;
+}
+
+.page-online-therapy--offer .cta-box__question {
+  align-self: center;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(246, 243, 238, 0.4);
+  color: rgba(246, 243, 238, 0.82);
+  font-size: 14px;
+}
+
+.page-online-therapy--offer .cta-box__question:hover {
+  color: var(--cream);
+  border-bottom-color: currentColor;
+}
+
+.page-online-therapy--offer .foot__legal {
+  line-height: 2;
+}
+
+.page-online-therapy--offer .foot__legal a {
+  border-bottom-color: rgba(246, 243, 238, 0.24);
+}
+
+/* app.js creates this duplicate sticky CTA with a legacy label. The offer
+   pages keep one primary label and a quieter question link in content. */
+.page-online-therapy--offer .booking-bar {
+  display: none !important;
+}
+
+body.page-online-therapy--offer.has-booking-bar {
+  padding-bottom: 0;
+}
+
+.page-online-therapy--offer a:focus-visible,
+.page-online-therapy--offer button:focus-visible,
+.page-online-therapy--offer select:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 3px;
+}
+
+@media (max-width: 980px) {
+  .page-online-therapy--offer .hero--offer {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-top: 38px;
+    padding-bottom: 42px;
+  }
+
+  .page-online-therapy--offer .hero__content h1 {
+    max-width: 17ch;
+  }
+
+  .page-online-therapy--offer .hero__portrait {
+    justify-self: stretch;
+    max-width: 560px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .page-online-therapy--offer .hero__photo {
+    aspect-ratio: 4 / 5;
+  }
+
+  .page-online-therapy--offer .hero__caption {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-online-therapy--offer .site-head {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .page-online-therapy--offer .hero--offer {
+    gap: 24px;
+    padding: 24px 18px 32px;
+  }
+
+  .page-online-therapy--offer .hero__eyebrow {
+    margin-bottom: 12px;
+    font-size: 10px;
+  }
+
+  .page-online-therapy--offer .hero__content h1 {
+    max-width: none;
+    margin-bottom: 16px;
+    font-size: clamp(33px, 9vw, 42px);
+    line-height: 1.05;
+  }
+
+  .page-online-therapy--offer .hero__subtitle {
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .page-online-therapy--offer .hero__fee {
+    display: flex;
+    width: fit-content;
+    margin-bottom: 16px;
+    padding: 9px 13px;
+    font-size: 15.5px;
+  }
+
+  .page-online-therapy--offer .hero__fee strong {
+    font-size: 24px;
+  }
+
+  .page-online-therapy--offer .hero__actions {
+    margin-bottom: 14px;
+  }
+
+  .page-online-therapy--offer .hero__cta {
+    width: 100%;
+    min-height: 58px;
+    padding: 17px 20px;
+    font-size: 12px;
+  }
+
+  .page-online-therapy--offer .hero__cta-note {
+    font-size: 14px;
+  }
+
+  .page-online-therapy--offer .hero__portrait {
+    grid-template-columns: 104px 1fr;
+    gap: 14px;
+    max-width: none;
+  }
+
+  .page-online-therapy--offer .hero__caption {
+    font-size: 12.5px;
+  }
+
+  .page-online-therapy--offer .hero__caption strong {
+    font-size: 15px;
+  }
+
+  .page-online-therapy--offer .section {
+    padding: 52px 20px;
+  }
+
+  .page-online-therapy--offer .section--alt {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .page-online-therapy--offer .pricing-card {
+    padding: 24px 20px;
+  }
+
+  .page-online-therapy--offer .cta-box {
+    margin-top: 44px;
+    padding: 38px 20px;
+  }
+
+  .page-online-therapy--offer .cta-box__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-online-therapy--offer .cta-box__actions .btn {
+    width: 100%;
+    min-height: 52px;
+  }
+}

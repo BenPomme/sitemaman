@@ -21,7 +21,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="theme.css?v=20261027a">
+  <link rel="stylesheet" href="theme.css?v=20261107a">
+  <link rel="stylesheet" href="landing.css?v=20261107">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,7 +37,7 @@
   </script>
   <script src="analytics.js?v=20261027"></script>
 </head>
-<body class="page-inner page-online-therapy page-anxiety-therapy">
+<body class="page-inner page-online-therapy page-anxiety-therapy page-online-therapy--offer">
   <div class="ticker-top">
     <p><span class="dot"></span> Premier échange de 30 minutes offert · Barcelone, Sant Cugat et visio</p>
     <a href="appointments.html#reserver">Prendre RDV <span aria-hidden="true">→</span></a>
@@ -46,31 +47,47 @@
       <span class="wordmark__name">Sylviane Bahr</span>
       <span class="wordmark__role">Psychothérapie Gestalt · En ligne</span>
     </a>
+    <nav class="site-nav" id="siteNav">
+      <a href="therapy.html">Thérapie</a>
+      <a href="coaching.html">Coaching</a>
+      <a href="compare.html">Thérapie ou coaching&nbsp;?</a>
+      <a href="groups.html">Groupes &amp; ateliers</a>
+      <a href="cercle-hommes-sant-cugat.html">Cercle d'hommes</a>
+      <a href="about.html">Qui suis-je&nbsp;?</a>
+      <a href="resources.html">Ressources</a>
+      <a href="appointments.html">RDV</a>
+    </nav>
     <div class="head-tools">
       <a class="pill pill--light head-cta" href="appointments.html#reserver" data-track="booking_click" data-track-source="anxiety-fr-header"><span class="cta-long">Réserver 30 min gratuites</span><span class="cta-short">RDV</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
     </div>
   </header>
 
   <main>
-    <section class="hero hero--service">
+    <section class="hero hero--service hero--offer" aria-labelledby="offer-title">
       <div class="hero__content">
-        <p class="pill">Anxiété · angoisse · inquiétude</p>
-        <h1>Anxiété et thérapie Gestalt en ligne, en français</h1>
-        <p class="hero__subtitle">Quand l'inquiétude occupe presque tout l'espace, il devient difficile de comprendre ce qui se passe et de retrouver de la marge. La thérapie Gestalt propose un cadre en visio pour observer l'anxiété dans ce qu'elle fait vivre, ce qu'elle protège et les réponses qui se répètent.</p>
+        <p class="hero__eyebrow">Anxiété · angoisse · inquiétude</p>
+        <h1 id="offer-title">Anxiété: thérapie en ligne, en français</h1>
+        <p class="hero__subtitle">L'anxiété prend beaucoup de place dans votre quotidien, dans le corps ou dans les pensées. En séance, nous observons les pensées qui reviennent, les sensations corporelles et vos réactions, puis nous explorons comment ces éléments s'enchaînent et ce qui peut changer dans votre façon d'y répondre.</p>
+        <p class="hero__fee"><strong>60 €</strong> pour une séance de 60 minutes en visio</p>
         <div class="hero__actions">
-          <a class="btn" data-track="booking_click" data-track-source="anxiety-fr-hero" href="appointments.html#reserver">Réserver 30 min gratuites</a>
+          <a class="btn hero__cta" data-track="booking_click" data-track-source="anxiety-fr-hero" href="appointments.html#reserver">Réserver un premier échange</a>
         </div>
-        <div class="article__meta"><span>Premier échange de 30 min offert</span><span>Visio</span><span>60 € la séance</span><span>Français ou anglais</span></div>
-        <p class="hero__cta-note">Le premier échange sert à clarifier votre demande et à vérifier si ce cadre vous convient. Ce n'est pas une séance de thérapie.</p>
+        <p class="hero__cta-note"><strong>Le premier échange de 30 minutes est gratuit.</strong> Il n'est pas une séance de thérapie.</p>
+        <p class="hero__question"><a class="hero__question-link" data-track="inquiry_click" data-track-source="anxiety-fr-hero" href="appointments.html#contact">Poser une question</a></p>
       </div>
-      <div class="hero__visual hero__visual--portrait">
-        <img class="hero__photo hero__photo--portrait" src="sylviane-420.webp" width="420" height="420" alt="Sylviane Bahr, psychothérapeute Gestalt" fetchpriority="high" decoding="async">
-        <div class="hero__card">
-          <div class="card__header"><p class="card__eyebrow">Un premier repère</p><p class="card__price">30 min · offert</p></div>
-          <ul class="card__list"><li>Exprimer ce que vous traversez</li><li>Vérifier que la visio vous convient</li><li>Clarifier le cadre et le rythme</li></ul>
-          <a class="btn btn--wide" data-track="booking_click" data-track-source="anxiety-fr-card" href="appointments.html#reserver">Réserver 30 min gratuites</a>
-        </div>
-      </div>
+      <figure class="hero__portrait">
+        <picture>
+          <source media="(max-width: 980px)" srcset="sylviane-session-portrait-640.webp 640w, sylviane-session-portrait-960.webp 960w" sizes="(max-width: 720px) 104px, 150px">
+          <img class="hero__photo" src="sylviane-session-960.webp" srcset="sylviane-session-640.webp 640w, sylviane-session-960.webp 960w" sizes="330px" width="1792" height="1008" alt="Sylviane Bahr" fetchpriority="high" decoding="async">
+        </picture>
+        <figcaption class="hero__caption">
+          <strong>Sylviane Bahr</strong>
+          <span>Gestalt-thérapeute</span>
+          <span>Formée à l'Institut Gestalt de Barcelone</span>
+          <span>Pratique supervisée</span>
+        </figcaption>
+      </figure>
     </section>
 
     <section class="section section--alt">
@@ -150,9 +167,10 @@
       </div>
       <div class="cta-box cta-box--spaced">
         <h2>Clarifier ce dont vous avez besoin</h2>
-        <p>Le premier échange est gratuit. Il permet de présenter votre demande et de vérifier ensemble si ce cadre est adapté.</p>
+        <p>La séance payante dure 60 minutes et coûte 60 € en visio. Le premier échange de 30 minutes est gratuit et n'est pas une séance de thérapie.</p>
         <div class="cta-box__actions">
-          <a class="btn" data-track="booking_click" data-track-source="anxiety-fr-bottom" href="appointments.html#reserver">Réserver 30 min gratuites</a>
+          <a class="btn" data-track="booking_click" data-track-source="anxiety-fr-bottom" href="appointments.html#reserver">Réserver un premier échange</a>
+          <a class="cta-box__question" data-track="inquiry_click" data-track-source="anxiety-fr-bottom" href="appointments.html#contact">Poser une question</a>
         </div>
       </div>
     </section>
@@ -168,6 +186,6 @@
   </footer>
   <script src="translations.js?v=20261012"></script>
   <script src="pricing.js?v=20261007"></script>
-  <script src="app.js?v=20261017"></script>
+  <script src="app.js?v=20261107"></script>
 </body>
 </html>
