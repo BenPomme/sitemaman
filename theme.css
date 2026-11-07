@@ -535,6 +535,12 @@ body.menu-open .site-head { backdrop-filter: none; }
 .page-inner h3 { font-family: var(--sans); font-weight: 500; letter-spacing: -0.025em; line-height: 1.1; }
 .page-inner p, .page-inner li { color: var(--ink-light); }
 
+/* Le pied de page conserve sa palette claire sur les pages intérieures. */
+.page-inner .foot p { color: inherit; }
+.page-inner .foot__cols p { color: rgba(246, 243, 238, 0.86); }
+.page-inner .foot .micro--inverse { color: rgba(246, 243, 238, 0.72); }
+.page-inner .foot a { color: inherit; }
+
 .page-inner .section { max-width: 1200px; padding: 72px 24px; }
 .page-inner .section--alt {
   max-width: none;
@@ -562,6 +568,52 @@ body.menu-open .site-head { backdrop-filter: none; }
   margin-right: auto;
 }
 body.page-online-therapy .article { max-width: 860px; }
+
+/* Les en-têtes alignés à gauche suivent la colonne de contenu, sans être recentrés par .section--alt > *. */
+.page-inner .section--alt,
+.page-inner .section--mint { --section-copy-offset: max(0px, calc((100% - 1100px) / 2)); }
+.page-inner .section--alt > .section__header,
+.page-inner .section--mint > .section__header {
+  margin-left: var(--section-copy-offset);
+  margin-right: auto;
+}
+.page-inner .section__header .section__lead {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* Les blocs longs partagent l'axe gauche de leur titre, sans perdre leur largeur de lecture. */
+.page-inner:not(.page-online-therapy) .section > .section__header ~ :is(.approach-block, .article, .about-story, .resource-list) {
+  margin-left: var(--section-copy-offset, 0px);
+  margin-right: auto;
+}
+
+/* Exceptions centrées volontairement : parcours thérapie en ligne. */
+.page-inner.page-online-therapy .section__header {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.page-inner.page-online-therapy .section--alt > .section__header,
+.page-inner.page-online-therapy .section--mint > .section__header {
+  margin-left: auto;
+  margin-right: auto;
+}
+.page-inner.page-online-therapy .section__header .section__lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Page de comparaison : héros et cartes partagent la même colonne de 900px. */
+.page-inner #compare-hero {
+  max-width: 948px;
+  padding-bottom: 24px;
+}
+.page-inner #compare-hero .section__header { margin-bottom: 0; }
+.page-inner #compare-hero + .section--alt { padding-top: 40px; }
+.page-inner .compare-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.page-inner .compare-column { display: flex; flex-direction: column; }
+.page-inner .compare-column .btn { align-self: flex-start; margin-top: auto; }
 
 /* Cartes et grilles */
 .page-inner .grid { gap: 22px; }
@@ -704,6 +756,10 @@ body.page-online-therapy .article { max-width: 860px; }
 }
 
 @media (max-width: 720px) {
+  .page-inner .compare-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 720px) {
   .ticker-top p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .site-head .cta-long { display: none; }
   .site-head .cta-short { display: inline; }
@@ -717,6 +773,11 @@ body.page-online-therapy .article { max-width: 860px; }
   body.page-home .hero__content { padding: 150px 16px 96px; }
   body.page-home .hero h1 { font-size: clamp(28px, 8vw, 38px); }
   .booking-layout__form { position: static; }
+}
+
+@media (max-width: 360px) {
+  .site-head .head-cta { display: none; }
+  .foot__mark { font-size: min(38px, 10.625vw); }
 }
 
 /* Bannière de consentement publicitaire (Google Ads) */
