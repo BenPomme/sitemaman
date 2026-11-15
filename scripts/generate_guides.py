@@ -736,7 +736,6 @@ def _hub_inner(pages: list[dict]) -> str:
     lines = [
         "",
         '      <div class="section__header" style="margin-top: 48px;">',
-        '        <p class="pill pill--subtle">Guides</p>',
         "        <h2>Guides pratiques / Practical guides</h2>",
         "      </div>",
         '      <div class="resource-list">',

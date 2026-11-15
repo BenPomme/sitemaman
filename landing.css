@@ -69,7 +69,7 @@
   gap: 9px;
   margin: 0 0 20px;
   padding: 11px 16px;
-  border-left: 3px solid var(--brown);
+  border-radius: 4px;
   background: var(--cream);
   color: var(--ink);
   font-size: 17px;
@@ -169,7 +169,7 @@
   margin-bottom: 32px;
 }
 
-.page-online-therapy--offer .article h2 {
+.page-online-therapy--offer .article > h2:first-child {
   margin-top: 0;
 }
 
@@ -300,7 +300,7 @@ body.page-online-therapy--offer.has-booking-bar {
 
   .page-online-therapy--offer .hero__eyebrow {
     margin-bottom: 12px;
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .page-online-therapy--offer .hero__content h1 {

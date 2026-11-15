@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="base.css">
-  <link rel="stylesheet" href="theme.css?v=20261107-layout2">
-  <link rel="stylesheet" href="local-offer.css">
+  <link rel="stylesheet" href="base.css?v=20261115">
+  <link rel="stylesheet" href="theme.css?v=20261115">
+  <link rel="stylesheet" href="local-offer.css?v=20261115">
   <script src="analytics.js?v=20261027"></script>
 </head>
 <body class="page-home">
@@ -59,11 +59,8 @@
     </div>
   </section>
 
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span data-i18n="marqueeText">Thérapie Gestalt — Coaching — Groupes &amp; ateliers — Cercle d'hommes — Français / English — Barcelone — Sant Cugat — En ligne —&nbsp;</span>
-      <span data-i18n="marqueeText">Thérapie Gestalt — Coaching — Groupes &amp; ateliers — Cercle d'hommes — Français / English — Barcelone — Sant Cugat — En ligne —&nbsp;</span>
-    </div>
+  <div class="marquee">
+    <p class="marquee__track" data-i18n="marqueeText">Thérapie Gestalt · Coaching · Groupes &amp; ateliers · Cercle d'hommes · Français / English · Barcelone · Sant Cugat · En ligne</p>
   </div>
 
   <section class="intro">
@@ -72,7 +69,7 @@
       <figcaption class="micro" data-i18n="photoCaption">Sylviane Bahr · Thérapeute Gestalt · Institut Gestalt de Barcelone</figcaption>
     </figure>
     <div class="intro__body">
-      <p class="micro label" data-i18n="homeApproachLabel">01 / L'approche</p>
+      <p class="micro label" data-i18n="homeApproachLabel">L'approche</p>
       <p class="intro__lead" data-i18n="approachMiniText1">Je m'inscris dans une approche humaniste et intégrative, qui considère chaque personne dans sa globalité.</p>
       <p class="intro__text" data-i18n="approachMiniText2">En thérapie, je m'appuie principalement sur la Gestalt pour travailler avec l'expérience vécue (émotions, sensations, relations et sens) dans l'ici-et-maintenant, en tenant compte de l'histoire et des dynamiques profondes de chacun.</p>
       <p class="intro__text" data-i18n="approachMiniText3">En coaching, dans un cadre certifié ICF, j'accompagne cadres et managers sur les enjeux de carrière, de transitions professionnelles et de relations au travail.</p>
@@ -81,7 +78,6 @@
 
   <section class="doors">
     <div class="doors__head">
-      <p class="micro label" data-i18n="homeDoorsLabel">02 / Trois portes d'entrée</p>
       <h2 data-i18n="homeDoorsTitle">Commencer par là où vous en êtes.</h2>
     </div>
     <div class="doors__grid">
@@ -113,7 +109,7 @@
   </section>
 
   <section class="steps">
-    <p class="micro label" data-i18n="homeStepsLabel">03 / Comment commencer</p>
+    <p class="micro label" data-i18n="homeStepsLabel">Comment commencer</p>
     <ol class="steps__list">
       <li>
         <span class="steps__num">01</span>
@@ -137,7 +133,7 @@
   </section>
 
   <section class="trust">
-    <p class="micro label" data-i18n="homeTrustLabel">04 / Repères</p>
+    <p class="micro label" data-i18n="homeTrustLabel">Repères</p>
     <div class="trust__grid">
       <div><span class="micro" data-i18n="trustQualificationLabel">Formation</span><p data-i18n="trustQualificationValue">Gestalt-thérapie, Institut Gestalt de Barcelone</p></div>
       <div><span class="micro" data-i18n="trustCoachLabel">Coaching</span><p data-i18n="trustCoachValue">Coach certifiée ACC (ICF)</p></div>
@@ -151,7 +147,6 @@
       <img src="cozypen.webp" alt="Salle de groupe" loading="lazy">
     </div>
     <div class="circle__body">
-      <p class="micro label" data-i18n="homeCircleLabel">05 / En cours</p>
       <h2 data-i18n="circleRelayTitle">Cercle d'hommes à Barcelone et Sant Cugat</h2>
       <p data-i18n="circleRelayText">Un espace régulier de rencontre, de parole et d'exploration entre hommes, en français ou en anglais. Séances de deux heures, à partir de quatre participants, au centre Esfera Gestalt à Sant Cugat del Vallès.</p>
       <ul class="circle__list">
@@ -164,14 +159,13 @@
   </section>
 
   <section class="rates">
-    <p class="micro label" data-i18n="homeRatesLabel">06 / Tarifs</p>
+    <p class="micro label" data-i18n="homeRatesLabel">Tarifs</p>
     <div class="pricing pricing--compact" data-pricing></div>
     <p class="rates__note" data-i18n="pricingSolidarity">Tarif solidaire possible, à évoquer lors du premier échange.</p>
     <p class="rates__note" data-i18n="pricingScopeNote">Ces tarifs concernent les séances de thérapie. Pour le coaching, les conditions sont précisées lors du premier échange.</p>
   </section>
 
   <section class="final">
-    <p class="micro label" data-i18n="homeFinalLabel">Premier échange</p>
     <h2 data-i18n="homeCtaFinalTitle">Commencer par un échange gratuit</h2>
     <p data-i18n="homeCtaFinalText">Réservez 30 minutes pour faire connaissance, poser vos questions et voir ensemble la suite, sans engagement.</p>
     <div class="final__actions">
@@ -203,8 +197,8 @@
       observer.observe(el);
     });
   </script>
-  <script src="translations.js?v=20261012"></script>
+  <script src="translations.js?v=20261115"></script>
   <script src="pricing.js?v=20261007"></script>
-  <script src="app.js?v=20261107"></script>
+  <script src="app.js?v=20261115"></script>
 </body>
 </html>
