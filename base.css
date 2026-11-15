@@ -975,8 +975,7 @@ select:focus {
 .form__safety {
   margin: 0;
   padding: 12px 14px;
-  border-left: 3px solid var(--accent);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  border-radius: var(--radius-sm);
   background: var(--accent-soft);
   color: var(--ink-light);
   font-size: 13px;
@@ -1292,7 +1291,7 @@ select:focus {
 
 /* ===== GROUPS PAGE ===== */
 .groups-hero {
-  background: linear-gradient(135deg, rgba(15, 118, 110, 0.12) 0%, #ffffff 55%, var(--bg-alt) 100%);
+  background: var(--bg-alt);
   padding: 80px 48px 60px;
   text-align: center;
 }
@@ -1427,7 +1426,7 @@ select:focus {
 
 /* ===== MEN'S CIRCLE PAGE ===== */
 .circle-hero {
-  background: linear-gradient(135deg, rgba(15, 118, 110, 0.14) 0%, #ffffff 55%, var(--bg-alt) 100%);
+  background: var(--bg-alt);
   padding: 80px 48px 60px;
   text-align: center;
 }
@@ -1507,19 +1506,11 @@ select:focus {
 }
 
 .circle-emphasis {
-  padding: 14px 16px;
-  border-left: 3px solid var(--accent);
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-weight: 600;
   color: var(--ink);
 }
 
 .circle-list {
-  background: var(--panel);
-  padding: 16px 18px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-light);
   gap: 10px;
 }
 
@@ -1780,9 +1771,8 @@ select:focus {
 .about-story__quote {
   margin: 8px 0 0;
   padding: 24px 28px;
-  border-left: 3px solid var(--accent);
   background: rgba(255, 255, 255, 0.7);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  border-radius: var(--radius-sm);
 }
 
 .about-story__quote p {
@@ -2089,11 +2079,11 @@ select:focus {
 }
 
 .compare-column--therapy {
-  border-top: 4px solid var(--accent);
+  border-top: 1px solid var(--border);
 }
 
 .compare-column--coaching {
-  border-top: 4px solid #2ef2a2;
+  border-top: 1px solid var(--border);
 }
 
 /* ===== CONTACT SIMPLE ===== */

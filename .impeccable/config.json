@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": [
+          "**/*"
+        ],
+        "createdAt": "2026-11-15T13:34:14.884Z",
+        "reason": "Warm paper background (#f6f3ee) is a deliberate choice for a therapy practice: calm, not clinical. See DESIGN.md."
+      }
+    ]
+  }
+}
