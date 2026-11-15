@@ -58,5 +58,5 @@ Recorded in `.impeccable/config.json`:
 
 - **cream-palette** (`#f6f3ee` background): kept on purpose. A warm paper tone suits a therapy practice better than clinical white.
 
-## Known follow-up
-The six generated pages in `guides/` still show a small label above their `h1` and FAQ heading. They come from `seo/guide-template.html`. The generator has drifted from the live pages (for example it still says "À propos" where the site now says "Qui suis-je ?"), so regenerating would undo other changes. Fix the generator first, then remove the two labels from the template and regenerate.
+## Generated pages
+The six pages in `guides/` are built by `scripts/generate_guides.py` from `seo/guide-template.html`. Never edit them by hand: change the template or `seo/guides.json`, regenerate, then run `scripts/check_guides.py`. SEO tooling is described in `SEO.md`.

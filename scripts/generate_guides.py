@@ -30,7 +30,7 @@ from pathlib import Path
 
 SITE_ORIGIN = "https://www.sylvianebahr.com"
 DATASET_VERSION = 1
-ASSET_VERSION = "20261011"
+ASSET_VERSION = "20261116"
 
 HUB_START = "<!-- pseo:guides:start -->"
 HUB_END = "<!-- pseo:guides:end -->"
@@ -79,7 +79,7 @@ CHROME = {
         "navTherapyOrCoaching": "Thérapie ou coaching",
         "navGroups": "Groupes & Ateliers",
         "navCircle": "Cercle d'hommes",
-        "navAbout": "À propos",
+        "navAbout": "Qui suis-\u2060je\u00a0?",
         "navResources": "Ressources",
         "navAppointments": "RDV",
         "tickerOffer": "Premier échange de 30 minutes offert · Barcelone, Sant Cugat et visio",
@@ -99,7 +99,7 @@ CHROME = {
         "navTherapyOrCoaching": "Therapy or coaching",
         "navGroups": "Groups & Workshops",
         "navCircle": "Men's circle",
-        "navAbout": "About",
+        "navAbout": "About me",
         "navResources": "Resources",
         "navAppointments": "Book",
         "tickerOffer": "Free 30-minute first conversation · Barcelona, Sant Cugat and online",
@@ -128,12 +128,12 @@ L10N = {
         "sourcesTitle": "Sources et références",
         "sourcesNote": "Sources listées par transparence.",
         "providerNote": "Pour le cadre, la formation et l'approche :",
-        "aboutLabel": "À propos",
+        "aboutLabel": "Qui suis-\u2060je\u00a0?",
         "cvLabel": "CV",
         "editorialNote": "Contenu éditorial. Il ne constitue pas un avis médical et ne remplace pas un accompagnement adapté.",
         "ctaHeading": "Échanger avant de commencer",
         "contactLabel": "Poser une question",
-        "freeCallNote": "Cet échange sert à faire connaissance : il ne constitue pas une séance de thérapie.",
+        "freeCallNote": "Cet échange sert à faire connaissance\u00a0: il ne constitue pas une séance de thérapie.",
         # Editorial provenance: the guides are published by the site, not
         # written or clinically reviewed by Sylviane Bahr.
         "authorName": "Site de Sylviane Bahr",

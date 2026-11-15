@@ -1,12 +1,18 @@
 # robots.txt for www.sylvianebahr.com
+# All search engines and AI search/answer crawlers are welcome.
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Explicitly welcome the crawlers behind ChatGPT, Claude, Perplexity and Bing/Copilot.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: bingbot
+Allow: /
+
 Sitemap: https://www.sylvianebahr.com/sitemap.xml
-
-# AI and answer-engine summary
-Allow: /llms.txt
-
-# Crawl-delay for polite crawling
-Crawl-delay: 10

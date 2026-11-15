@@ -125,6 +125,8 @@ def check_translation_alignment(root: Path, errors: list[str]):
         errors.append("translations.js not found (cannot verify chrome alignment)")
         return
     text = path.read_text(encoding="utf-8")
+    # translations.js writes some characters as \uXXXX escapes; compare decoded text.
+    text = re.sub(r"\\u([0-9a-fA-F]{4})", lambda m: chr(int(m.group(1), 16)), text)
     for lang, chrome in gen.CHROME.items():
         for key in gen.TRANSLATION_CHROME_KEYS:
             if chrome[key] not in text:
